@@ -1,0 +1,91 @@
+﻿<!--<div id="editMovieWrapper">
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <!--<div class="col-xs-3">
+            <div class="text-center">
+                <img ng-src="../../Content/images/movies/unknown.jpg" class="avatar img-responsive" alt="avatar">
+                <h6>Add photo...</h6>
+
+                <input type="file" ng-file-select="prepareFiles($files)">
+            </div>
+        </div>-->
+
+        <!-- edit form column -->
+        <!--<div class="col-xs-9 personal-info">
+            <!--<div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-plus"></i>
+                Add <strong>{{watch.Title}}</strong> Watches. Make sure you fill all required fields.
+            </div>-->
+
+            <!--<form class="form-horizontal" role="form" novalidate angular-validator name="addWatchForm" angular-validator-submit="Addwatch()">-->
+                <!--<div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4">
+                            <label class="control-label">watche title</label>
+                            <input class="form-control" name="title" type="text" ng-model="watch.Title"
+                                   validate-on="blur" required required-message="'Watch title is required'">
+                        </div>                       
+                    </div>
+                </div>-->
+
+                <!--<div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="control-label">Price</label>
+                            <input class="form-control" type="text" ng-model="watch.Price" name="Price"
+                                   validate-on="blur" required required-message="'Watch price is required'">
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="control-label">Brand</label>
+                            <input class="form-control" type="text" ng-model="watch.Brand" name="Brand"
+                                   validate-on="blur" required required-message="'watch brsand is required'">
+                        </div>
+                    </div>
+                </div>-->     
+                <!--<br />-->
+                <!--<div class="form-group col-xs-4">
+                    <label class="control-label"></label>
+                    <div class="">
+                        <input type="submit" class="btn btn-primary" value="Submit"/>
+                        <span></span>
+                        <a class="btn btn-default" ng-href="#/watches/{{watch.ID}}">Cancel</a>
+                    </div>
+                </div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<hr>
+</div>-->
+
+
+
+<div class="panel panel-primary">
+    
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Brand</label>
+                    <input type="text" placeholder="Brand" ng-model="modelObj.Brand"/><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Price</label>
+                    <input type="text" placeholder="Price" ng-model="modelObj.Price"/><br />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary"  ng-click="UpdateWatch()" ng-if="ModelType=='Edit'">Update</button>
+            <button type="button" class="btn btn-primary" ng-click="SaveWatch()" ng-if="ModelType=='Add'">Save</button>
+        </div>
+    </div>
+</div>

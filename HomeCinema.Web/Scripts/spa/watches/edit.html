@@ -1,0 +1,32 @@
+﻿<div id="editMovieWrapper">
+    <hr>
+    <div class="row" ng-if="!loadingWatch">       
+        <div class="col-xs-9 personal-info">            
+            <form class="form-horizontal" role="form" novalidate angular-validator name="editWatchForm" angular-validator-submit="UpdateWatch()">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4">
+                            <label class="control-label">price</label>
+                            <input class="form-control" name="title" type="text" ng-model="watch.Price"
+                                   validate-on="blur" required required-message="' is required">
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <label class="control-label">Brand</label>
+                            <input class="form-control" name="title" type="text" ng-model="watch.Brand"
+                                   validate-on="blur" required required-message=" is required">
+                        </div>                       
+                    </div>
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label"></label>
+                    <div class="">
+                        <input type="submit" class="btn btn-primary" value="Update" />
+                        <span></span>
+                        <a class="btn btn-default" ng-href="#/watches/{{watch.ID}}">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+</div>

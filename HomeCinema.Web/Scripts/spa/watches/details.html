@@ -1,0 +1,49 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+      
+    </div> 
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-danger" style="color:#a94442;background-color:#f2dede;border-color:#ebccd1">
+            <div class="panel-heading clearfix">
+                <h5 class="pull-left">Watches</h5>
+                <div class="input-group">
+                    <input id="inputSearchMovies" type="search" ng-model="filterRentals" class="form-control" placeholder="Filter..">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" ng-if="!loadingWatches">
+                <div class="media">
+                    <a class="pull-right" ng-href="#/watches/{{watch.ID}}" title="View {{watch.Price}} details">
+                      Edit
+                    </a>
+                    <div class="media-body">
+                       
+                        Price: <strong>{{watch.Price}}</strong>
+                        <br />
+                        Brand: <strong>{{watch.Brand}}</strong>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer clearfix" ng-if="!loadingWatches">
+                <div class="pull-right">
+                    <a class="btn btn-default" ng-click="removeWatch();">Delete Watches <i class="fa fa-recycle-square pull-right"></i></a>
+                </div>
+                <div class="pull-right">                  
+                    <a ng-href="#/watches/edit/{{watch.ID}}" class="btn btn-default">Edit Watches <i class="fa fa-pencil-square pull-right"></i></a>
+                </div>
+            </div>
+            <div ng-if="loadingWatches">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    <i class="fa fa-refresh fa-4x fa-spin"></i> <label class="label label-primary">Loading watches data...</label>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
