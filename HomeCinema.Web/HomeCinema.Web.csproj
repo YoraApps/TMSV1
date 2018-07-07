@@ -177,6 +177,9 @@
     <Content Include="Scripts\spa\directives\rating.directive.js" />
     <Content Include="Scripts\spa\layout\customPager.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
+    <Content Include="Scripts\spa\ProductGroup\Add.html" />
+    <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
+    <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
@@ -245,6 +248,7 @@
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
