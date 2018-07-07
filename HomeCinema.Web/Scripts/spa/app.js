@@ -72,6 +72,14 @@
                 templateUrl: "scripts/spa/watches/watcheslist.html",
                 controller: "watchesListCtrl"              
             })
+            .when("/suppliermaster", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html", 
+                controller: "suppliermasterCtrl"
+            })
+            .when("/suppliermaster/add", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
+                controller: "suppliermasterAddCtrl"
+            })
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"

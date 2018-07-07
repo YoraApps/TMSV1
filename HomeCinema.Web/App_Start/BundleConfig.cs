@@ -70,7 +70,8 @@ namespace HomeCinema.Web.App_Start
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
                   "~/Scripts/spa/watches/watchesListCtrl.js",
                  "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js"
-
+                  "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
+                    "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
