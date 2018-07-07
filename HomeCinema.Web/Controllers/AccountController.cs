@@ -32,7 +32,7 @@ namespace HomeCinema.Web.Controllers
         [HttpPost]
         public HttpResponseMessage Login(HttpRequestMessage request, LoginViewModel user)
         {
-            return CreateHttpResponse(request, () =>
+             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
 
