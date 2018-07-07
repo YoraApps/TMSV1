@@ -1,0 +1,71 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+        <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
+        <br />
+        <div class="btn-group">
+            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddSupplier();" class="btn btn-sm btn-primary">Add Supplier<i class="fa fa-plus pull-right"></i></button>
+            <!-- <a href="#/movies/edit/{{movie.ID}}" class="btn btn-sm btn-default">Add Watches<i class="fa fa-pencil-square-o pull-right"></i></a>-->
+        </div> <!-- end btn-group -->
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Supplier</h4>
+            <div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filtersuppliermaster" class="form-control shortInputSearch" placeholder="Filter, search suppliermaster..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingsuppliers">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>EmailId</th>
+                            <th>Phone Number</th>
+                            <th>Alternate Phone Number</th>
+                            <th>FaxNumber</th>
+                            <!--<th>IsActive</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedBy</th>
+                            <th>ModifiedDate</th>-->
+                          <th> Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="supplier in suppliers | filter:filtersuppliermaster">
+                            
+
+                            <td>{{supplier.Name}}</td>
+                            <td>{{supplier.Address}}</td>
+                            <td>{{supplier.EmailId}}</td>
+                            <td>{{supplier.PhoneNumber}}</td>
+                            <td>{{supplier.AlternatePhoneNumber}}</td>
+                            <td>{{supplier.FaxNumber}}</td>
+                            <!--<td>{{supplier.IsActive}}</td>
+                            <td>{{supplier.CreatedBy}}</td>
+                            <td>{{supplier.CreatedDate}}</td>
+                            <td>{{supplier.ModifiedBy}}</td>
+                            <td>{{supplier.ModifiedDate}}</td>-->
+
+                            <td class="col-sm-2">
+                                <button ng-click="openRentDialogContainer(supplier);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removesupplier(supplier.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- end container -->
+</div>

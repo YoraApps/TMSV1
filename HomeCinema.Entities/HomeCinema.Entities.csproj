@@ -49,6 +49,7 @@
     <Compile Include="Rental.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Stock.cs" />
+    <Compile Include="SupplierMaster.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
     <Compile Include="Watches.cs" />
