@@ -67,7 +67,10 @@ namespace HomeCinema.Web.App_Start
                  "~/Scripts/spa/watches/watchesAddCtrl.js",
                  "~/Scripts/spa/watches/watchesEditCtrl.js",
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
-                  "~/Scripts/spa/watches/watchesListCtrl.js"
+                  "~/Scripts/spa/watches/watchesListCtrl.js",
+                    "~/Scripts/spa/products/productCtrl.js",
+                   "~/Scripts/spa/products/productAddCtrl.js"
+
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

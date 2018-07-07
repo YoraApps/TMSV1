@@ -57,8 +57,15 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"
-               // resolve: { isAuthenticated: isAuthenticated }
+                controller: "watchesAddCtrl"          
+            })
+            .when("/products/add", {
+                templateUrl: "scripts/spa/products/productAdd.html",
+                controller: "productAddCtrl"             
+            })
+            .when("/products", {
+                templateUrl: "scripts/spa/products/product.html",
+                controller: "productCtrl"
             })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",
@@ -68,10 +75,10 @@
                 templateUrl: "scripts/spa/watches/details.html",
                 controller: "watchesDetailsCtrl"
             })
-            .when("/watches/watcheslist", {
-                templateUrl: "scripts/spa/watches/watcheslist.html",
-                controller: "watchesListCtrl"              
-            })
+            //.when("/watches/watcheslist", {
+            //    templateUrl: "scripts/spa/watches/watcheslist.html",
+            //    controller: "watchesListCtrl"              
+            //})
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
