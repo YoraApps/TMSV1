@@ -83,7 +83,13 @@
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
-            }).otherwise({ redirectTo: "/" });
+            })
+             .when("/ProductGroups", {
+                 templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
+                 controller: "ProductGroupCtrl"
+                    })
+
+            .otherwise({ redirectTo: "/" });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
