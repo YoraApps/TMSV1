@@ -57,8 +57,15 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"
-               // resolve: { isAuthenticated: isAuthenticated }
+                controller: "watchesAddCtrl"          
+            })
+            .when("/products/add", {
+                templateUrl: "scripts/spa/products/productAdd.html",
+                controller: "productAddCtrl"             
+            })
+            .when("/products", {
+                templateUrl: "scripts/spa/products/product.html",
+                controller: "productCtrl"
             })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",

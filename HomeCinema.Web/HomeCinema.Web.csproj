@@ -180,6 +180,10 @@
     <Content Include="Scripts\spa\directives\rating.directive.js" />
     <Content Include="Scripts\spa\layout\customPager.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
+    <Content Include="Scripts\spa\products\product.html" />
+    <Content Include="Scripts\spa\products\productAdd.html" />
+    <Content Include="Scripts\spa\products\productAddCtrl.js" />
+    <Content Include="Scripts\spa\products\productCtrl.js" />
     <Content Include="Scripts\spa\ProductGroup\Add.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
@@ -256,6 +260,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
