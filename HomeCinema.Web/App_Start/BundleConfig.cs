@@ -71,7 +71,7 @@ namespace HomeCinema.Web.App_Start
                   "~/Scripts/spa/watches/watchesListCtrl.js",
                     "~/Scripts/spa/products/productCtrl.js",
                    "~/Scripts/spa/products/productAddCtrl.js",
-                 "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js"
+                 "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
                   "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
                     "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js"
                 ));
