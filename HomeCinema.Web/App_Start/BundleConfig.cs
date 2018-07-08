@@ -75,14 +75,26 @@ namespace HomeCinema.Web.App_Start
                   "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
                     "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
                     "~/Scripts/spa/CustomerType/CustomerTypeCtrl.js",
-                     "~/Scripts/spa/SupplierType/SupplierTypeCtrl.js"
+                     "~/Scripts/spa/SupplierType/SupplierTypeCtrl.js",
+                "~/Scripts/spa/watches/watchesCtrl.js",
+                "~/Scripts/spa/watches/watchesAddCtrl.js",
+                "~/Scripts/spa/watches/watchesEditCtrl.js",
+                "~/Scripts/spa/watches/watchesDetailsCtrl.js",
+                "~/Scripts/spa/watches/watchesListCtrl.js",
+                "~/Scripts/spa/products/productCtrl.js",
+                "~/Scripts/spa/products/productAddCtrl.js",
+                "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
+                "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
+                "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
+                "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js"
+              
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/content/css/site.css",
                 "~/content/css/bootstrap.css",
                 "~/content/css/bootstrap-theme.css",
-                 "~/content/css/font-awesome.css",
+                "~/content/css/font-awesome.css",
                 "~/content/css/morris.css",
                 "~/content/css/toastr.css",
                 "~/content/css/jquery.fancybox.css",

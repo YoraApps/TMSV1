@@ -33,7 +33,8 @@
                             <th>CreatedDate</th>
                             <th>ModifiedBy</th>
                             <th>ModifiedDate</th>
-                            <th>Action</th>
+                            <th>ProductCategoryName</th>
+                            <th>Action</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,7 @@
                             <td>{{product.CreatedDate}}</td>
                             <td>{{product.ModifiedBy}}</td>
                             <td>{{product.ModifiedDate}}</td>
+                            <td>{{product.ProductCategoryName}}</td>
                             <td class="col-sm-2">
                                 <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>
                                 <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
