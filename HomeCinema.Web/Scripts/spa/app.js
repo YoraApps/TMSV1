@@ -57,11 +57,11 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"          
+                controller: "watchesAddCtrl"
             })
             .when("/products/add", {
                 templateUrl: "scripts/spa/products/productAdd.html",
-                controller: "productAddCtrl"             
+                controller: "productAddCtrl"
             })
             .when("/products", {
                 templateUrl: "scripts/spa/products/product.html",
@@ -77,10 +77,10 @@
             })
             .when("/watches/watcheslist", {
                 templateUrl: "scripts/spa/watches/watcheslist.html",
-                controller: "watchesListCtrl"              
+                controller: "watchesListCtrl"
             })
             .when("/suppliermaster", {
-                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html", 
+                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html",
                 controller: "suppliermasterCtrl"
             })
             .when("/suppliermaster/add", {
@@ -91,9 +91,18 @@
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
             })
-             .when("/ProductGroups", {
-                 templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
-                 controller: "ProductGroupCtrl"
+            .when("/ProductGroups", {
+                templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
+                controller: "ProductGroupCtrl"
+            })
+            .when("/CustomerTypes", {
+                templateUrl: "scripts/spa/CustomerType/customerType.html",
+                controller: "CustomerTypeCtrl"
+            })
+
+            .when("/SupplierTypes", {
+                templateUrl: "scripts/spa/SupplierType/Supplier.html",
+                controller: "SupplierTypeCtrl"
             })
             .when("/ProductCategory", {
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
