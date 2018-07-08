@@ -87,7 +87,17 @@
              .when("/ProductGroups", {
                  templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
                  controller: "ProductGroupCtrl"
-                    })
+            })
+
+            .when("/CustomerTypes", {
+                templateUrl: "scripts/spa/CustomerType/customerType.html",
+                controller: "CustomerTypeCtrl"
+            })
+
+            .when("/SupplierTypes", {
+                templateUrl: "scripts/spa/SupplierType/Supplier.html",
+                controller: "SupplierTypeCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }
