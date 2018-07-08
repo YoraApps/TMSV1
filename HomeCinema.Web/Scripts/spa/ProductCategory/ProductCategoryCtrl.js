@@ -17,7 +17,11 @@
         $scope.SaveProduct = SaveProduct;
         $scope.cancelEdit = cancelEdit;
         $scope.removeProduct = removeProduct;
+        $scope.productgroupsLoadCompleted = productgroupsLoadCompleted;
+        $scope.productgroupsLoadFailed = productgroupsLoadFailed;
+        $scope.ProductArry = [];
         $scope.modelObj = {};
+        $scope.selectedObj = {};
         //Display Data
 
         function search(page) {
@@ -36,6 +40,19 @@
             apiService.get('/api/ProductCategoryMaster/GetAllProductCategoryMaster', config,
                 ProductCategoryLoadCompleted,
                 ProductCategoryLoadFailed);
+
+            
+            apiService.get('/api/ProductGroupMaster/GetAllProductGroups', config,
+                productgroupsLoadCompleted,
+                productgroupsLoadFailed);
+        }
+
+        function productgroupsLoadCompleted(response) {
+            $scope.ProductArry = response.data;
+
+        }
+        function productgroupsLoadFailed(error) {
+            console.log("error in Product Group Get Call Service");
         }
 
         function ProductCategoryLoadCompleted(result) {
@@ -89,12 +106,17 @@
             }
         //popup edit productgroup
 
+        $scope.Id = 0;
+        $scope.SelctedArry = [];
 
         $scope.openRentDialogContainer = function (data) {
             $scope.modelObj = data;
+            $scope.SelctedArry = $scope.ProductArry.filter(x => x.Id === data.GroupId);
+            $scope.selectedObj = $scope.SelctedArry[0];
             $scope.ModelType = 'Edit';
             $scope.Modals.openProductCategoryDialog();
         }
+        
 
         //popup Added new ProductGroup
 
@@ -105,8 +127,13 @@
 
         //Update ProductGroup 
         $scope.ProductObj = {};
-        function Updateproduct() {
-            $scope.ProductObj = $scope.modelObj;
+        function Updateproduct(data) {
+            $scope.ProductObj = {
+                "Id": data.Id,
+                "Name": data.Name,
+                "Description": data.Description,
+                "Prod_Grp_Id": $scope.selectedObj.Id
+            }
             apiService.post('/api/ProductCategoryMaster/Update', $scope.ProductObj,
                 updateProductedSucceded,
                 updateproductedFailed);
@@ -123,10 +150,19 @@
             $scope.cancelEdit();
         }
 
+        $scope.fetchProduct = function (data) {
+            $scope.selectedObj = data;
+            
+        }
 
         //Save ProductGroup
         function SaveProduct(data) {
-            $scope.Data = data;
+            $scope.Data = {
+                "Name": data.Name,
+                "Description": data.Description,
+                "Prod_Grp_Id": $scope.selectedObj.Id
+            }
+            $scope.selectedObj;
             debugger
             apiService.post('/api/ProductCategoryMaster/Insert', $scope.Data,
                 AddProductSucceded,

@@ -94,7 +94,11 @@
              .when("/ProductGroups", {
                  templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
                  controller: "ProductGroupCtrl"
-                    })
+            })
+            .when("/ProductCategory", {
+                templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
+                controller: "ProductCategoryCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }

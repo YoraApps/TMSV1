@@ -33,7 +33,9 @@
                             <th>CreatedDate</th>
                             <th>ModifiedBy</th>
                             <th>ModifiedDate</th>
+                            <th>ProductGroupName</th>
                             <th>Action</th>
+
 
                         </tr>
                     </thead>
@@ -48,6 +50,7 @@
                             <td>{{PCategory.CreatedDate}}</td>
                             <td>{{PCategory.ModifiedBy}}</td>
                             <td>{{PCategory.ModifiedDate}}</td>
+                            <td>{{PCategory.ProductGroupName}}</td>
                             <td class="col-sm-2">
                                 <button ng-click="openRentDialogContainer(PCategory);" type="button" class="btn btn-primary btn-xs">Edit</button>
                                 <button ng-click="removeProduct(PCategory.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>

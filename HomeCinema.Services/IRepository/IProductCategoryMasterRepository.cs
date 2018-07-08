@@ -1,4 +1,5 @@
-﻿using HomeCinema.Entities;
+﻿using HomeCinema.Entities.DataSource;
+using HomeCinema.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace HomeCinema.Services.IRepository
 {
     public interface IProductCategoryMasterRepository
     {
-        List<ProductCategoryMaster> GetAllProductCategoryMasterRepository();
+        List<ProductCategoryDS> GetAllProductCategoryMasterRepository();
 
         bool CreateProductCategoryMaster(ProductCategoryMaster ProductCategoryMaster);
 
