@@ -1,0 +1,34 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <input type="text" placeholder="Brand" ng-model="modelObj.Name" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <textarea placeholder="Description" ng-model="modelObj.Description"></textarea><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <input type="text" placeholder="ImageURI" ng-model="modelObj.ImageURI" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <input type="text" placeholder="GRNCode" ng-model="modelObj.GRNCode" /><br />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdateProduct()" ng-if="ModelType=='Edit'">Update</button>
+            <button type="button" class="btn btn-primary" ng-click="SaveProduct()" ng-if="ModelType=='Add'">Save</button>
+        </div>
+    </div>
+</div>

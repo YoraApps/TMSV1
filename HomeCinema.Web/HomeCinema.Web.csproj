@@ -180,6 +180,10 @@
     <Content Include="Scripts\spa\ProductCategory\PCategoryAdd.html" />
     <Content Include="Scripts\spa\ProductCategory\ProductCategory.html" />
     <Content Include="Scripts\spa\ProductCategory\ProductCategoryCtrl.js" />
+    <Content Include="Scripts\spa\products\product.html" />
+    <Content Include="Scripts\spa\products\productAdd.html" />
+    <Content Include="Scripts\spa\products\productAddCtrl.js" />
+    <Content Include="Scripts\spa\products\productCtrl.js" />
     <Content Include="Scripts\spa\ProductGroup\Add.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
@@ -253,9 +257,11 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
@@ -310,6 +316,7 @@
     <Content Include="Scripts\spa\modules\common.core.js" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="App_Data\Building Single Page Applications using Web API and angularJS.pdf" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
