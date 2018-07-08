@@ -1,4 +1,5 @@
 ﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace HomeCinema.Services.IRepository
 {
     public interface IProductRepository
     {
-        List<Product> GetAllProduct();
+        List<ProductDS> GetAllProduct();
         bool CreateProduct(Product product);
         bool UpdateProduct(Product product, int? id);
         bool RemoveProduct(int? id);

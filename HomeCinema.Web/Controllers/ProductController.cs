@@ -1,4 +1,5 @@
 ﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace HomeCinema.Web.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("getallproduct")]
-        public List<Product> GetAllProduct()
+        public List<ProductDS> GetAllProduct()
         {
             return _productRepository.GetAllProduct();
         }

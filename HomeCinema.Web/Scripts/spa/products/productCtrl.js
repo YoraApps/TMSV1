@@ -29,6 +29,7 @@
             apiService.get('/api/Product/getallproduct', config,
                 productLoadCompleted,
                 productLoadFailed);
+        
         }
         function productLoadCompleted(result) {
             $scope.products = result.data;

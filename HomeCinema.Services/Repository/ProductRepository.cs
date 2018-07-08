@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using Dapper;
+using HomeCinema.Entities.DataSource;
 
 namespace HomeCinema.Services.Repository
 {
@@ -41,11 +42,14 @@ namespace HomeCinema.Services.Repository
             return false;
         }
 
-        public List<Product> GetAllProduct()
+        //public List<Product> GetAllProduct()
+        //{
+        //    return this._db.Query<Product>("Select * from ProductMaster where IsActive=1").ToList();
+        //}
+        public List<ProductDS> GetAllProduct()
         {
-            return this._db.Query<Product>("Select * from ProductMaster where IsActive=1").ToList();
+            return this._db.Query<ProductDS>("Usp_GetAllProducts",commandType:CommandType.StoredProcedure).ToList();
         }
-
         public Product GetSingleProduct(int? id)
         {
             return _db.Query<Product>("SELECT Id,Name,Description,ImageURI,GRNCode,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate FROM ProductMaster WHERE Id =@Id", new { Id = id }).SingleOrDefault();
