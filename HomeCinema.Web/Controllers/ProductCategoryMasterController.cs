@@ -1,4 +1,5 @@
 ﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace HomeCinema.Web.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("GetAllProductCategoryMaster")]
-        public List<ProductCategoryMaster> GetAllproductCategoryMaster()
+        public List<ProductCategoryDS> GetAllproductCategoryMaster()
         {
             return _ProductCategoryMasterRepository.GetAllProductCategoryMasterRepository();
         }

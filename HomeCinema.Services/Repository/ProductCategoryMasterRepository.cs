@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.IRepository;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace HomeCinema.Services.Repository
             ProductCategoryMaster.CreatedDate = now;
             ProductCategoryMaster.ModifiedDate = now;
 
-            int rowsAffected = this._db.Execute(@"INSERT ProductCategoryMaster(Name,Description,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate) 
-                                            values (@Name, @Description,1,1,@CreatedDate,1,@ModifiedDate)",
-              new { Name = ProductCategoryMaster.Name, Description = ProductCategoryMaster.Description, IsActive = 1, CreatedBy = 1, CreatedDate= ProductCategoryMaster.CreatedDate, ModifiedBy =1, ModifiedDate = ProductCategoryMaster.ModifiedDate });
+            int rowsAffected = this._db.Execute(@"INSERT ProductCategoryMaster(Name,Description,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Prod_Grp_Id) 
+                                            values (@Name, @Description,1,1,@CreatedDate,1,@ModifiedDate,@Prod_Grp_Id)",
+              new { Name = ProductCategoryMaster.Name, Description = ProductCategoryMaster.Description, IsActive = 1, CreatedBy = 1, CreatedDate= ProductCategoryMaster.CreatedDate, ModifiedBy =1, ModifiedDate = ProductCategoryMaster.ModifiedDate, Prod_Grp_Id = ProductCategoryMaster.Prod_Grp_Id });
             if (rowsAffected > 0)
             {
                 return true;
@@ -39,9 +40,9 @@ namespace HomeCinema.Services.Repository
             return false;
         }
 
-        public List<ProductCategoryMaster> GetAllProductCategoryMasterRepository()
+        public List<ProductCategoryDS> GetAllProductCategoryMasterRepository()
         {
-            return this._db.Query<ProductCategoryMaster>("Select * from ProductCategoryMaster where IsActive = 1").ToList();
+            return this._db.Query<ProductCategoryDS>("Usp_GetAllProductCategory",commandType:CommandType.StoredProcedure).ToList();
         }
 
         public ProductCategoryMaster GetSingleProductCategoryMaster(int? id)
@@ -69,7 +70,7 @@ namespace HomeCinema.Services.Repository
             ProductCategoryMaster.CreatedDate = now;
             ProductCategoryMaster.ModifiedDate = now;
             int rowsAffected = this._db.Execute(
-                           "UPDATE ProductCategoryMaster SET Name = @Name ,Description = @Description,@IsActive =1,@CreatedBy = 1,CreatedDate =ProductCategoryMaster.CreatedDate, @ModifiedBy = 1,ModifiedDate = ProductCategoryMaster.ModifiedDate WHERE ID = " +
+                           "UPDATE ProductCategoryMaster SET Name = @Name ,Description = @Description,@IsActive =1,@CreatedBy = 1,CreatedDate =ProductCategoryMaster.CreatedDate, @ModifiedBy = 1,ModifiedDate = ProductCategoryMaster.ModifiedDate,Prod_Grp_Id = @Prod_Grp_Id WHERE ID = " +
                            ProductCategoryMaster.Id, ProductCategoryMaster);
 
             if (rowsAffected > 0)

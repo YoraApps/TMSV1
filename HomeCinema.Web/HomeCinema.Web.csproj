@@ -177,6 +177,9 @@
     <Content Include="Scripts\spa\directives\rating.directive.js" />
     <Content Include="Scripts\spa\layout\customPager.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
+    <Content Include="Scripts\spa\ProductCategory\PCategoryAdd.html" />
+    <Content Include="Scripts\spa\ProductCategory\ProductCategory.html" />
+    <Content Include="Scripts\spa\ProductCategory\ProductCategoryCtrl.js" />
     <Content Include="Scripts\spa\ProductGroup\Add.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
@@ -188,6 +191,10 @@
     <Content Include="Scripts\spa\services\notificationService.js" />
     <Content Include="Scripts\spa\services\apiService.js" />
     <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermaster.html" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
     <Content Include="Scripts\spa\watches\add.html" />
     <Content Include="Scripts\spa\watches\details.html" />
     <Content Include="Scripts\spa\watches\edit.html" />
@@ -248,10 +255,12 @@
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
+    <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

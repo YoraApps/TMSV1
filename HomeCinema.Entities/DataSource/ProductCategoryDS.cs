@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeCinema.Entities
+namespace HomeCinema.Entities.DataSource
 {
-    public class ProductCategoryMaster
+    public class ProductCategoryDS
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,6 +16,7 @@ namespace HomeCinema.Entities
         public DateTime? CreatedDate { get; set; }
         public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public int? Prod_Grp_Id { get; set; }
+        public string ProductGroupName { get; set; }
+        public int? GroupId { get; set; }
     }
 }
