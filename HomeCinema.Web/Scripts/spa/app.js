@@ -75,14 +75,28 @@
                 templateUrl: "scripts/spa/watches/details.html",
                 controller: "watchesDetailsCtrl"
             })
-            //.when("/watches/watcheslist", {
-            //    templateUrl: "scripts/spa/watches/watcheslist.html",
-            //    controller: "watchesListCtrl"              
-            //})
+            .when("/watches/watcheslist", {
+                templateUrl: "scripts/spa/watches/watcheslist.html",
+                controller: "watchesListCtrl"              
+            })
+            .when("/suppliermaster", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html", 
+                controller: "suppliermasterCtrl"
+            })
+            .when("/suppliermaster/add", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
+                controller: "suppliermasterAddCtrl"
+            })
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
-            }).otherwise({ redirectTo: "/" });
+            })
+             .when("/ProductGroups", {
+                 templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
+                 controller: "ProductGroupCtrl"
+                    })
+
+            .otherwise({ redirectTo: "/" });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];

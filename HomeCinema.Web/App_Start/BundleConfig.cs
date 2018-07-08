@@ -31,6 +31,7 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/Vendors/raphael.js",
                 "~/Scripts/Vendors/morris.js",
                 "~/Scripts/Vendors/jquery.fancybox.js",
+
                 "~/Scripts/Vendors/jquery.fancybox-media.js",
                 "~/Scripts/Vendors/loading-bar.js"
                 ));
@@ -69,8 +70,10 @@ namespace HomeCinema.Web.App_Start
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
                   "~/Scripts/spa/watches/watchesListCtrl.js",
                     "~/Scripts/spa/products/productCtrl.js",
-                   "~/Scripts/spa/products/productAddCtrl.js"
-
+                   "~/Scripts/spa/products/productAddCtrl.js",
+                 "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js"
+                  "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
+                    "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
