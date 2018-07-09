@@ -205,6 +205,10 @@
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAdd.html" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAddCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\UnitOfMeasurementMaster.html" />
     <Content Include="Scripts\spa\watches\add.html" />
     <Content Include="Scripts\spa\watches\details.html" />
     <Content Include="Scripts\spa\watches\edit.html" />
@@ -275,6 +279,7 @@
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
+    <Compile Include="Controllers\UnitOfMeasurementMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
