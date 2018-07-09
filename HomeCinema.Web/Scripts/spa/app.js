@@ -108,6 +108,14 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }

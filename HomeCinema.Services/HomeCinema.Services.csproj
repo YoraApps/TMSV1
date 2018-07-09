@@ -52,6 +52,7 @@
     <Compile Include="IRepository\IProductGroupRepository.cs" />
     <Compile Include="IRepository\ISupplierMasterRepository.cs" />
     <Compile Include="IRepository\ISupplierTypeRepository.cs" />
+    <Compile Include="IRepository\IUnitOfMeasurementMaster.cs" />
     <Compile Include="IRepository\IWatchRepository.cs" />
     <Compile Include="MembershipService.cs" />
     <Compile Include="EncryptionService.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Repository\ProductGroupRepository.cs" />
     <Compile Include="Repository\SupplierMasterRepository.cs" />
     <Compile Include="Repository\SupplierTypeRepository.cs" />
+    <Compile Include="Repository\UnitOfMeasurementMasterRepository.cs" />
     <Compile Include="Repository\WatchRepository.cs" />
     <Compile Include="Utilities\MembeshipContext.cs" />
   </ItemGroup>
