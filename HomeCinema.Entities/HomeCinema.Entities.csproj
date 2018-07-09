@@ -44,6 +44,7 @@
     <Compile Include="CustomerTypeMaster.cs" />
     <Compile Include="DataSource\ProductCategoryDS.cs" />
     <Compile Include="DataSource\ProductDS.cs" />
+    <Compile Include="DataSource\PurchaseMasterDS.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Product.cs" />
     <Compile Include="ProductGroupMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseMaster.cs" />
     <Compile Include="Rental.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Stock.cs" />

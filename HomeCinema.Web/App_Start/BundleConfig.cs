@@ -21,6 +21,7 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/Vendors/respond.src.js",
                 "~/Scripts/Vendors/angular.js",
                 "~/Scripts/Vendors/angular-route.js",
+                "~/Scripts/Vendors/angular-resource.js",
                 "~/Scripts/Vendors/angular-cookies.js",
                 "~/Scripts/Vendors/angular-validator.js",
                 "~/Scripts/Vendors/angular-base64.js",
@@ -40,6 +41,7 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/modules/common.core.js",
                 "~/Scripts/spa/modules/common.ui.js",
                 "~/Scripts/spa/app.js",
+                "~/Scripts/spa/directives/exportToExcelApp.js",
                 "~/Scripts/spa/services/apiService.js",
                 "~/Scripts/spa/services/notificationService.js",
                 "~/Scripts/spa/services/membershipService.js",
@@ -86,8 +88,11 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
                 "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
                 "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
-                "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js"
-              
+                "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js",
+                "~/Scripts/spa/purchase/manageSupplierCtrl.js",
+                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js"
+                 "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
+                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

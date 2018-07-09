@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('homeCinema', ['common.core', 'common.ui'])
+    angular.module('homeCinema', ['common.core', 'common.ui','exportToExcelApp'])
         .config(config)
         .run(run);
 
@@ -67,6 +67,14 @@
                 templateUrl: "scripts/spa/products/product.html",
                 controller: "productCtrl"
             })
+            .when("/purchase", {
+                templateUrl: "scripts/spa/purchase/manageSupplier.html",
+                controller: "manageSupplierCtrl"
+            })
+            .when("/purchase/add", {
+                templateUrl: "scripts/spa/purchase/manageSupplierAdd.html",
+                controller: "manageSupplierAddCtrl"
+            })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",
                 controller: "watchesEditCtrl"
@@ -107,6 +115,14 @@
             .when("/ProductCategory", {
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
+            })
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
             })
 
             .otherwise({ redirectTo: "/" });
