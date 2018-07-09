@@ -166,6 +166,11 @@
     <Content Include="Scripts\spa\CustomerType\customertype.html" />
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
+    <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\purchase\manageSupplier.html" />
+    <Content Include="Scripts\spa\purchase\manageSupplierAdd.html" />
+    <Content Include="Scripts\spa\purchase\manageSupplierAddCtrl.js" />
+    <Content Include="Scripts\spa\purchase\manageSupplierCtrl.js" />
     <Content Include="Scripts\spa\modules\common.ui.js" />
     <Content Include="Scripts\spa\movies\edit.html" />
     <Content Include="Scripts\spa\movies\details.html" />
@@ -221,6 +226,7 @@
     <Content Include="Scripts\vendors\angular-base64.js" />
     <Content Include="Scripts\vendors\angular-cookies.js" />
     <Content Include="Scripts\vendors\angular-file-upload.js" />
+    <Content Include="Scripts\vendors\angular-resource.js" />
     <Content Include="Scripts\vendors\angular-validator.js" />
     <Content Include="Scripts\vendors\jquery.fancybox-media.js" />
     <Content Include="Scripts\vendors\jquery.fancybox.js" />
@@ -270,6 +276,7 @@
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
+    <Compile Include="Controllers\PurchaseMasterController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
