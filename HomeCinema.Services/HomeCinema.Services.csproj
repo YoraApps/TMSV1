@@ -47,12 +47,24 @@
     <Compile Include="Abstract\IMembershipService.cs" />
     <Compile Include="IRepository\IBookRepository.cs" />
     <Compile Include="IRepository\IUnitOfMesurement.cs" />
+    <Compile Include="IRepository\ICustomerTypeRepository.cs" />
+    <Compile Include="IRepository\IProductCategoryMasterRepository.cs" />
+    <Compile Include="IRepository\IProductRepository.cs" />
+    <Compile Include="IRepository\IProductGroupRepository.cs" />
+    <Compile Include="IRepository\ISupplierMasterRepository.cs" />
+    <Compile Include="IRepository\ISupplierTypeRepository.cs" />
     <Compile Include="IRepository\IWatchRepository.cs" />
     <Compile Include="MembershipService.cs" />
     <Compile Include="EncryptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\UnitOfMeasurementRepository.cs" />
+    <Compile Include="Repository\CustomerTypeRepository.cs" />
+    <Compile Include="Repository\ProductCategoryMasterRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProductGroupRepository.cs" />
+    <Compile Include="Repository\SupplierMasterRepository.cs" />
+    <Compile Include="Repository\SupplierTypeRepository.cs" />
     <Compile Include="Repository\WatchRepository.cs" />
     <Compile Include="Utilities\MembeshipContext.cs" />
   </ItemGroup>

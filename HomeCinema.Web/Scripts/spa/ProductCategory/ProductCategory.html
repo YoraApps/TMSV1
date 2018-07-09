@@ -1,0 +1,66 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+        <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left-down" height="120" />
+        <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
+        <br />
+        <div class="btn-group">
+            <button style="margin-left:435%;width:100%;" type="button" ng-click="AddProductCategory();" class="btn btn-sm btn-primary">Add ProductCategory<i class="fa fa-plus pull-right"></i></button>
+            <!-- <a href="#/movies/edit/{{movie.ID}}" class="btn btn-sm btn-default">Add Watches<i class="fa fa-pencil-square-o pull-right"></i></a>-->
+        </div> <!-- end btn-group -->
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home ProductCategory</h4>
+            <div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterProductCategory" class="form-control shortInputSearch" placeholder="Filter, search ProductCategorys..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingProductCategory">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>IsActive</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedBy</th>
+                            <th>ModifiedDate</th>
+                            <th>ProductGroupName</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="PCategory in Pcategories | filter:filterProductCategory">
+
+                            <td>{{PCategory.Id}}</td>
+                            <td>{{PCategory.Name}}</td>
+                            <td>{{PCategory.Description}}</td>
+                            <td>{{PCategory.IsActive}}</td>
+                            <td>{{PCategory.CreatedBy}}</td>
+                            <td>{{PCategory.CreatedDate}}</td>
+                            <td>{{PCategory.ModifiedBy}}</td>
+                            <td>{{PCategory.ModifiedDate}}</td>
+                            <td>{{PCategory.ProductGroupName}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openRentDialogContainer(PCategory);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removeProduct(PCategory.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- end container -->
+</div>

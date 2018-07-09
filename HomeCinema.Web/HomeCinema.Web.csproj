@@ -162,6 +162,9 @@
     <Content Include="Scripts\spa\customers\customerEditCtrl.js" />
     <Content Include="Scripts\spa\customers\customersRegCtrl.js" />
     <Content Include="Scripts\spa\customers\editCustomerModal.html" />
+    <Content Include="Scripts\spa\CustomerType\Addcustomer.html" />
+    <Content Include="Scripts\spa\CustomerType\customertype.html" />
+    <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\modules\common.ui.js" />
     <Content Include="Scripts\spa\movies\edit.html" />
@@ -177,6 +180,16 @@
     <Content Include="Scripts\spa\directives\rating.directive.js" />
     <Content Include="Scripts\spa\layout\customPager.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
+    <Content Include="Scripts\spa\ProductCategory\PCategoryAdd.html" />
+    <Content Include="Scripts\spa\ProductCategory\ProductCategory.html" />
+    <Content Include="Scripts\spa\ProductCategory\ProductCategoryCtrl.js" />
+    <Content Include="Scripts\spa\products\product.html" />
+    <Content Include="Scripts\spa\products\productAdd.html" />
+    <Content Include="Scripts\spa\products\productAddCtrl.js" />
+    <Content Include="Scripts\spa\products\productCtrl.js" />
+    <Content Include="Scripts\spa\ProductGroup\Add.html" />
+    <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
+    <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
@@ -185,6 +198,13 @@
     <Content Include="Scripts\spa\services\notificationService.js" />
     <Content Include="Scripts\spa\services\apiService.js" />
     <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Scripts\spa\SupplierType\Add.html" />
+    <Content Include="Scripts\spa\SupplierType\Supplier.html" />
+    <Content Include="Scripts\spa\SupplierType\SupplierTypeCtrl.js" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermaster.html" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
+    <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
     <Content Include="Scripts\spa\watches\add.html" />
     <Content Include="Scripts\spa\watches\details.html" />
     <Content Include="Scripts\spa\watches\edit.html" />
@@ -241,13 +261,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\ProductCategoryMasterController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
+    <Compile Include="Controllers\SupplierMasterController.cs" />
+    <Compile Include="Controllers\SupplierTypeController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -297,6 +324,7 @@
     <Content Include="Scripts\spa\modules\common.core.js" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="App_Data\Building Single Page Applications using Web API and angularJS.pdf" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
