@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('homeCinema', ['common.core', 'common.ui'])
+    angular.module('homeCinema', ['common.core', 'common.ui','exportToExcelApp'])
         .config(config)
         .run(run);
 
@@ -58,7 +58,22 @@
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
                 controller: "watchesAddCtrl"
-               // resolve: { isAuthenticated: isAuthenticated }
+            })
+            .when("/products/add", {
+                templateUrl: "scripts/spa/products/productAdd.html",
+                controller: "productAddCtrl"
+            })
+            .when("/products", {
+                templateUrl: "scripts/spa/products/product.html",
+                controller: "productCtrl"
+            })
+            .when("/purchase", {
+                templateUrl: "scripts/spa/purchase/manageSupplier.html",
+                controller: "manageSupplierCtrl"
+            })
+            .when("/purchase/add", {
+                templateUrl: "scripts/spa/purchase/manageSupplierAdd.html",
+                controller: "manageSupplierAddCtrl"
             })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",
@@ -70,7 +85,15 @@
             })
             .when("/watches/watcheslist", {
                 templateUrl: "scripts/spa/watches/watcheslist.html",
-                controller: "watchesListCtrl"              
+                controller: "watchesListCtrl"
+            })
+            .when("/suppliermaster", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html",
+                controller: "suppliermasterCtrl"
+            })
+            .when("/suppliermaster/add", {
+                templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
+                controller: "suppliermasterAddCtrl"
             })
             .when("/CustomerMaster", {
                 templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
@@ -87,7 +110,34 @@
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
-            }).otherwise({ redirectTo: "/" });
+            })
+            .when("/ProductGroups", {
+                templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
+                controller: "ProductGroupCtrl"
+            })
+            .when("/CustomerTypes", {
+                templateUrl: "scripts/spa/CustomerType/customerType.html",
+                controller: "CustomerTypeCtrl"
+            })
+
+            .when("/SupplierTypes", {
+                templateUrl: "scripts/spa/SupplierType/Supplier.html",
+                controller: "SupplierTypeCtrl"
+            })
+            .when("/ProductCategory", {
+                templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
+                controller: "ProductCategoryCtrl"
+            })
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
+            })
+
+            .otherwise({ redirectTo: "/" });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
