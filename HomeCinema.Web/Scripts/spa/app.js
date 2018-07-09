@@ -95,6 +95,18 @@
                 templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
                 controller: "suppliermasterAddCtrl"
             })
+            .when("/CustomerMaster", {
+                templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
+                controller: "CustomerMasterCtrl"
+            })
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/EdditCustomerMaster.html",
+            //    controller: "EditCustomerMasterCtrl"
+            //})
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/AddCustomerMaster.html",
+            //    controller: "AddCustomerMasterCtrl"
+            //})
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"

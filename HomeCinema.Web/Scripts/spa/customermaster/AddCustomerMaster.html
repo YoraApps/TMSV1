@@ -1,0 +1,80 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Name</label>
+                    <input type="text" placeholder="Name" ng-model="modelObj.Name" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Address</label>
+                    <input type="text" placeholder="Address" ng-model="modelObj.Address" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">EmailId</label>
+                    <input type="text" placeholder="EmailId" ng-model="modelObj.EmailId" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">PhoneNumber</label>
+                    <input type="text" placeholder="PhoneNumber" ng-model="modelObj.PhoneNumber" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">AlternatePhoneNumber</label>
+                    <input type="text" placeholder="AlternatePhoneNumber" ng-model="modelObj.AlternatePhoneNumber" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">FaxNumber</label>
+                    <input type="text" placeholder="FaxNumber" ng-model="modelObj.FaxNumber" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">IsActive</label>
+                    <input type="text" placeholder="IsActive" ng-model="modelObj.IsActive" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">CreatedBy</label>
+                    <input type="text" placeholder="CreatedBy" ng-model="modelObj.CreatedBy" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">CreatedDate</label>
+                    <input type="text" placeholder="CreatedDate" ng-model="modelObj.CreatedDate" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">ModifiedBy</label>
+                    <input type="text" placeholder="ModifiedBy" ng-model="modelObj.ModifiedBy" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">ModifiedDate</label>
+                    <input type="text" placeholder="ModifiedDate" ng-model="modelObj.ModifiedDate" /><br />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdateCustomer()" ng-if="ModelType=='Edit'">Update</button>
+            <button type="button" class="btn btn-primary" ng-click="SaveCustomer()" ng-if="ModelType=='Add'">Save</button>
+        </div>
+    </div>
+</div>

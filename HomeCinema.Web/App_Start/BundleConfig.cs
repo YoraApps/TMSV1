@@ -70,7 +70,8 @@ namespace HomeCinema.Web.App_Start
                  "~/Scripts/spa/watches/watchesAddCtrl.js",
                  "~/Scripts/spa/watches/watchesEditCtrl.js",
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
-                  "~/Scripts/spa/watches/watchesListCtrl.js",
+                  "~/Scripts/spa/CustomerMaster/CustomerMasterCtrl.js",
+                  "~/Scripts/spa/CustomerMaster/AddCustomerMasterCtrl.js"
                     "~/Scripts/spa/products/productCtrl.js",
                    "~/Scripts/spa/products/productAddCtrl.js",
                  "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",

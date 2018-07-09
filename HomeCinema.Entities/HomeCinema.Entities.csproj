@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="CusomerMaster.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerTypeMaster.cs" />
     <Compile Include="DataSource\ProductCategoryDS.cs" />
