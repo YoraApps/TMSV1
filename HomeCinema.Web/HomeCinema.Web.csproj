@@ -159,7 +159,11 @@
     <Content Include="Scripts\spa\account\loginCtrl.js" />
     <Content Include="Scripts\spa\books\books.html" />
     <Content Include="Scripts\spa\books\booksCtrl.js" />
+    <Content Include="Scripts\spa\customermaster\AddCustomerMaster.html" />
+    <Content Include="Scripts\spa\customermaster\AddCustomerMasterCtrl.js" />
     <Content Include="Scripts\spa\customers\customerEditCtrl.js" />
+    <Content Include="Scripts\spa\customermaster\CustomerMaster.html" />
+    <Content Include="Scripts\spa\customermaster\CustomerMasterCtrl.js" />
     <Content Include="Scripts\spa\customers\customersRegCtrl.js" />
     <Content Include="Scripts\spa\customers\editCustomerModal.html" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
@@ -240,6 +244,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CusomerController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
