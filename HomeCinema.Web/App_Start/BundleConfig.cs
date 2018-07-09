@@ -91,6 +91,8 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js",
                 "~/Scripts/spa/purchase/manageSupplierCtrl.js",
                  "~/Scripts/spa/purchase/manageSupplierAddCtrl.js"
+                 "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
+                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
