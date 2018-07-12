@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeCinema.Entities
+namespace HomeCinema.Entities.DataSource
 {
-   public class SupplierMaster
+    public class SupplierMasterDS
     {
         public int Id { get; set; }
         public String Name { get; set; }
@@ -15,12 +15,12 @@ namespace HomeCinema.Entities
         public double PhoneNumber { get; set; }
         public double AlternatePhoneNumber { get; set; }
         public double FaxNumber { get; set; }
-        public bool IsActive  { get; set; }
+        public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public int? SupplierTypeId { get; set; }
-
+        public string SupplierName { get; set; }
     }
 }

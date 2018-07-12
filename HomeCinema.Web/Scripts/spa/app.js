@@ -109,6 +109,11 @@
                 controller: "ProductCategoryCtrl"
             })
 
+            .when("/Sales", {
+                templateUrl: "scripts/spa/Sales/Sales.html",
+                controller: "SalesCtrl"
+            })
+
             .otherwise({ redirectTo: "/" });
     }
 

@@ -2,7 +2,7 @@
     'use strict';
     app.controller('ProductGroupCtrl', ProductGroupCtrl);
 
-    ProductGroupCtrl.$inject = ['$scope','$modal', 'apiService', 'notificationService'  ];
+    ProductGroupCtrl.$inject = ['$scope','$modal', 'apiService', 'notificationService'];
 
     function ProductGroupCtrl($scope, $modal, apiService, notificationService) {
 
@@ -100,7 +100,7 @@
 //popup Added new ProductGroup
 
         $scope.AddProductGroup = function () {
-            $scope.save = 'add';
+            $scope.save = 'add';s
             $scope.Modals.openProductgroupDialog();
         }
         

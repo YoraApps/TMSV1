@@ -44,10 +44,13 @@
     <Compile Include="CustomerTypeMaster.cs" />
     <Compile Include="DataSource\ProductCategoryDS.cs" />
     <Compile Include="DataSource\ProductDS.cs" />
+    <Compile Include="DataSource\SalesDS.cs" />
+    <Compile Include="DataSource\SupplierMasterDS.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="Pos.cs" />
     <Compile Include="ProductCategoryMaster.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductGroupMaster.cs" />

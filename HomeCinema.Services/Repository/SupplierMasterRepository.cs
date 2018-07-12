@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.IRepository;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,11 @@ namespace HomeCinema.Services.Repository
         {
             suppliermaster.CreatedDate = now;
             suppliermaster.ModifiedDate = now;
-            int rowsAffected = this._db.Execute(@"INSERT SupplierMaster(Name,Address,EmailId,PhoneNumber,AlternatePhoneNumber,FaxNumber,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate) values 
-             (@Name,@Address,@EmailId,@PhoneNumber,@AlternatePhoneNumber,@FaxNumber,1,1,@CreatedDate,1,@ModifiedDate)",
+            int rowsAffected = this._db.Execute(@"INSERT SupplierMaster(Name,Address,EmailId,PhoneNumber,AlternatePhoneNumber,FaxNumber,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,SupplierTypeId) values 
+             (@Name,@Address,@EmailId,@PhoneNumber,@AlternatePhoneNumber,@FaxNumber,1,1,@CreatedDate,1,@ModifiedDate,@SupplierTypeId)",
              new { Name = suppliermaster.Name, Address = suppliermaster.Address, EmailId= suppliermaster .EmailId , PhoneNumber = suppliermaster. PhoneNumber, AlternatePhoneNumber= suppliermaster. AlternatePhoneNumber,
                  FaxNumber = suppliermaster. FaxNumber,  IsActive= 1, CreatedBy = 1,CreatedDate= suppliermaster.CreatedDate,
-                 ModifiedBy= suppliermaster.ModifiedBy,ModifiedDate= suppliermaster.ModifiedDate});
+                 ModifiedBy= suppliermaster.ModifiedBy,ModifiedDate= suppliermaster.ModifiedDate,SupplierTypeId = suppliermaster.SupplierTypeId});
             if (rowsAffected > 0)
             {
                 return true;
@@ -39,9 +40,9 @@ namespace HomeCinema.Services.Repository
             return false;
         }
 
-        public List<SupplierMaster> GetAllSupplierMaster()
+        public List<SupplierMasterDS> GetAllSupplierMaster()
         {
-            return this._db.Query<SupplierMaster>("Select * from SupplierMaster where IsActive=1").ToList();
+            return this._db.Query<SupplierMasterDS>("Usp_GetAllSupplier", commandType: CommandType.StoredProcedure).ToList();
         }
 
         public SupplierMaster GetSingleSupplierMaster(int? id)
@@ -69,7 +70,7 @@ namespace HomeCinema.Services.Repository
             //suppliermaster.ModifiedDate = now;
 
             int rowsAffected = this._db.Execute(
-                         "UPDATE SupplierMaster SET Name = @Name,Address=@Address,EmailId=@EmailId,PhoneNumber=@PhoneNumber,AlternatePhoneNumber=@AlternatePhoneNumber,FaxNumber=@FaxNumber,ModifiedDate=@ModifiedDate WHERE Id =" + suppliermaster.Id, suppliermaster);
+                         "UPDATE SupplierMaster SET Name = @Name,Address=@Address,EmailId=@EmailId,PhoneNumber=@PhoneNumber,AlternatePhoneNumber=@AlternatePhoneNumber,FaxNumber=@FaxNumber,ModifiedDate=@ModifiedDate,SupplierTypeId = @SupplierTypeId WHERE Id =" + suppliermaster.Id, suppliermaster);
 
             if (rowsAffected > 0)
             {

@@ -96,9 +96,7 @@
                 $scope.modelInstance.dismiss();
             }
         };
-            //cnacel modal
-
-
+            
 
             //Cancel Edit popup
             function cancelEdit() {

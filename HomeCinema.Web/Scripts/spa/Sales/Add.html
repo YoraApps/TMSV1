@@ -1,0 +1,28 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-if="save=='update'">
+       Manage Sales 
+    </div>
+    <div class="panel-heading" ng-if="save=='add'">
+       Manage Sales
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Product of sale</label>
+                    <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.Name for pa in saleArry' ng-change="fetchSale(selectedObj);">
+                        <option value="" disabled>Select A Sale</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdatedSales(selectedObj)" ng-if="save=='update'">submit</button>
+            <button ng-click="AddSales(selectedObj);" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
+
+        </div>
+    </div>
+</div>
