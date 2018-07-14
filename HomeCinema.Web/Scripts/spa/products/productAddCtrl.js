@@ -7,8 +7,20 @@
         $scope.pruduct = {};
         $scope.SaveProduct = SaveProduct;
         $scope.UpdateProduct = UpdateProduct;
+      
+
+
         function SaveProduct() {
-            $scope.pruduct = $scope.modelObj;
+           
+            $scope.pruduct = {
+                "Name": $scope.modelObj.Name,
+                "Description": $scope.modelObj.Description,
+                "ImageURI": $scope.modelObj.ImageURI,
+                "GRNCode": $scope.modelObj.GRNCode,
+                "Prod_Cat_Id": $scope.selectedObj.Id
+            };
+            $scope.selectedObj;
+            //$scope.pruduct = $scope.modelObj;
             // console.log(watch);
             apiService.post('/api/Product/Create', $scope.pruduct,
                 addProductSucceded,
@@ -30,11 +42,20 @@
         $scope.cancelEdit = function () {
             $scope.modelObj = {};
             $modalInstance.dismiss();
-        }
+        };
         //updating
+        $scope.ProductObj = {};
         function UpdateProduct() {
             debugger
-            apiService.post('/api/Product/Update/' + $scope.modelObj.Id, $scope.modelObj,
+            $scope.ProductObj = {
+                "Id": $scope.modelObj.Id,
+                "Name": $scope.modelObj.Name,
+                "Description": $scope.modelObj.Description,
+                "ImageURI": $scope.modelObj.ImageURI,
+                "GRNCode": $scope.modelObj.GRNCode,
+                "Prod_Cat_Id": $scope.selectedObj.Id
+            };
+            apiService.post('/api/Product/Update/' + $scope.modelObj.Id, $scope.ProductObj,
                 updateProductSucceded,
                 updateProductFailed);
         }
@@ -49,5 +70,10 @@
             $scope.modelObj = {};
             notificationService.displayError(response);
         }
+
+        $scope.fetchProduct = function (data) {
+            $scope.selectedObj = data;
+
+        };
     }
 })(angular.module('homeCinema'));

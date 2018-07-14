@@ -12,8 +12,12 @@
         $scope.search = search;
         $scope.clearSearch = clearSearch;
         $scope.openProductDialog = openProductDialog;
+        $scope.ProductCategoryLoadCompleted = ProductCategoryLoadCompleted;
+        $scope.ProductCategoryLoadFailed = ProductCategoryLoadFailed;
         $scope.removeproduct = removeproduct;
+        $scope.ProductArry = [];
         $scope.modelObj = {};
+        $scope.selectedObj = {};
         //getting data and filtering data
 
         function search(page) {
@@ -29,8 +33,22 @@
             apiService.get('/api/Product/getallproduct', config,
                 productLoadCompleted,
                 productLoadFailed);
+
+
+            apiService.get('/api/ProductCategoryMaster/GetAllProductCategoryMaster', config,
+                ProductCategoryLoadCompleted,
+                ProductCategoryLoadFailed);
         
         }
+
+        function ProductCategoryLoadCompleted(response) {
+            $scope.ProductArry = response.data;
+        }
+
+        function ProductCategoryLoadFailed() {
+            console.log("error in Product Category Get Call Service");
+        }
+
         function productLoadCompleted(result) {
             $scope.products = result.data;
             $scope.page = result.data.Page;
@@ -48,19 +66,24 @@
             $scope.filterProduct = '';
             search();
         }  
+
+        $scope.Id = 0;
+        $scope.SelctedArry = [];
         
         $scope.openProductDialogContainer = function (data) {
-            $scope.modelObj = data;  
+            debugger
+            $scope.modelObj = data;
+            $scope.SelctedArry = $scope.ProductArry.filter(x => x.Id === data.Prod_Cat_Id);
+            $scope.selectedObj = $scope.SelctedArry[0];
             $scope.ModelType = 'Edit';
-            debugger          
             $scope.openProductDialog();
-        }
+        };
         //popup for save
         $scope.AddProduct = function () {
             $scope.modelObj = {};
             $scope.ModelType = 'Add';
             $scope.openProductDialog();
-        }
+        };
         //modified
         function openProductDialog() {
             $modal.open({

@@ -43,6 +43,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="DataSource\ProductCategoryDS.cs" />
     <Compile Include="DataSource\ProductDS.cs" />
+    <Compile Include="DataSource\SalesReportsDS.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />

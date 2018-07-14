@@ -99,6 +99,10 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
+            .when("/salesReports", {
+                templateUrl: "scripts/spa/salesReports/salesReports.html",
+                controller: "salesReportsCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }
