@@ -71,7 +71,7 @@ namespace HomeCinema.Web.App_Start
                  "~/Scripts/spa/watches/watchesEditCtrl.js",
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
                   "~/Scripts/spa/CustomerMaster/CustomerMasterCtrl.js",
-                  "~/Scripts/spa/CustomerMaster/AddCustomerMasterCtrl.js"
+                  "~/Scripts/spa/CustomerMaster/AddCustomerMasterCtrl.js",
                     "~/Scripts/spa/products/productCtrl.js",
                    "~/Scripts/spa/products/productAddCtrl.js",
                  "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
@@ -91,9 +91,11 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
                 "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js",
                 "~/Scripts/spa/purchase/manageSupplierCtrl.js",
-                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js"
+                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js",
                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
-                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js"
+                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js",
+                   "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js"
+
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

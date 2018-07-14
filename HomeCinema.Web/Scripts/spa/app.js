@@ -136,6 +136,10 @@
                 templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
                 controller: "unitofmeasurementAddCtrl"
             })
+            .when("/PurchaseReport", {
+                templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
+                controller: "PurchaseReportCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }
