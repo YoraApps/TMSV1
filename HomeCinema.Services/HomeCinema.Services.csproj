@@ -53,6 +53,7 @@
     <Compile Include="IRepository\IProductCategoryMasterRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IProductGroupRepository.cs" />
+    <Compile Include="IRepository\IPurchaseFormRepository.cs" />
     <Compile Include="IRepository\ISalesReportsRepository.cs" />
     <Compile Include="IRepository\IPurchaseMasterRepository.cs" />
     <Compile Include="IRepository\ISupplierMasterRepository.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Repository\ProductGroupRepository.cs" />
     <Compile Include="Repository\SalesReportsRepository.cs" />
     <Compile Include="Repository\PurchaseMasterRepository.cs" />
+    <Compile Include="Repository\PurchaseFormRepository.cs" />
     <Compile Include="Repository\SupplierMasterRepository.cs" />
     <Compile Include="Repository\SupplierTypeRepository.cs" />
     <Compile Include="Repository\UnitOfMeasurementMasterRepository.cs" />
