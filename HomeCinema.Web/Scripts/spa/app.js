@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('homeCinema', ['common.core', 'common.ui'])
+    angular.module('homeCinema', ['common.core', 'common.ui','exportToExcelApp'])
         .config(config)
         .run(run);
 
@@ -67,6 +67,14 @@
                 templateUrl: "scripts/spa/products/product.html",
                 controller: "productCtrl"
             })
+            .when("/purchase", {
+                templateUrl: "scripts/spa/purchase/manageSupplier.html",
+                controller: "manageSupplierCtrl"
+            })
+            .when("/purchase/add", {
+                templateUrl: "scripts/spa/purchase/manageSupplierAdd.html",
+                controller: "manageSupplierAddCtrl"
+            })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",
                 controller: "watchesEditCtrl"
@@ -77,23 +85,44 @@
             })
             .when("/watches/watcheslist", {
                 templateUrl: "scripts/spa/watches/watcheslist.html",
-                controller: "watchesListCtrl"              
+                controller: "watchesListCtrl"
             })
             .when("/suppliermaster", {
-                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html", 
+                templateUrl: "scripts/spa/suppliermaster/suppliermaster.html",
                 controller: "suppliermasterCtrl"
             })
             .when("/suppliermaster/add", {
                 templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
                 controller: "suppliermasterAddCtrl"
             })
+            .when("/CustomerMaster", {
+                templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
+                controller: "CustomerMasterCtrl"
+            })
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/EdditCustomerMaster.html",
+            //    controller: "EditCustomerMasterCtrl"
+            //})
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/AddCustomerMaster.html",
+            //    controller: "AddCustomerMasterCtrl"
+            //})
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
             })
-             .when("/ProductGroups", {
-                 templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
-                 controller: "ProductGroupCtrl"
+            .when("/ProductGroups", {
+                templateUrl: "scripts/spa/ProductGroup/ProductGroup.html",
+                controller: "ProductGroupCtrl"
+            })
+            .when("/CustomerTypes", {
+                templateUrl: "scripts/spa/CustomerType/customerType.html",
+                controller: "CustomerTypeCtrl"
+            })
+
+            .when("/SupplierTypes", {
+                templateUrl: "scripts/spa/SupplierType/Supplier.html",
+                controller: "SupplierTypeCtrl"
             })
             .when("/ProductCategory", {
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
@@ -102,6 +131,17 @@
             .when("/salesReports", {
                 templateUrl: "scripts/spa/salesReports/salesReports.html",
                 controller: "salesReportsCtrl"
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
+            })
+            .when("/PurchaseReport", {
+                templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
+                controller: "PurchaseReportCtrl"
             })
 
             .otherwise({ redirectTo: "/" });

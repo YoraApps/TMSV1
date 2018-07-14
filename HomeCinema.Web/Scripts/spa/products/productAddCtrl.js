@@ -7,8 +7,6 @@
         $scope.pruduct = {};
         $scope.SaveProduct = SaveProduct;
         $scope.UpdateProduct = UpdateProduct;
-      
-
 
         function SaveProduct() {
            
@@ -19,9 +17,6 @@
                 "GRNCode": $scope.modelObj.GRNCode,
                 "Prod_Cat_Id": $scope.selectedObj.Id
             };
-            $scope.selectedObj;
-            //$scope.pruduct = $scope.modelObj;
-            // console.log(watch);
             apiService.post('/api/Product/Create', $scope.pruduct,
                 addProductSucceded,
                 addProductFailed);
@@ -42,7 +37,7 @@
         $scope.cancelEdit = function () {
             $scope.modelObj = {};
             $modalInstance.dismiss();
-        };
+        }
         //updating
         $scope.ProductObj = {};
         function UpdateProduct() {

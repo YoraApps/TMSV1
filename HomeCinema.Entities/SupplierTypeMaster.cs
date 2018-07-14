@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeCinema.Entities
 {
-   public class UnitOfMeasurementMaster
+   public class SupplierTypeMaster
     {
         public int Id { get; set; }
         public string Name { get; set; }

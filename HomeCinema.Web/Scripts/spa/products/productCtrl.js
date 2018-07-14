@@ -18,6 +18,8 @@
         $scope.ProductArry = [];
         $scope.modelObj = {};
         $scope.selectedObj = {};
+
+
         //getting data and filtering data
 
         function search(page) {
@@ -49,6 +51,7 @@
             console.log("error in Product Category Get Call Service");
         }
 
+
         function productLoadCompleted(result) {
             $scope.products = result.data;
             $scope.page = result.data.Page;
@@ -78,12 +81,15 @@
             $scope.ModelType = 'Edit';
             $scope.openProductDialog();
         };
+
         //popup for save
         $scope.AddProduct = function () {
             $scope.modelObj = {};
             $scope.ModelType = 'Add';
             $scope.openProductDialog();
+
         };
+
         //modified
         function openProductDialog() {
             $modal.open({

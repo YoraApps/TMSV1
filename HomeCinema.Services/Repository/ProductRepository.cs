@@ -27,8 +27,10 @@ namespace HomeCinema.Services.Repository
             {
                 product.CreatedDate = now;
                 product.ModifiedDate = now;
+
                 int rowsAffected = this._db.Execute(@"INSERT ProductMaster(Name,Description,ImageURI,GRNCode,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Prod_Cat_Id) values (@Name,@Description,@ImageURI,@GRNCode,1,1,@CreatedDate,1,@ModifiedDate,@Prod_Cat_Id)",
                   new { Name = product.Name, Description = product.Description, ImageURI = product.ImageURI, GRNCode = product.GRNCode, IsActive = 1, CreatedBy = 1, CreatedDate = product.CreatedDate, ModifiedBy = 1, ModifiedDate = product.ModifiedDate, Prod_Cat_Id  = product.Prod_Cat_Id });
+
 
 
                 if (rowsAffected > 0)
@@ -73,8 +75,8 @@ namespace HomeCinema.Services.Repository
             
             //product.CreatedDate = now;
             product.ModifiedDate = now;
-            int rowsAffected = this._db.Execute("UPDATE ProductMaster SET Name = @Name,Description = @Description,ImageURI=@ImageURI,GRNCode=@GRNCode,ModifiedDate=@ModifiedDate,Prod_Cat_Id = @Prod_Cat_Id WHERE Id =" + product.Id, product);
 
+            int rowsAffected = this._db.Execute("UPDATE ProductMaster SET Name = @Name,Description = @Description,ImageURI=@ImageURI,GRNCode=@GRNCode,ModifiedDate=@ModifiedDate,Prod_Cat_Id = @Prod_Cat_Id WHERE Id =" + product.Id, product);
 
             if (rowsAffected > 0)
             {
