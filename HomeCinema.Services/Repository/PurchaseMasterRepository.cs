@@ -39,6 +39,7 @@ namespace HomeCinema.Services.Repository
         public List<PurchaseMasterDS> GetAllPurchaseMaster()
         {
             return this._db.Query<PurchaseMasterDS>("Usp_GetAllPurchase", commandType: CommandType.StoredProcedure).ToList();
+        
         }
         public PurchaseMaster GetSinglePurchaseMaster(int? id)
         {

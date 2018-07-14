@@ -44,7 +44,7 @@
             $scope.supplierObj = {
                 "Id": data.Id,
                 "Status": data.Status,
-                "Supplier_Id": data.Supplier_Id
+                "Supplier_Id": $scope.Supplier_Id
             }
             debugger
             apiService.post('api/PurchaseMaster/Update/' + $scope.supplierObj.Id, $scope.supplierObj,

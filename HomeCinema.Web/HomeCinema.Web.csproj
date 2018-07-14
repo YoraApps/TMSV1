@@ -167,6 +167,10 @@
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\purchaseForm\purchaseFormCtrl.js" />
+    <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
+    <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
+    <Content Include="Scripts\spa\purchaseForm\purchaseFormAddCtrl.js" />
     <Content Include="Scripts\spa\purchase\manageSupplier.html" />
     <Content Include="Scripts\spa\purchase\manageSupplierAdd.html" />
     <Content Include="Scripts\spa\purchase\manageSupplierAddCtrl.js" />
@@ -276,6 +280,7 @@
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
+    <Compile Include="Controllers\PurchaseFormController.cs" />
     <Compile Include="Controllers\PurchaseMasterController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />

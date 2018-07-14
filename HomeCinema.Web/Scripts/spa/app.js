@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('homeCinema', ['common.core', 'common.ui','exportToExcelApp'])
+    angular.module('homeCinema', ['common.core', 'common.ui'])
         .config(config)
         .run(run);
 
@@ -115,6 +115,14 @@
             .when("/ProductCategory", {
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
+            })
+            .when("/purchaseForm", {
+                templateUrl: "scripts/spa/purchaseForm/purchaseForm.html",
+                controller: "purchaseFormCtrl"
+            })
+            .when("/purchaseForm/add", {
+                templateUrl: "scripts/spa/purchaseForm/purchaseFormAdd.html",
+                controller: "purchaseFormAddCtrl"
             })
 
             .otherwise({ redirectTo: "/" });
