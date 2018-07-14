@@ -57,11 +57,11 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"
+                controller: "watchesAddCtrl"          
             })
             .when("/products/add", {
                 templateUrl: "scripts/spa/products/productAdd.html",
-                controller: "productAddCtrl"
+                controller: "productAddCtrl"             
             })
             .when("/products", {
                 templateUrl: "scripts/spa/products/product.html",
@@ -128,6 +128,9 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
+            .when("/salesReports", {
+                templateUrl: "scripts/spa/salesReports/salesReports.html",
+                controller: "salesReportsCtrl"
             .when("/UnitOfMeasurement", {
                 templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
                 controller: "unitofmeasurementCtrl"
