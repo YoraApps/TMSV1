@@ -159,7 +159,11 @@
     <Content Include="Scripts\spa\account\loginCtrl.js" />
     <Content Include="Scripts\spa\books\books.html" />
     <Content Include="Scripts\spa\books\booksCtrl.js" />
+    <Content Include="Scripts\spa\customermaster\AddCustomerMaster.html" />
+    <Content Include="Scripts\spa\customermaster\AddCustomerMasterCtrl.js" />
     <Content Include="Scripts\spa\customers\customerEditCtrl.js" />
+    <Content Include="Scripts\spa\customermaster\CustomerMaster.html" />
+    <Content Include="Scripts\spa\customermaster\CustomerMasterCtrl.js" />
     <Content Include="Scripts\spa\customers\customersRegCtrl.js" />
     <Content Include="Scripts\spa\customers\editCustomerModal.html" />
     <Content Include="Scripts\spa\CustomerType\Addcustomer.html" />
@@ -171,6 +175,8 @@
     <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormAddCtrl.js" />
+    <Content Include="Scripts\spa\PurchaseReport\PurchaseReport.html" />
+    <Content Include="Scripts\spa\PurchaseReport\PurchaseReportCtrl.js" />
     <Content Include="Scripts\spa\purchase\manageSupplier.html" />
     <Content Include="Scripts\spa\purchase\manageSupplierAdd.html" />
     <Content Include="Scripts\spa\purchase\manageSupplierAddCtrl.js" />
@@ -202,6 +208,8 @@
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
+    <Content Include="Scripts\spa\salesReports\salesReports.html" />
+    <Content Include="Scripts\spa\salesReports\salesReportsCtrl.js" />
     <Content Include="Scripts\spa\services\fileUploadService.js" />
     <Content Include="Scripts\spa\services\membershipService.js" />
     <Content Include="Scripts\spa\services\notificationService.js" />
@@ -214,6 +222,10 @@
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAdd.html" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAddCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementCtrl.js" />
+    <Content Include="Scripts\spa\unitofmeasurementmaster\UnitOfMeasurementMaster.html" />
     <Content Include="Scripts\spa\watches\add.html" />
     <Content Include="Scripts\spa\watches\details.html" />
     <Content Include="Scripts\spa\watches\edit.html" />
@@ -270,6 +282,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CusomerController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -282,11 +295,14 @@
     <Compile Include="Controllers\ProductGroupController.cs" />
     <Compile Include="Controllers\PurchaseFormController.cs" />
     <Compile Include="Controllers\PurchaseMasterController.cs" />
+    <Compile Include="Controllers\PurchaseReportController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
+    <Compile Include="Controllers\SalesReportsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
+    <Compile Include="Controllers\UnitOfMeasurementMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

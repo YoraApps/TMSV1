@@ -66,33 +66,31 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/rental/rentMovieCtrl.js",
                 "~/Scripts/spa/rental/rentStatsCtrl.js",
                 "~/Scripts/spa/books/booksCtrl.js",
+
                  "~/Scripts/spa/watches/watchesCtrl.js",
                  "~/Scripts/spa/watches/watchesAddCtrl.js",
                  "~/Scripts/spa/watches/watchesEditCtrl.js",
                  "~/Scripts/spa/watches/watchesDetailsCtrl.js",
-                  "~/Scripts/spa/watches/watchesListCtrl.js",
+                  "~/Scripts/spa/CustomerMaster/CustomerMasterCtrl.js",
+                  "~/Scripts/spa/CustomerMaster/AddCustomerMasterCtrl.js",
                     "~/Scripts/spa/products/productCtrl.js",
                    "~/Scripts/spa/products/productAddCtrl.js",
                  "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
-                  "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
-                    "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
                     "~/Scripts/spa/CustomerType/CustomerTypeCtrl.js",
                      "~/Scripts/spa/SupplierType/SupplierTypeCtrl.js",
-                "~/Scripts/spa/watches/watchesCtrl.js",
-                "~/Scripts/spa/watches/watchesAddCtrl.js",
-                "~/Scripts/spa/watches/watchesEditCtrl.js",
-                "~/Scripts/spa/watches/watchesDetailsCtrl.js",
                 "~/Scripts/spa/watches/watchesListCtrl.js",
-                "~/Scripts/spa/products/productCtrl.js",
-                "~/Scripts/spa/products/productAddCtrl.js",
-                "~/Scripts/spa/ProductGroup/ProductGroupCtrl.js",
                 "~/Scripts/spa/suppliermaster/suppliermasterCtrl.js",
                 "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
                 "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js",
+                "~/Scripts/spa/salesReports/salesReportsCtrl.js"
                 "~/Scripts/spa/purchase/manageSupplierCtrl.js",
                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js",
                 "~/Scripts/spa/purchaseForm/purchaseFormCtrl.js",
                  "~/Scripts/spa/purchaseForm/purchaseFormAddCtrl.js"
+                 "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
+                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js",
+                   "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js"
+
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

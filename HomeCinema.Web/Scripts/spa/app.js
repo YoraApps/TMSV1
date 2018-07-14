@@ -57,11 +57,11 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"
+                controller: "watchesAddCtrl"          
             })
             .when("/products/add", {
                 templateUrl: "scripts/spa/products/productAdd.html",
-                controller: "productAddCtrl"
+                controller: "productAddCtrl"             
             })
             .when("/products", {
                 templateUrl: "scripts/spa/products/product.html",
@@ -95,6 +95,18 @@
                 templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
                 controller: "suppliermasterAddCtrl"
             })
+            .when("/CustomerMaster", {
+                templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
+                controller: "CustomerMasterCtrl"
+            })
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/EdditCustomerMaster.html",
+            //    controller: "EditCustomerMasterCtrl"
+            //})
+            //.when("/CustomerMaster", {
+            //    templateUrl: "scripts/spa/customermaster/AddCustomerMaster.html",
+            //    controller: "AddCustomerMasterCtrl"
+            //})
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
@@ -123,6 +135,21 @@
             .when("/purchaseForm/add", {
                 templateUrl: "scripts/spa/purchaseForm/purchaseFormAdd.html",
                 controller: "purchaseFormAddCtrl"
+            })
+            .when("/salesReports", {
+                templateUrl: "scripts/spa/salesReports/salesReports.html",
+                controller: "salesReportsCtrl"
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
+            })
+            .when("/PurchaseReport", {
+                templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
+                controller: "PurchaseReportCtrl"
             })
 
             .otherwise({ redirectTo: "/" });

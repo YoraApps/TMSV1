@@ -2,7 +2,7 @@
     'use strict';
     app.controller('ProductGroupCtrl', ProductGroupCtrl);
 
-    ProductGroupCtrl.$inject = ['$scope','$modal', 'apiService', 'notificationService'  ];
+    ProductGroupCtrl.$inject = ['$scope','$modal', 'apiService', 'notificationService'];
 
     function ProductGroupCtrl($scope, $modal, apiService, notificationService) {
 
@@ -18,7 +18,7 @@
         $scope.UpdatedProductGroup = UpdatedProductGroup;
         $scope.AddProductModel = AddProductModel;
         $scope.removeProductGroup = removeProductGroup;
-
+        pageClass
 //getall ProductGroups
 
         function search(page) {
