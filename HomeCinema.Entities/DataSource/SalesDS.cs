@@ -14,7 +14,12 @@ namespace HomeCinema.Entities.DataSource
         public DateTime? CreatedDate { get; set; }
         public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public DateTime? SalesDate { get; set; }
         public int? PosId { get; set; }
         public string PosName { get; set; }
+        public int? CustomerId { get; set; }
+        public string CustName { get; set; }
+
     }
+
 }

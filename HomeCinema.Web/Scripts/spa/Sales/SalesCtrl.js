@@ -111,9 +111,11 @@
         $scope.modelobj = {};
 
         $scope.openSalesDialogContainer = function (data) {
-            $scope.modelobj= data;
+            $scope.modelobj = data;
             $scope.saleArry = $scope.sales.filter(x => x.Id === data.PosId);
             $scope.selectedObj = $scope.saleArry[0];
+            $scope.saleArry = $scope.sales.filter(x => x.Id === data.CustomerId);
+            $scope.selectedObj = $scope.saleArry[1];
             $scope.save = 'update';
             $scope.Modals.opensalesDialog();
         }
@@ -154,10 +156,11 @@
 
         function AddSales(data) {
             $scope.Data = {
-                "PosId": $scope.selectedObj.Id
+                "PosId": $scope.selectedObj.Id,
+               "CustomerId": $scope.selectedObj.Id
             }
             $scope.selectedObj;
-            debugger
+           
             apiService.post('/api/Sales/Create', $scope.Data,
                 AddSalesSucceded,
                 AddSalesFailed);

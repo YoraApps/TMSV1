@@ -100,7 +100,7 @@
 //popup Added new ProductGroup
 
         $scope.AddProductGroup = function () {
-            $scope.save = 'add';s
+            $scope.save = 'add';
             $scope.Modals.openProductgroupDialog();
         }
         

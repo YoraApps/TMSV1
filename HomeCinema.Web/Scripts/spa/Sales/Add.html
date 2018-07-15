@@ -10,8 +10,16 @@
             <div class="form-group">
                 <div class="col-xs-8 selectContainer">
                     <label class="control-label">Product of sale</label>
+
                     <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.Name for pa in saleArry' ng-change="fetchSale(selectedObj);">
-                        <option value="" disabled>Select A Sale</option>
+                        <option value="" disabled>Products</option>
+                    </select>
+                </div>
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">CustomerSale</label>
+
+                    <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.Name for pa in saleArry' ng-change="fetchSale(selectedObj);">
+                        <option value="" disabled>Customers</option>
                     </select>
                 </div>
             </div>
@@ -22,7 +30,7 @@
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
             <button type="button" class="btn btn-primary" ng-click="UpdatedSales(selectedObj)" ng-if="save=='update'">submit</button>
             <button ng-click="AddSales(selectedObj);" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
-
+           
         </div>
     </div>
 </div>

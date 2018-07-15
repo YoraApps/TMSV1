@@ -193,6 +193,9 @@
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
+    <Content Include="Scripts\spa\SalesForm\Add.html" />
+    <Content Include="Scripts\spa\SalesForm\Sales.html" />
+    <Content Include="Scripts\spa\SalesForm\SalesFormCtrl.js" />
     <Content Include="Scripts\spa\Sales\Add.html" />
     <Content Include="Scripts\spa\Sales\Sales.html" />
     <Content Include="Scripts\spa\Sales\SalesCtrl.js" />
@@ -277,6 +280,7 @@
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\SalesDetalisController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />

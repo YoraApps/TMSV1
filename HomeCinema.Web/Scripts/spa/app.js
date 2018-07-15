@@ -113,6 +113,10 @@
                 templateUrl: "scripts/spa/Sales/Sales.html",
                 controller: "SalesCtrl"
             })
+            .when("/Salesform", {
+                templateUrl: "scripts/spa/SalesForm/Sales.html",
+                controller: "SalesFormCtrl"
+            })
 
             .otherwise({ redirectTo: "/" });
     }
