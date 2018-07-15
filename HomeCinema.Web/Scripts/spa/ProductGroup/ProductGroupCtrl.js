@@ -18,7 +18,7 @@
         $scope.UpdatedProductGroup = UpdatedProductGroup;
         $scope.AddProductModel = AddProductModel;
         $scope.removeProductGroup = removeProductGroup;
-        pageClass
+        
 //getall ProductGroups
 
         function search(page) {

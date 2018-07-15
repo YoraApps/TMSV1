@@ -6,6 +6,7 @@
         .run(run);
 
     config.$inject = ['$routeProvider'];
+
     function config($routeProvider) {
         $routeProvider
             .when("/", {
@@ -99,14 +100,6 @@
                 templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
                 controller: "CustomerMasterCtrl"
             })
-            //.when("/CustomerMaster", {
-            //    templateUrl: "scripts/spa/customermaster/EdditCustomerMaster.html",
-            //    controller: "EditCustomerMasterCtrl"
-            //})
-            //.when("/CustomerMaster", {
-            //    templateUrl: "scripts/spa/customermaster/AddCustomerMaster.html",
-            //    controller: "AddCustomerMasterCtrl"
-            //})
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
@@ -119,7 +112,6 @@
                 templateUrl: "scripts/spa/CustomerType/customerType.html",
                 controller: "CustomerTypeCtrl"
             })
-
             .when("/SupplierTypes", {
                 templateUrl: "scripts/spa/SupplierType/Supplier.html",
                 controller: "SupplierTypeCtrl"
@@ -139,6 +131,7 @@
             .when("/salesReports", {
                 templateUrl: "scripts/spa/salesReports/salesReports.html",
                 controller: "salesReportsCtrl"
+            })
             .when("/UnitOfMeasurement", {
                 templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
                 controller: "unitofmeasurementCtrl"
@@ -150,39 +143,37 @@
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
-            })
-
-            .otherwise({ redirectTo: "/" });
+            }).otherwise({ redirectTo: "/" });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 
-    function run($rootScope, $location, $cookieStore, $http) {
-        // handle page refreshes
-        $rootScope.repository = $cookieStore.get('repository') || {};
-        if ($rootScope.repository.loggedUser) {
-            $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authdata;
+        function run($rootScope, $location, $cookieStore, $http) {
+            // handle page refreshes
+            $rootScope.repository = $cookieStore.get('repository') || {};
+            if ($rootScope.repository.loggedUser) {
+                $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authdata;
+            }
+
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+
+                $('.fancybox-media').fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    helpers: {
+                        media: {}
+                    }
+                });
+
+                $('[data-toggle=offcanvas]').click(function () {
+                    $('.row-offcanvas').toggleClass('active');
+                });
+            });
         }
-
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: 'none',
-                closeEffect: 'none'
-            });
-
-            $('.fancybox-media').fancybox({
-                openEffect: 'none',
-                closeEffect: 'none',
-                helpers: {
-                    media: {}
-                }
-            });
-
-            $('[data-toggle=offcanvas]').click(function () {
-                $('.row-offcanvas').toggleClass('active');
-            });
-        });
-    }
 
     isAuthenticated.$inject = ['membershipService', '$rootScope', '$location'];
 

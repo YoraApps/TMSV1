@@ -36,8 +36,6 @@
 
         function salesReportsLoadCompleted(result) {
             $scope.Sales = result.data;
-            debugger
-            Console.log("sa", result);
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
