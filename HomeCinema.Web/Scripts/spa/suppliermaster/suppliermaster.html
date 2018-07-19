@@ -32,6 +32,7 @@
                             <th>Phone Number</th>
                             <th>Alternate Phone Number</th>
                             <th>FaxNumber</th>
+                            <th>SupplierName</th>
                             <!--<th>IsActive</th>
                             <th>CreatedBy</th>
                             <th>CreatedDate</th>
@@ -42,20 +43,13 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="supplier in suppliers | filter:filtersuppliermaster">
-                            
-
                             <td>{{supplier.Name}}</td>
                             <td>{{supplier.Address}}</td>
                             <td>{{supplier.EmailId}}</td>
                             <td>{{supplier.PhoneNumber}}</td>
                             <td>{{supplier.AlternatePhoneNumber}}</td>
                             <td>{{supplier.FaxNumber}}</td>
-                            <!--<td>{{supplier.IsActive}}</td>
-                            <td>{{supplier.CreatedBy}}</td>
-                            <td>{{supplier.CreatedDate}}</td>
-                            <td>{{supplier.ModifiedBy}}</td>
-                            <td>{{supplier.ModifiedDate}}</td>-->
-
+                            <td>{{supplier.SupplierName}}</td>
                             <td class="col-sm-2">
                                 <button ng-click="openRentDialogContainer(supplier);" type="button" class="btn btn-primary btn-xs">Edit</button>
                                 <button ng-click="removesupplier(supplier.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>

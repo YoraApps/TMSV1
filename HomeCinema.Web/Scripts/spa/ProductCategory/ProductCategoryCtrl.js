@@ -98,7 +98,6 @@
         };
 
 
-
             //Cancel Edit popup
             function cancelEdit() {
                 $scope.Modals.cancelProductCategoryDialog();
