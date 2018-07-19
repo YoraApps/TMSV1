@@ -1,0 +1,83 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+        <img alt="{{purchase.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <br />
+        <div class="btn-group">
+            <!--<div excel-export export-data="Purchases" file-name="{{fileName}}" ng-disabled="disableBtn" style="margin-left:400%;width:100%;" class="btn-btn-sm btn-primary">Export In Excel</div>-->
+            <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddPurchase();" class="btn btn-sm btn-primary">Add Purchase<i class="fa fa-plus pull-right"></i></button>-->
+        </div >
+        <div class="form-group col-xs-6">
+        <div class="panel panel-primary form-group col-xs-4">
+            <angucomplete-alt id="ex1"
+                              placeholder="Search UOM"
+                              pause="300"
+                              selected-object="selectedStr"
+                              local-data="unitofmeasurements"
+                              search-fields="Name"
+                              title-field="Name"
+                              minlength="0"
+                              input-class="form-control form-control-small">
+               
+            </angucomplete-alt>
+        </div>
+        <div class="form-group col-xs-2">
+            <button type="submit" ng-click="getPurchaseGuiRep(selectedStr);" >Go</button>
+        </div>
+            </div>
+    </div>  
+    <div class="panel panel-primary">     
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Purchase Report</h4>
+            <!--<div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterPurchase" class="form-control shortInputSearch" placeholder="Filter, search Purchase..">-->
+                <!--<div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>-->
+            <!--</div>-->
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Produc tName</th>
+                            <th>Supplier Name</th>
+                            <th>Quantity</th>
+                            <th>UOMName</th>
+                            <th>Location Name</th>
+                            <th>Purchase Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="purchase in Purchases">
+                            <td>{{purchase.ProductName}}</td>
+                            <td>{{purchase.SupplierName}}</td>
+                            <td>{{purchase.Quantity}}</td>
+                            <td>{{purchase.UOMName}}</td>
+                            <td>{{purchase.LocationName}}</td>
+                            <td>{{purchase.PurchaseDate}}</td>  
+                            <!--<td class="col-sm-2">-->
+                                <!--<button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>-->
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-success" id="panelMovieGenres">
+        <div class="panel-heading">
+            <h3 class="panel-title">Purchase </h3>
+        </div>
+        <div class="panel-body">
+            <div ng-if="loadingPurchase">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"><i class="fa fa-refresh fa-5x fa-spin"></i> <label class="label label-primary">Loading Genres..</label></div>
+                <div class="col-xs-4"></div>
+            </div>
+            <div id="purchase-bar"></div>
+        </div>
+    </div>
+</div>

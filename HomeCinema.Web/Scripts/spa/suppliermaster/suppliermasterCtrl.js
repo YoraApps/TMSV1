@@ -23,6 +23,7 @@
         $scope.supplierstypeLoadFailed = supplierstypeLoadFailed;
         
         function search(page) {
+            debugger
             page = page || 0;
 
             $scope.loadingWatches = true;
@@ -83,6 +84,7 @@
         $scope.openRentDialogContainer = function (data) {
             $scope.SelctedArry = $scope.SupplierArry.filter(x => x.Id === data.SupplierTypeId);
             $scope.selectedObj = $scope.SelctedArry[0];
+
             $scope.ModelType = 'Edit';
             $scope.modelObj = data;     //editing
             openSuppliersDialog();
