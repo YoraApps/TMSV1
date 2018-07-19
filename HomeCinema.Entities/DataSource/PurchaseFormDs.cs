@@ -8,7 +8,7 @@ namespace HomeCinema.Entities.DataSource
 {
     public class PurchaseSupplierDs
     {
-        public int? Supplier_Id { get; set; }
+        public int? SupplierId { get; set; }
         public string SupplierName { get; set; }
 
     }
