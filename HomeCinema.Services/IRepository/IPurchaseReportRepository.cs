@@ -9,6 +9,7 @@ namespace HomeCinema.Services.IRepository
 {
    public interface IPurchaseReportRepository
     {
-        List<PurchaseReportDS> GetAllPurchaseReport(); 
+        List<PurchaseReportDS> GetAllPurchaseReport();
+        List<PurchaseReportDS> GetAllPurchaseGraphicReport(String Name);
     }
 }

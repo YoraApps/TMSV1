@@ -19,6 +19,7 @@
         $scope.clearSearch = clearSearch;
         
         function search(page) {
+            debugger
             page = page || 0;
 
             $scope.loadingWatches = true;
@@ -61,6 +62,7 @@
         $scope.modelObj = {};
         //popup for update
         $scope.openRentDialogContainer = function (data) {
+            debugger
             $scope.ModelType = 'Edit';
             $scope.modelObj = data;     //editing
             openSuppliersDialog();

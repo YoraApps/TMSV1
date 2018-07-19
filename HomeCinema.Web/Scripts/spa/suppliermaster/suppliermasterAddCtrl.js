@@ -38,6 +38,7 @@
         }
         //updating
         function UpdateSupplier() {
+            debugger
             $scope.supplier = $scope.modelObj;
             apiService.post('/api/SupplierMaster/Update', $scope.supplier,
                 updateSupplierSucceded,
