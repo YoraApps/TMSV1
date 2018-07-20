@@ -45,7 +45,7 @@ namespace HomeCinema.Entities.DataSource
 
     }
 
-    public class SalesFormList
+    public class SalesForm
     {
 
         public PosList pos { get; set; }

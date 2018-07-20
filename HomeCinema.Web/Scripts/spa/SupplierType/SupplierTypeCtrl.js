@@ -19,6 +19,10 @@
         $scope.UpdatedSuppliertype = UpdatedSuppliertype;
         $scope.AddSupplierModel = AddSupplierModel;
         $scope.removeSupplierType = removeSupplierType;
+        $scope.currentPage = 1;
+        $scope.numPerPage = 5;
+        $scope.maxSize = 5;
+         
 
 //getall SupplierTypes
 
@@ -30,7 +34,7 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 1,
+                    pageSize: 6,
                     filter: $scope.filterSupplierTypes
                 }
             };
@@ -42,6 +46,7 @@
 
         function suppliertypeLoadCompleted(result) {
             $scope.SupplierTypes = result.data;
+            $scope.paginationFunc();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -165,6 +170,25 @@
         }
         function removeSupplierTypeFailed(response) {
             notificationService.displayError(response);
+        }
+
+
+        //Paging
+
+        $scope.paginationFunc = function () {
+
+            //for ($scope.i = 1; $scope.i <= 100; $scope.i++) {
+            //    debugger
+            //    $scope.SupplierTypes.push({ text: "" + SupplierTypes[i], done: false });
+            //}
+
+            //$scope.paginationFunc(); 
+            
+            $scope.$watch("currentPage + numPerPage", function () {
+                var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                    , end = begin + $scope.numPerPage;
+                $scope.filteredTodos = $scope.SupplierTypes.slice(begin, end);
+            });
         }
 
         $scope.search();

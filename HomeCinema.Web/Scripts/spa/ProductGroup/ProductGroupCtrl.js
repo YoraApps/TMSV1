@@ -29,12 +29,12 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 1,
+                    pageSize: 6,
                     filter: $scope.filterProductGroup
                 }
             };
 
-            apiService.get('/api/ProductGroupMaster/GetAllProductGroups', config,
+            apiService.get('/api/ProductGroupMaster/GetAllProductGroups/', config,
                 productgroupsLoadCompleted,
                 productgroupsLoadFailed);
         }
@@ -47,6 +47,7 @@
             $scope.loadingproductgroups = false;
 
             if ($scope.filterProductGroup && $scope.filterProductGroup.length) {
+
                 notificationService.displayInfo(result.data.length + ' productgroup found');
             }
 

@@ -3,7 +3,8 @@
         <img alt="{{purchase.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
         <br />
         <div class="btn-group">
-           
+            <div excel-export export-data="exportData" file-name="{{fileName}}" ng-disabled="disableBtn" style="width:100%;" class="btn-btn-sm btn-primary">Export In Excel</div>
+
             <button style="width:100%;" type="button" ng-click="AddPurchase();" class="btn btn-sm btn-primary">Add Purchase<i class="fa fa-plus pull-right"></i></button>
         </div>
     </div>

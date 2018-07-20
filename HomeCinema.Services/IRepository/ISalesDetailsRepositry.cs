@@ -10,6 +10,6 @@ namespace HomeCinema.Services.IRepository
    public interface ISalesDetailsRepositry
     {
          SalesFormListDs GetAllDataForSalesDetails();
-        bool createSalesFrom(SalesFormList salesFormList);
+         bool CreateSalesForm(SalesForm salesForm);
     }
 }

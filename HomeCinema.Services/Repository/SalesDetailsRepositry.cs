@@ -21,32 +21,38 @@ namespace HomeCinema.Services.Repository
 
         }
 
-        public bool createSalesFrom(SalesFormList salesFormList)
+        public bool CreateSalesForm(SalesForm salesForm)
         {
-                DateTime now = DateTime.Now;
-               salesFormList.CreatedDate = now;
-               salesFormList.ModifiedDate = now;
-
-        DynamicParameters param = new DynamicParameters();
-                param.Add("@", productGroupMaster.Name);
-                param.Add("@Description", productGroupMaster.Description);
-                param.Add("@IsActive", productGroupMaster.IsActive);
-                param.Add("@CreatedBy", 1);
-                param.Add("@CreatedDate", productGroupMaster.CreatedDate);
-                param.Add("@ModifiedBy", 1);
-                param.Add("@ModifiedDate", productGroupMaster.ModifiedDate);
-
-                param.Add("@Myout", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                // Getting Out Parameter  
-
-                param.Add("@Ret", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
-                // Getting Return value  
-
-                _db.Open();
-                _db.Execute("Usp_CreateProductGroup", param, commandType: CommandType.StoredProcedure);
-                _db.Close();
             
+               bool returnvalue= false; 
+              
+            DynamicParameters param = new DynamicParameters();
+
+                param.Add("@PosId", salesForm.pos.PosId);
+                param.Add("@CustomerId ", salesForm.Customer.CustomerId);
+                param.Add("@ProductId ", salesForm.Product.ProductId);
+                param.Add("@UOMId ", salesForm.UOM.UOMId);
+                param.Add("@Quantity ", salesForm.Quantity);
+                param.Add("@IsActive", 1);
+                param.Add("@CreatedBy", 1);
+                param.Add("@CreatedDate", DateTime.UtcNow);
+                param.Add("@ModifiedBy", 1);
+                param.Add("@ModifiedDate", DateTime.UtcNow);
+                param.Add("@SalesDate", salesForm.SalesDate);
+
+
+
+            var val = _db.Execute("USP_SalesFormSave", param, commandType: CommandType.StoredProcedure);
+
+            if (val > 0)
+            {
+                returnvalue = true;
+            }
+            _db.Close();
+            return returnvalue;
         }
+
+
 
         //GetAllDataForSalesDetails
         public SalesFormListDs GetAllDataForSalesDetails()

@@ -20,6 +20,16 @@ namespace HomeCinema.Services.Repository
         {
             _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DapperConStr"].ConnectionString);
         }
+        public List<SalesReportsDS> GetSalesGraphic(string Name)
+        {
+            SalesReportsDS sa = new SalesReportsDS();
+            sa.UOMName = Name;
+            DynamicParameters param = new DynamicParameters();
+
+            param.Add("@UomName ", sa.UOMName);
+
+            return this._db.Query<SalesReportsDS>("USP_SalesGraphicsReports", param, commandType: CommandType.StoredProcedure).ToList();
+        }
 
         public List<SalesReportsDS> GetSalesReports()
         {

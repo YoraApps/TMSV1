@@ -83,7 +83,7 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/suppliermaster/suppliermasterAddCtrl.js",
                 "~/Scripts/spa/ProductCategory/ProductCategoryCtrl.js",
                  "~/Scripts/spa/Sales/SalesCtrl.js",
-                  "~/Scripts/spa/SalesForm/SalesFormCtrl.js"
+                  "~/Scripts/spa/SalesForm/SalesFormCtrl.js",
                 "~/Scripts/spa/salesReports/salesReportsCtrl.js",
                 "~/Scripts/spa/purchase/manageSupplierCtrl.js",
                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js",

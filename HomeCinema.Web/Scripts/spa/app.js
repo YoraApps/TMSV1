@@ -120,7 +120,6 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
-
             .when("/Sales", {
                 templateUrl: "scripts/spa/Sales/Sales.html",
                 controller: "SalesCtrl"

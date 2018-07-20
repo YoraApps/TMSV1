@@ -26,6 +26,15 @@ namespace HomeCinema.Web.Controllers
         {
             return _salesDetailsRepositry.GetAllDataForSalesDetails();
         }
+        [HttpPost]
+        [Route("save")]
+        public IHttpActionResult SaleseNewEntry(SalesForm salesSave)
+        {
+            var isSave = _salesDetailsRepositry.CreateSalesForm(salesSave);
+            if (isSave == true)
+                return Ok(isSave);
+            return BadRequest();
+        }
 
 
     }
