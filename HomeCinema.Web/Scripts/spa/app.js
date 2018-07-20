@@ -6,6 +6,7 @@
         .run(run);
 
     config.$inject = ['$routeProvider'];
+
     function config($routeProvider) {
         $routeProvider
             .when("/", {
@@ -57,15 +58,23 @@
             })
             .when("/watches/add", {
                 templateUrl: "scripts/spa/watches/add.html",
-                controller: "watchesAddCtrl"
+                controller: "watchesAddCtrl"          
             })
             .when("/products/add", {
                 templateUrl: "scripts/spa/products/productAdd.html",
-                controller: "productAddCtrl"
+                controller: "productAddCtrl"             
             })
             .when("/products", {
                 templateUrl: "scripts/spa/products/product.html",
                 controller: "productCtrl"
+            })
+            .when("/purchase", {
+                templateUrl: "scripts/spa/purchase/manageSupplier.html",
+                controller: "manageSupplierCtrl"
+            })
+            .when("/purchase/add", {
+                templateUrl: "scripts/spa/purchase/manageSupplierAdd.html",
+                controller: "manageSupplierAddCtrl"
             })
             .when("/watches/edit/:id", {
                 templateUrl: "scripts/spa/watches/edit.html",
@@ -87,6 +96,10 @@
                 templateUrl: "scripts/spa/suppliermaster/suppliermasterAdd.html",
                 controller: "suppliermasterAddCtrl"
             })
+            .when("/CustomerMaster", {
+                templateUrl: "scripts/spa/customermaster/CustomerMaster.html",
+                controller: "CustomerMasterCtrl"
+            })
             .when("/rental", {
                 templateUrl: "scripts/spa/rental/rental.html",
                 controller: "rentStatsCtrl"
@@ -99,7 +112,6 @@
                 templateUrl: "scripts/spa/CustomerType/customerType.html",
                 controller: "CustomerTypeCtrl"
             })
-
             .when("/SupplierTypes", {
                 templateUrl: "scripts/spa/SupplierType/Supplier.html",
                 controller: "SupplierTypeCtrl"
@@ -108,7 +120,6 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
-
             .when("/Sales", {
                 templateUrl: "scripts/spa/Sales/Sales.html",
                 controller: "SalesCtrl"
@@ -117,38 +128,61 @@
                 templateUrl: "scripts/spa/SalesForm/Sales.html",
                 controller: "SalesFormCtrl"
             })
-
+            .when("/purchaseForm", {
+                templateUrl: "scripts/spa/purchaseForm/purchaseForm.html",
+                controller: "purchaseFormCtrl"
+            })
+            .when("/purchaseForm/add", {
+                templateUrl: "scripts/spa/purchaseForm/purchaseFormAdd.html",
+                controller: "purchaseFormAddCtrl"
+            })
+            .when("/salesReports", {
+                templateUrl: "scripts/spa/salesReports/salesReports.html",
+                controller: "salesReportsCtrl"
+            })
+            .when("/UnitOfMeasurement", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/UnitOfMeasurementMaster.html",
+                controller: "unitofmeasurementCtrl"
+            })
+            .when("/UnitOfMeasurementAdd", {
+                templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
+                controller: "unitofmeasurementAddCtrl"
+            })
+            .when("/PurchaseReport", {
+                templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
+                controller: "PurchaseReportCtrl"
+            })
             .otherwise({ redirectTo: "/" });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 
-    function run($rootScope, $location, $cookieStore, $http) {
-        // handle page refreshes
-        $rootScope.repository = $cookieStore.get('repository') || {};
-        if ($rootScope.repository.loggedUser) {
-            $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authdata;
+        function run($rootScope, $location, $cookieStore, $http) {
+            // handle page refreshes
+            $rootScope.repository = $cookieStore.get('repository') || {};
+            if ($rootScope.repository.loggedUser) {
+                $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authdata;
+            }
+
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+
+                $('.fancybox-media').fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    helpers: {
+                        media: {}
+                    }
+                });
+
+                $('[data-toggle=offcanvas]').click(function () {
+                    $('.row-offcanvas').toggleClass('active');
+                });
+            });
         }
-
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: 'none',
-                closeEffect: 'none'
-            });
-
-            $('.fancybox-media').fancybox({
-                openEffect: 'none',
-                closeEffect: 'none',
-                helpers: {
-                    media: {}
-                }
-            });
-
-            $('[data-toggle=offcanvas]').click(function () {
-                $('.row-offcanvas').toggleClass('active');
-            });
-        });
-    }
 
     isAuthenticated.$inject = ['membershipService', '$rootScope', '$location'];
 

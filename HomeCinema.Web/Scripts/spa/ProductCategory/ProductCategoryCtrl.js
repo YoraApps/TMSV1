@@ -96,7 +96,8 @@
                 $scope.modelInstance.dismiss();
             }
         };
-            
+
+           
 
             //Cancel Edit popup
             function cancelEdit() {
@@ -113,15 +114,16 @@
             $scope.selectedObj = $scope.SelctedArry[0];
             $scope.ModelType = 'Edit';
             $scope.Modals.openProductCategoryDialog();
-        }
+        };
         
 
         //popup Added new ProductGroup
 
         $scope.AddProductCategory = function () {
+            $scope.modelObj = {};
             $scope.ModelType = 'Add';
             $scope.Modals.openProductCategoryDialog();
-        }
+        };
 
         //Update ProductGroup 
         $scope.ProductObj = {};
@@ -131,8 +133,8 @@
                 "Name": data.Name,
                 "Description": data.Description,
                 "Prod_Grp_Id": $scope.selectedObj.Id
-            }
-            apiService.post('/api/ProductCategoryMaster/Update', $scope.ProductObj,
+            };
+            apiService.post('/api/ProductCategoryMaster/Update', +$scope.modelObj.Id, $scope.ProductObj,
                 updateProductedSucceded,
                 updateproductedFailed);
         }
@@ -150,18 +152,17 @@
 
         $scope.fetchProduct = function (data) {
             $scope.selectedObj = data;
-            
-        }
 
+        };
         //Save ProductGroup
         function SaveProduct(data) {
             $scope.Data = {
                 "Name": data.Name,
                 "Description": data.Description,
                 "Prod_Grp_Id": $scope.selectedObj.Id
-            }
+            };
             $scope.selectedObj;
-            debugger
+            debugger;
             apiService.post('/api/ProductCategoryMaster/Insert', $scope.Data,
                 AddProductSucceded,
                 AddProductFailed);

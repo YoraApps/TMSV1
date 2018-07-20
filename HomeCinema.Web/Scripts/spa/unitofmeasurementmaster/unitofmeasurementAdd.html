@@ -1,0 +1,57 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Name</label>
+                    <input type="text" placeholder="Name" ng-model="modelObj.Name" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Description</label>
+                    <input type="text" placeholder="Description" ng-model="modelObj.Description" /><br />
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Phone Number</label>
+                    <input type="text" placeholder="PhoneNumber" ng-model="modelObj.PhoneNumber" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">EmailId</label>
+                    <input type="text" placeholder="EmailId" ng-model="modelObj.EmailId" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Alternate Phone Number</label>
+                    <input type="text" placeholder="AlternatePhoneNumber" ng-model="modelObj.AlternatePhoneNumber" /><br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">Fax Number</label>
+                    <input type="text" placeholder="FaxNumber" ng-model="modelObj.FaxNumber" /><br />
+                </div>
+            </div>-->
+            <!--<div class="form-group">
+                <div class="col-xs-8">
+                    <label class="control-label">FaxNumber</label>
+                    <input type="text" placeholder="PhoneNumber" ng-model="modelObj.PhoneNumber" /><br />
+                </div>
+            </div>-->
+
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="Updateunitofmeasurement(modelObj)" ng-if="ModelType=='Edit'">Update</button>
+            <button type="button" class="btn btn-primary" ng-click="Saveunitofmeasurement()" ng-if="ModelType=='Add'">Save</button>
+        </div>
+    </div>
+</div>

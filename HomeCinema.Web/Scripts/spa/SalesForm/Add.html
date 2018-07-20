@@ -14,7 +14,7 @@
                             <label class="control-label">Productofsale</label>
                         </td>
                         <td>
-                            <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.ProductName for pa in saleArry.Product' ng-change="fetchSale(selectedObj)" ; style="width:125px;height:30px;border-radius:5px;">
+                            <select type="text" placeholder="Name" ng-model="productObj" data-ng-options='pa.ProductName for pa in productArr' ng-change="prodObjFrmPostModel(productObj);" style="width:125px;height:30px;border-radius:5px;">
                                 <option value="" disabled>Sale Products</option>
                             </select>
                         </td>
@@ -22,7 +22,7 @@
                             <label class="control-label">CustomerSale</label>
                         </td>
                         <td>
-                            <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.CustName for pa in saleArry.Customer' ng-change="fetchSale(selectedObj);" style="width:125px;height:30px;border-radius:5px;">
+                            <select type="text" placeholder="Name" ng-model="customerObj" data-ng-options='pa.CustName for pa in customerArr' ng-change="custObjFrmPostModel(customerObj);" style="width:125px;height:30px;border-radius:5px;">
                                 <option value="" disabled> Sale Customers</option>
                             </select>
                         </td>
@@ -33,30 +33,30 @@
                             <label class="control-label">Sales Date</label>
                         </td>
                         <td>
-                            <div class="col-md-6">
+                                <!--<label class="control-label">PurchaseDate</label>-->
                                 <p class="input-group">
                                     <input type="text"
+                                           style="width: 125px;height:36px;"
                                            class="form-control"
                                            init-date="dateOptions.initDate"
                                            datepicker-popup="{{format}}"
-                                           ng-model="dt"
+                                           ng-model="modelObj.date"
                                            is-open="opened"
                                            min-date="dateOptions.minDate"
-                                           max-date="'2030-06-22'"
+                                           max-date="'2100-06-22'"
                                            datepicker-options="dateOptions"
                                            date-disabled="disabled(date, mode)"
-                                           ng-required="true" close-text="Close"  style="width:107px"/>
+                                           ng-required="true" close-text="Close" />
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                     </span>
                                 </p>
-                            </div>
                         </td>
                         <td>
                             <label class="control-label">UOM</label>
                         </td>
                         <td>
-                            <select type="text" placeholder="UOM" ng-model="selectedObj" data-ng-options='pa.UOMName for pa in saleArry.UOM' ng-change="fetchSale(selectedObj);" style="width:125px;height:30px;border-radius:5px;">
+                            <select type="text" placeholder="UOM" ng-model="UOMObj" data-ng-options='pa.UOMName for pa in UOMArr' ng-change="uomObjFrmPostModel(UOMObj);"  style="width:125px;height:30px;border-radius:5px;">
                                 <option value="" disabled>Unit Of Measuremeant</option>
                             </select>
 
@@ -68,7 +68,7 @@
                             <label class="control-label">Quantity</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Quantity" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="selectedObj.Quantity" style="width:125px;height:30px;border-radius:5px;" />
+                            <input type="text" placeholder="Quantity" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Quantity" style="width:125px;height:30px;border-radius:5px;" />
 
                         </td>
 
@@ -76,7 +76,7 @@
                             <label class="control-label">POS</label>
                         </td>
                         <td>
-                            <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.PosName for pa in saleArry.pos' ng-change="fetchSale(selectedObj);" style="width:125px;height:30px;border-radius:5px;">
+                            <select type="text" placeholder="Name" ng-model="POSObj" data-ng-options='pa.PosName for pa in POSArr' ng-change="posObjFrmPostModel(POSObj);"  style="width:125px;height:30px;border-radius:5px;">
                                 <option value="" disabled>Product Of Sale</option>
                             </select>
 
@@ -91,7 +91,7 @@
         <div class="pull-right">
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
             <button type="button" class="btn btn-primary" ng-click="UpdatedSales(selectedObj)" ng-if="save=='update'">submit</button>
-            <button ng-click="AddSalesForm(selectedObj);" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
+            <button ng-click="AddSalesForm();" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
 
         </div>
     </div>

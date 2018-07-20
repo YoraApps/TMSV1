@@ -1,0 +1,61 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+        <img alt="{{purchase.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <br />
+        <div class="btn-group">
+            <div excel-export export-data="exportData" file-name="{{fileName}}" ng-disabled="disableBtn" style="width:100%;" class="btn-btn-sm btn-primary">Export In Excel</div>
+            <button style="width:100%;" type="button" ng-click="AddPurchase();" class="btn btn-sm btn-primary">Add Purchase<i class="fa fa-plus pull-right"></i></button>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Purchase</h4>
+            <div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterPurchase" class="form-control shortInputSearch" placeholder="Filter, search Purchase..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingPurchase">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>PurchaseDate</th>
+                            <th>Status</th>
+                            <th>IsActive</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedBy</th>
+                            <th>ModifiedDate</th> 
+                            <th>SupplierName</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="purchase in Purchases  | filter:filterPurchase">
+                            <td>{{purchase.Id}}</td>
+                            <td>{{purchase.PurchaseDate}}</td>
+                            <td>{{purchase.Status}}</td>                            
+                            <td>{{purchase.IsActive}}</td>
+                            <td>{{purchase.CreatedBy}}</td>
+                            <td>{{purchase.CreatedDate}}</td>
+                            <td>{{purchase.ModifiedBy}}</td>
+                            <td>{{purchase.ModifiedDate}}</td>  
+                            <td>{{purchase.SupplierName}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

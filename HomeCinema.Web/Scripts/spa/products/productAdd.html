@@ -22,6 +22,14 @@
                     <input type="text" placeholder="GRNCode" ng-model="modelObj.GRNCode" /><br />
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Product Category</label>
+                    <select type="text" placeholder="Name" ng-model="selectedObj" data-ng-options='pa.Name for pa in ProductArry' ng-change="fetchProduct(selectedObj);">
+                        <option value="" disabled>Select A Catagory</option>
+                    </select>
+                </div>
+            </div>
         </form>
     </div>
     <div class="panel-footer clearfix">
