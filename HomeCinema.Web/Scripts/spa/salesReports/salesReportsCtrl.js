@@ -10,6 +10,7 @@
         $scope.title = 'salesReportsCtrl';
         $scope.pageClass = 'page-Sales';
         $scope.Sales = [];
+
         $scope.Name = [];
 
         $scope.loadingSales = true;
@@ -20,14 +21,10 @@
         $scope.clearSearch = clearSearch;
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
-        
-
 
          function search(page) {
             page = page || 0;
-
              $scope.loadingSales = true;
-
             var config = {
                 params: {
                     page: page,
@@ -40,13 +37,10 @@
              apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config,
                  unitofmeasurementsLoadCompleted,
                  unitofmeasurementsLoadFailed);
- 
              apiService.get('/api/SalesReportsController/GetAllSalesReports', config,
                 salesReportsLoadCompleted,
                 salesReportsLoadFailed);
-        }
-
-
+          };
 
         function unitofmeasurementsLoadCompleted(result) {
             $scope.unitofmeasurements = result.data;
@@ -59,10 +53,14 @@
             $scope.Sales = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
- $scope.totalCount = result.data.TotalCount;
+            $scope.totalCount = result.data.TotalCount;
             $scope.loadingSales = false;
 
             if ($scope.filterSale && $scope.filterSale.length) {
+            $scope.totalCount = result.data.TotalCount;
+            $scope.loadingSalesReports = false;
+
+            if ($scope.filterSalesReports && $scope.filterSalesReports.length) {
                 notificationService.displayInfo(result.data.length + ' SalesReports found');
             }
 
@@ -71,9 +69,6 @@
         function salesReportsLoadFailed(response) {
             notificationService.displayError(response.data);
         }
-
-
-
         $scope.GetSalesGraphicRep = function (data) {
 
             debugger

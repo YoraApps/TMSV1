@@ -97,3 +97,48 @@
                             </div>
 
     </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Sales Reports</h4>
+            <!--<div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterSale" class="form-control shortInputSearch" placeholder="Filter, search Sales..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>-->
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingProduct">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ProductName</th>
+                            <th>CustomerName</th>
+                            <th>POSName</th>
+                            <th>Quantity</th>
+                            <th>UOMName</th>
+                            <th>SalesDate</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Sale in Sales">
+                            <td>{{Sale.ProductName}}</td>
+                            <td>{{Sale.CustomerName}}</td>
+                            <td>{{Sale.POSName}}</td>
+                            <td>{{Sale.Quantity}}</td>
+                            <td>{{Sale.UOMName}}</td>
+                            <td>{{Sale.SalesDate}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

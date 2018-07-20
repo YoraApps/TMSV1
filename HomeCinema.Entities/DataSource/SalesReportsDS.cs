@@ -8,7 +8,6 @@ namespace HomeCinema.Entities.DataSource
 {
     public class SalesReportsDS
     {
-        
         public string ProductName { get; set; }
         public string CustomerName { get; set; }
         public string POSName { get; set; }

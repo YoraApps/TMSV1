@@ -20,7 +20,6 @@ namespace HomeCinema.Services.Repository
         {
             _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DapperConStr"].ConnectionString);
         }
-
         public List<SalesReportsDS> GetSalesGraphic(string Name)
         {
             SalesReportsDS sa = new SalesReportsDS();

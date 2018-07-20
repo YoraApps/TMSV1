@@ -14,7 +14,7 @@ namespace HomeCinema.Web.Controllers
     public class SalesReportsController : ApiController
     {
         public SalesReportsRepository _salesReportsRepository;
-        
+
         public SalesReportsController()
         {
             _salesReportsRepository = new SalesReportsRepository();

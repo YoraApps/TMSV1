@@ -13,6 +13,7 @@ namespace HomeCinema.Entities.DataSource
         public String Quantity { get; set; }
         public String UOMName { get; set; }
         public String LocationName { get; set; }
-        public DateTime? PurchaseDate { get; set; }
-    }
+        public DateTime? PurchaseDate { get; set; }   
+        
+    }  
 }

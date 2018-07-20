@@ -97,8 +97,6 @@
             }
         };
 
-           
-
             //Cancel Edit popup
             function cancelEdit() {
                 $scope.Modals.cancelProductCategoryDialog();
@@ -134,7 +132,7 @@
                 "Description": data.Description,
                 "Prod_Grp_Id": $scope.selectedObj.Id
             };
-            apiService.post('/api/ProductCategoryMaster/Update', +$scope.modelObj.Id, $scope.ProductObj,
+            apiService.post('/api/ProductCategoryMaster/Update',$scope.ProductObj,
                 updateProductedSucceded,
                 updateproductedFailed);
         }

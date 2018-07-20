@@ -151,8 +151,8 @@
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
-            })
-            .otherwise({ redirectTo: "/" });
+            }).otherwise({ redirectTo: "/" });
+
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
