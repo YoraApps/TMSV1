@@ -59,7 +59,7 @@
             $scope.Sales = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
- $scope.totalCount = result.data.TotalCount;
+            $scope.totalCount = result.data.TotalCount;
             $scope.loadingSales = false;
 
             if ($scope.filterSale && $scope.filterSale.length) {

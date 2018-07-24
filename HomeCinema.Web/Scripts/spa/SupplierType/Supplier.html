@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="SupplierType in SupplierTypes | filter:filterSupplierTypes">
+                        <tr ng-repeat="SupplierType in SupplierTypes| filter:filterSupplierTypes">
 
                             <td>{{SupplierType.Id}}</td>
                             <td>{{SupplierType.Name}}</td>
@@ -59,15 +59,25 @@
                 </table>
             </div>
         </div>
-        <!--<div class="panel-footer">
-        <div class="text-center">
-            <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
-        </div>
-    </div>-->
-        <pagination ng-model="currentPage"
-                    total-items="todos.length"
-                    max-size="maxSize"
-                    boundary-links="true">
-        </pagination>
+        <div class="panel-footer">
+            <div class="text-center">
+                <pagination  pagination="" num-pages="numOfPages()"
+         current-page="curPage" max-size="maxSize"
+         boundary-links="true"></pagination>
+                   
+            </div>
+    </div>
+        <!--<pagination ng-model="currentpage"
+                total-items="todos.length"
+                max-size="maxsize"
+                boundary-links="true">
+        </pagination>-->
+
+
+        <!--<dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundry-links="true">
+        </dir-pagination-controls>-->
     </div>
 </div>

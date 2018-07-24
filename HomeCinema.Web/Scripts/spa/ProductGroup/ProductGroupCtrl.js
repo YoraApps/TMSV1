@@ -101,6 +101,7 @@
 //popup Added new ProductGroup
 
         $scope.AddProductGroup = function () {
+        
             $scope.save = 'add';
             $scope.Modals.openProductgroupDialog();
         }
@@ -138,6 +139,9 @@
                 AddProductFailed);
         }
         function AddProductSucceded(response) {
+
+            debugger
+
             notificationService.displaySuccess(' has been submitted to Home Cinema');
             $scope.ProductGroups = response.data;
             $scope.modelobj = {};
