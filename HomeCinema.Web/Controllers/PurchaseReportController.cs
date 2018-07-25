@@ -1,4 +1,5 @@
-﻿using HomeCinema.Entities.DataSource;
+﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,12 @@ namespace HomeCinema.Web.Controllers
         public List<PurchaseReportDS> GetAllPurchaseReport()
         {
             return _PurchaseReportRepository.GetAllPurchaseReport();
+        }
+        [HttpPost]
+        [Route("getPurchaseReportInaGraph")]
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster uom)
+        {
+            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(uom.Name);
         }
     }
 } 
