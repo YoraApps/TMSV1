@@ -24,8 +24,6 @@ namespace HomeCinema.Web.Controllers
         {
             return _PurchaseReportRepository.GetAllPurchaseReport();
         }
-
-
         [HttpPost]
         [Route("getPurchaseReportInaGraph")]
         public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster uom)
