@@ -1,7 +1,7 @@
 ﻿(function (app) {
     'use strict';
 
-    
+
     app.controller('salesReportsCtrl', salesReportsCtrl);
 
     salesReportsCtrl.$inject = ['$scope', 'apiService', 'notificationService'];
@@ -10,7 +10,6 @@
         $scope.title = 'salesReportsCtrl';
         $scope.pageClass = 'page-Sales';
         $scope.Sales = [];
-
         $scope.Name = [];
 
         $scope.loadingSales = true;
@@ -22,9 +21,13 @@
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
 
-         function search(page) {
+
+
+        function search(page) {
             page = page || 0;
-             $scope.loadingSales = true;
+
+            $scope.loadingSales = true;
+
             var config = {
                 params: {
                     page: page,
@@ -32,15 +35,18 @@
                     filter: $scope.filterSale
 
                 }
-             };
+            };
 
-             apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config,
-                 unitofmeasurementsLoadCompleted,
-                 unitofmeasurementsLoadFailed);
-             apiService.get('/api/SalesReportsController/GetAllSalesReports', config,
+            apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config,
+                unitofmeasurementsLoadCompleted,
+                unitofmeasurementsLoadFailed);
+
+            apiService.get('/api/SalesReportsController/GetAllSalesReports', config,
                 salesReportsLoadCompleted,
                 salesReportsLoadFailed);
-          };
+        }
+
+
 
         function unitofmeasurementsLoadCompleted(result) {
             $scope.unitofmeasurements = result.data;
@@ -57,10 +63,6 @@
             $scope.loadingSales = false;
 
             if ($scope.filterSale && $scope.filterSale.length) {
-            $scope.totalCount = result.data.TotalCount;
-            $scope.loadingSalesReports = false;
-
-            if ($scope.filterSalesReports && $scope.filterSalesReports.length) {
                 notificationService.displayInfo(result.data.length + ' SalesReports found');
             }
 
@@ -69,6 +71,9 @@
         function salesReportsLoadFailed(response) {
             notificationService.displayError(response.data);
         }
+
+
+
         $scope.GetSalesGraphicRep = function (data) {
 
             debugger
@@ -81,18 +86,18 @@
 
         function salesGraphicReportsLoadCompleted(result) {
 
-                $scope.SalesGUI = result.data;
-                Morris.Bar({
-                    element: "sales-bar",
-                    data: $scope.SalesGUI,
-                    xkey: "ProductName",
-                    ykeys: ["Quantity"],
-                    labels: ["Product Quantity"],
-                    barRatio: 0.4,
-                    xLabelAngle: 55,
-                    hideHover: "auto",
-                    resize: 'true'
-                });
+            $scope.SalesGUI = result.data;
+            Morris.Bar({
+                element: "sales-bar",
+                data: $scope.SalesGUI,
+                xkey: "ProductName",
+                ykeys: ["Quantity"],
+                labels: ["Product Quantity"],
+                barRatio: 0.4,
+                xLabelAngle: 55,
+                hideHover: "auto",
+                resize: 'true'
+            });
 
             $scope.loadingSales = false;
         }

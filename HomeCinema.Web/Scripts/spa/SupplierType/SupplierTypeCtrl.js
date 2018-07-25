@@ -218,7 +218,9 @@
 
       
 
-        $scope.$watch('curPage + numPerPage', function () {
+            $scope.$watch('curPage + numPerPage', function () {
+
+                debugger
       
             var begin = (($scope.curPage - 1) * $scope.itemsPerPage),
                 end = begin + $scope.itemsPerPage;
@@ -262,7 +264,7 @@ var itemsDetails = [
         Name: 'watch',
         Description: 'timing'
     },
-    {
+    { 
         Id: 6,
         Name: 'Electronics',
         Description: 'Electronics engineers typically do the following: Design electronic components, software, products, or systems for commercial, industrial, medical, military, or scientific applications.'
