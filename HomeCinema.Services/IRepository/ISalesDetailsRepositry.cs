@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace HomeCinema.Services.IRepository
 {
-    public interface ISalesReportsRepository
+   public interface ISalesDetailsRepositry
     {
-        List<SalesReportsDS> GetSalesReports();
-        List<SalesReportsDS> GetSalesGraphic(string Name);
+         SalesFormListDs GetAllDataForSalesDetails();
+         bool CreateSalesForm(SalesForm salesForm);
     }
 }

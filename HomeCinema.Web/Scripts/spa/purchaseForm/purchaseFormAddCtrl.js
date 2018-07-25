@@ -9,7 +9,6 @@
         $scope.purchase = {};       
         $scope.SavePurchase = SavePurchase;       
         function SavePurchase() {
-            debugger
             $scope.purchase = {
                 "Supplier": $scope.SupObj,
                 "Location": $scope.LocObj,

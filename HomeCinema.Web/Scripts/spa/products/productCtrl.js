@@ -23,6 +23,7 @@
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
 
+
         //getting data and filtering data
 
         function search(page) {
@@ -38,6 +39,7 @@
             apiService.get('/api/Product/getallproduct', config,
                 productLoadCompleted,
                 productLoadFailed);
+
             apiService.get('/api/ProductCategoryMaster/GetAllProductCategoryMaster', config,
                 ProductCategoryLoadCompleted,
                 ProductCategoryLoadFailed);
@@ -49,6 +51,16 @@
         function ProductCategoryLoadFailed() {
             console.log("error in Product Category Get Call Service");
         }
+
+        function ProductCategoryLoadCompleted(response) {
+            $scope.ProductArry = response.data;
+        }
+
+        function ProductCategoryLoadFailed() {
+            console.log("error in Product Category Get Call Service");
+        }
+
+
         function productLoadCompleted(result) {
             $scope.products = result.data;
             $scope.paginationFunc();

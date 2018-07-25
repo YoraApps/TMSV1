@@ -4,21 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeCinema.Entities
+namespace HomeCinema.Entities.DataSource
 {
-  public class CustomerMaster : IEntityBase
+    public class SupplierMasterDS
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string EmailId { get; set; }
+        public int Id { get; set; }
+        public String Name { get; set; }
+        public String Address { get; set; }
+        public String EmailId { get; set; }
         public double PhoneNumber { get; set; }
         public double AlternatePhoneNumber { get; set; }
         public double FaxNumber { get; set; }
         public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
-        public int? ModifiedBy { get; set; }
+        public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public int? SupplierTypeId { get; set; }
+        public string SupplierName { get; set; }
     }
 }

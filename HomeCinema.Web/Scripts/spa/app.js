@@ -120,6 +120,14 @@
                 templateUrl: "scripts/spa/ProductCategory/ProductCategory.html",
                 controller: "ProductCategoryCtrl"
             })
+            .when("/Sales", {
+                templateUrl: "scripts/spa/Sales/Sales.html",
+                controller: "SalesCtrl"
+            })
+            .when("/Salesform", {
+                templateUrl: "scripts/spa/SalesForm/Sales.html",
+                controller: "SalesFormCtrl"
+            })
             .when("/purchaseForm", {
                 templateUrl: "scripts/spa/purchaseForm/purchaseForm.html",
                 controller: "purchaseFormCtrl"
@@ -144,6 +152,7 @@
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
             }).otherwise({ redirectTo: "/" });
+
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];

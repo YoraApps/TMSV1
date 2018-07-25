@@ -1,4 +1,5 @@
-﻿using HomeCinema.Entities.DataSource;
+﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,17 @@ namespace HomeCinema.Web.Controllers
         {
             _salesReportsRepository = new SalesReportsRepository();
         }
-
+        [HttpGet]
         [Route("GetAllSalesReports")]
         public List<SalesReportsDS> GetAllSalesReports()
         {
             return _salesReportsRepository.GetSalesReports();
+        }
+        [HttpPost]
+        [Route("GetAllSalesGraphicReports")]
+        public List<SalesReportsDS> GetAllSalesGraphic(UnitOfMeasurementMaster uom)
+        {
+            return _salesReportsRepository.GetSalesGraphic(uom.Name);
         }
     }
 }

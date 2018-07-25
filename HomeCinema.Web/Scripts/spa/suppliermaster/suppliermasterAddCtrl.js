@@ -8,20 +8,28 @@
         $scope.supplier = {};
         $scope.SaveSupplier = SaveSupplier;
         $scope.UpdateSupplier = UpdateSupplier;
-        //function Addwatch() {
-        //    AddWatchModel();
-        //}
-        function SaveSupplier() {
-            $scope.supplier = $scope.modelObj;
-            
+      
+      
+        function SaveSupplier(data) {
+            $scope.supplier = {
+                "Name": data.Name,
+                "Address": data.Address,
+                "EmailId": data.EmailId,
+                "PhoneNumber": data.PhoneNumber,
+                "AlternatePhoneNumber": data.AlternatePhoneNumber,
+                "FaxNumber": data.FaxNumber,
+                "SupplierTypeId": $scope.selectedObj.Id
+            }
+            $scope.selectedObj;
             apiService.post('/api/SupplierMaster/Create', $scope.supplier,
                 addSupplierSucceded,
                 addSupplierFailed);
         }
 
         function addSupplierSucceded(response) {
-            notificationService.displaySuccess(' has been submitted to supplier');
+            debugger
             $scope.supplier = response.data;
+            notificationService.displaySuccess('has been submitted to supplier');
             $scope.search();
             $scope.modelObj = {};
             $modalInstance.dismiss();
@@ -37,19 +45,26 @@
             $modalInstance.dismiss();
         }
         //updating
-        function UpdateSupplier() {
-            debugger
-            $scope.supplier = $scope.modelObj;
+        function UpdateSupplier(data) {
+
+            $scope.supplier = {
+                "Id": data.Id,
+                "Name": data.Name,
+                "Address": data.Address,
+                "EmailId": data.EmailId,
+                "PhoneNumber": data.PhoneNumber,
+                "AlternatePhoneNumber": data.AlternatePhoneNumber,
+                "FaxNumber": data.FaxNumber,
+                "SupplierTypeId": $scope.selectedObj.Id
+            }
             apiService.post('/api/SupplierMaster/Update', $scope.supplier,
                 updateSupplierSucceded,
                 updateSupplierFailed);
         }
-
-
         function updateSupplierSucceded(response) {
             console.log(response);
             $scope.modelObj = {};
-            notificationService.displaySuccess(' has been updated');
+            notificationService.displaySuccess('has been updated');
             $modalInstance.dismiss();
             // $location.path('/watches');
             // $scope.watch = response.data;
@@ -59,6 +74,10 @@
             console.log(response);
             $scope.modelObj = {};
             notificationService.displayError(response);
+        }
+        $scope.fetchSupplier = function (data) {
+            $scope.selectedObj = data;
+
         }
 
 

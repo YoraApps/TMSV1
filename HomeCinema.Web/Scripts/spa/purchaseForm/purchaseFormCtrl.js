@@ -42,7 +42,6 @@
         $scope.Id = 0;
         $scope.SelctedArry = [];       
         $scope.AddPurchase = function (data) {
-            debugger
             $scope.modelObj = data;
             $scope.SelctedArry = $scope.modelObj.LocationList.filter(x => x.Id === data.LocationId);
             $scope.LocationList = [];            
@@ -71,7 +70,6 @@
             });
         }
         $scope.fetchSupplier = function (data) {
-            debugger
             $scope.LocationList = data; 
             $scope.supplierList = data;
             $scope.uOMList = data;

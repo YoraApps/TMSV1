@@ -88,6 +88,7 @@
             $scope.filterPurchase = '';
             $scope.search();
         }
+
         $scope.search();
     }
 })(angular.module('homeCinema'));
