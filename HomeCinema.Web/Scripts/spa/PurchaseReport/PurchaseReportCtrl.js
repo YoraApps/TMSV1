@@ -80,6 +80,7 @@
                 resize: 'true'
             });
             $scope.loadingPurchase = false;
+
         }
         function PurchaseGraphicReportLoadFailed(response) {
             notificationService.displayError(response.data);

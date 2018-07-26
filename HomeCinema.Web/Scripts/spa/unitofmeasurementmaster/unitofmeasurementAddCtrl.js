@@ -51,14 +51,11 @@
             console.log(response);
             $scope.modelObj = {};
             notificationService.displaySuccess(' has been updated');
-            $modalInstance.dismiss();
-            // $location.path('/watches');
-            // $scope.watch = response.data;
-          
+            $scope.cancelEdit();
         }
         function UpdateunitofmeasurementFailed(response) {
             console.log(response);
-            $scope.modelObj = {};
+            $scope.modelObj = {};       
             notificationService.displayError(response);
         }
 
