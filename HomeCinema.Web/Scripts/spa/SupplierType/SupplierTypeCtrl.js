@@ -19,9 +19,7 @@
         $scope.UpdatedSuppliertype = UpdatedSuppliertype;
         $scope.AddSupplierModel = AddSupplierModel;
         $scope.removeSupplierType = removeSupplierType;
-        //$scope.currentpage = 1;
-        //$scope.numperpage = 5;
-        //$scope.maxsize = 5;
+        
        
          
 
@@ -47,7 +45,7 @@
 
         function suppliertypeLoadCompleted(result) {
             $scope.SupplierTypes = result.data;
-          // $scope.paginationFunc();
+            $scope.adjustSupplierTypeList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -173,19 +171,28 @@
             notificationService.displayError(response);
         }
 
+// pagination 
+           $scope.filteredSubjectData = [];
+             $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustSupplierTypeList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
 
-        ////Paging nagitation
+            $scope.filteredSubjectData = angular.copy($scope.SupplierTypes.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustSupplierTypeList();
+        });
+
+        $scope.showPerPageDataOptions = [3,5, 10, 25, 50, 100];
+
+
 
         //$scope.paginationfunc = function () {
-
-        ////    //for ($scope.i = 1; $scope.i <= 100; $scope.i++) {
-        ////    //    debugger
-        ////    //    $scope.suppliertypes.push({ text: "" + suppliertypes[i], done: false });
-        ////    //}
-
-        //    $scope.paginationfunc();
-
-        //    debugger
 
         //    $scope.$watch("currentpage + numperpage", function () {
         //        var begin = (($scope.currentpage - 1) * $scope.numperpage)
@@ -194,41 +201,6 @@
         //    });
         //}
        
-
-
-      //  paging fuction
-
-           $scope.curPage = 1,
-           $scope.itemsPerPage = 3,
-           $scope.maxSize = 2;
-
-        this.items = itemsDetails;
-
-
-        $scope.numOfPages = function () {
-
-            
-
-            return Math.ceil(itemsDetails.length / $scope.itemsPerPage);
-
-        //    for ($scope.i = 1; $scope.i <= 100; $scope.i++) {
-           
-        //    $scope.suppliertypes.push({ text: "" + suppliertypes[i], done: false });
-        //}
-
-      
-
-            $scope.$watch('curPage + numPerPage', function () {
-
-                debugger
-      
-            var begin = (($scope.curPage - 1) * $scope.itemsPerPage),
-                end = begin + $scope.itemsPerPage;
-
-            $scope.SupplierTypes = itemsDetails.slice(begin, end);
-            });
-        };
-
         $scope.search();
 
         activate();
@@ -236,51 +208,5 @@
         function activate() { }
     }
 })(angular.module('homeCinema'));
-
-
-var itemsDetails = [
-    {
-        Id: 1,
-        Name: 'mobile',
-        Description: '4 gb ram'
-    },
-    {
-        Id: 2,
-        Name: 'Electrical',
-        Description: 'capacitors'
-    },
-    {
-        Id: 3,
-        Name: 'laptop',
-        Description: 'ram'
-    },
-    {
-        Id: 4,
-        Name: 'tv',
-        Description: 'channels'
-    },
-    {
-        Id: 5,
-        Name: 'watch',
-        Description: 'timing'
-    },
-    { 
-        Id: 6,
-        Name: 'Electronics',
-        Description: 'Electronics engineers typically do the following: Design electronic components, software, products, or systems for commercial, industrial, medical, military, or scientific applications.'
-        
-    },
-    {
-        Id: 7,
-        Name: 'Stationary supply',
-        Description: 'Blankbooks-wholesaleBusiness forms-wholesale'
-    } ,
-        {
-        Id: 8,
-        Name: 'Hardware supplier',
-       Description: 'sell household hardware for home improvement'
-    } 
-
-];
 
 

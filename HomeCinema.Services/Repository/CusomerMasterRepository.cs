@@ -13,7 +13,7 @@ using Dapper;
 
 namespace HomeCinema.Services.Repository
 {
-  public  class CusomerMasterRepository : ICusomerMaster
+    public class CusomerMasterRepository : ICusomerMaster
     {
 
         private IDbConnection _db;
@@ -29,7 +29,7 @@ namespace HomeCinema.Services.Repository
 
             int rowsAffected = this._db.Execute(@"INSERT CustomerMaster(Name,Address,EmailId,PhoneNumber,AlternatePhoneNumber,FaxNumber,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate)
                                                                 values (@Name, @Address,@EmailId,@PhoneNumber,@AlternatePhoneNumber,@FaxNumber,1,1,@CreatedDate,1,@ModifiedDate)",
-               new { Name = cusomerMaster.Name, Address = cusomerMaster.Address, EmailId= cusomerMaster.EmailId, PhoneNumber= cusomerMaster.PhoneNumber, AlternatePhoneNumber= cusomerMaster.AlternatePhoneNumber, FaxNumber= cusomerMaster.FaxNumber, IsActive= cusomerMaster.IsActive, CreatedBy= cusomerMaster.CreatedBy, CreatedDate= cusomerMaster.CreatedDate, ModifiedBy= cusomerMaster.ModifiedBy, ModifiedDate= cusomerMaster.ModifiedDate });
+               new { Name = cusomerMaster.Name, Address = cusomerMaster.Address, EmailId = cusomerMaster.EmailId, PhoneNumber = cusomerMaster.PhoneNumber, AlternatePhoneNumber = cusomerMaster.AlternatePhoneNumber, FaxNumber = cusomerMaster.FaxNumber, IsActive = cusomerMaster.IsActive, CreatedBy = cusomerMaster.CreatedBy, CreatedDate = cusomerMaster.CreatedDate, ModifiedBy = cusomerMaster.ModifiedBy, ModifiedDate = cusomerMaster.ModifiedDate });
             if (rowsAffected > 0)
             {
                 return true;
@@ -42,7 +42,7 @@ namespace HomeCinema.Services.Repository
             return this._db.Query<CustomerMaster>("Select * from CustomerMaster").ToList();
         }
 
-        public Watches GetSingleCustomer(int? id)
+        public CustomerMaster GetSingleCustomer(int? id)
         {
             throw new NotImplementedException();
         }
@@ -53,14 +53,13 @@ namespace HomeCinema.Services.Repository
 
         }
 
-       
+
 
         public bool RemoveCustomer(int? id)
         {
 
-            int rowsAffected = this._db.Execute(@"DELETE FROM CustomerMaster WHERE Id = @Id",
+            int rowsAffected = this._db.Execute(@"update FROM CustomerMaster WHERE Id = @Id",
                 new { Id = id });
-
             if (rowsAffected > 0)
             {
                 return true;
@@ -85,10 +84,7 @@ namespace HomeCinema.Services.Repository
 
         }
 
-        CustomerMaster ICusomerMaster.GetSingleCustomer(int? id)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
 
