@@ -26,7 +26,6 @@ namespace HomeCinema.Web.Controllers
         {
             _cusomerMasterRepository = new CusomerMasterRepository();
         }
-        [AllowAnonymous]
         [HttpGet]
         [Route("getAllCustomer")]
         public List<CustomerMaster> GetAllCustomer()
@@ -43,10 +42,10 @@ namespace HomeCinema.Web.Controllers
             return BadRequest();
         }
         [HttpPost]
-        [Route("Update")]
-        public IHttpActionResult Update(CustomerMaster cusomerMaster)
+        [Route("Update/{id}")]
+        public IHttpActionResult Update(CustomerMaster cusomerMaster, int? id)
         {
-            var isupdate = _cusomerMasterRepository.Update(cusomerMaster);
+            var isupdate = _cusomerMasterRepository.Update(cusomerMaster,id);
             if (isupdate == true)
 
                 return Ok(isupdate);
@@ -62,12 +61,12 @@ namespace HomeCinema.Web.Controllers
                 return Ok(isdel);
             return BadRequest();
         }
-        [HttpGet]
-        [Route("getById/{id}")]
-        public IHttpActionResult GetSingleCustomer(int id)
-        {
-            return Ok(_cusomerMasterRepository.GetSingleCustomer(id));
-        }
+        //[HttpGet]
+        //[Route("getById/{id}")]
+        //public IHttpActionResult GetSingleCustomer(int id)
+        //{
+        //    return Ok(_cusomerMasterRepository.GetSingleCustomer(id));
+        //}
 
     }
 }

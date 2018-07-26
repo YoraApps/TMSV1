@@ -46,7 +46,7 @@
     <Compile Include="Abstract\IEncryptionService.cs" />
     <Compile Include="Abstract\IMembershipService.cs" />
     <Compile Include="IRepository\IBookRepository.cs" />
-    <Compile Include="IRepository\ICusomerMaster.cs" />
+    <Compile Include="IRepository\ICusomerMasterRepository.cs" />
     <Compile Include="IRepository\IFlowerRepository.cs" />
     <Compile Include="IRepository\IPurchaseReportRepository.cs" />
     <Compile Include="IRepository\IUnitOfMesurement.cs" />

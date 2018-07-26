@@ -7,13 +7,13 @@ using HomeCinema.Entities;
 
 namespace HomeCinema.Services.IRepository
 {
-   public interface ICusomerMaster
+   public interface ICusomerMasterRepository
     {
-        bool CreateCustomer(CustomerMaster customer);
+        bool CreateCustomer(CustomerMaster customerMaster);
         List<CustomerMaster> GetAllCustomer();
-        bool Update(CustomerMaster customer);
+        bool Update(CustomerMaster customerMaster, int? id);
         bool RemoveCustomer(int? id);
-        CustomerMaster GetSingleCustomer(int? id);
+        //CustomerMaster GetSingleCustomer(int? id);
 
     }
 }
