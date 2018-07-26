@@ -95,30 +95,23 @@
             });
         }
         function removeCustomerMaster(data) {
-            // $scope.loadingCustomerMaster = true;
-            $scope.removeID = data;
-            apiService.post('/api/CustomerMaster/Delete/' + $scope.removeID, null,
+            debugger
+            $scope.id= data;
+            apiService.post('/api/CustomerMaster/Delete/' + $scope.id, null,
                 CustomerMasterRemoveCompleted,
                CustomerMasterRemoveFailed);
         }
 
         function CustomerMasterRemoveCompleted(result) {
             notificationService.displaySuccess(' has been removed');
-            $scope.search();
-            // $modalInstance.dismiss();
-            console.log(result);
-            $scope.CustomerMaster = result.data;
-            // $location.path('/watches');
-            //$scope.loadingWatches = false;
+                $scope.CustomerMaster = result.data;
+                $scope.search();
         }
 
         function CustomerMasterRemoveFailed(response) {
-            notificationService.displayError(response.data);
-            console.log(response);
+            notificationService.displayError(response);
+           
         }
-
-
-
 
         $scope.search();
         activate();
