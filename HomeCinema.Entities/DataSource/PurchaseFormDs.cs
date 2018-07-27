@@ -27,7 +27,7 @@ namespace HomeCinema.Entities.DataSource
     {
         public string ProductName { get; set; }
         public int? ProductId { get; set; }       
-        public int? PurchaseId { get; set; }
+        
     }     
     public class PurchaseFormPostDs
     {

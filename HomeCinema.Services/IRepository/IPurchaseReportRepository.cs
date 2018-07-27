@@ -9,6 +9,8 @@ namespace HomeCinema.Services.IRepository
 {
    public interface IPurchaseReportRepository
     {
-        List<PurchaseReportDS> GetAllPurchaseReport(); 
+        List<PurchaseReportDS> GetAllPurchaseReport();
+        bool Update(PurchaseFormPostDs purchaseFormPostDs);
+        bool RemovePerchaseReport(PurchaseReportDS purchaseReportDS);
     }
 }
