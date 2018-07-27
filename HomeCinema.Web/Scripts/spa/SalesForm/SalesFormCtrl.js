@@ -149,8 +149,8 @@
             }
 
             apiService.post('/api/SalesDetails/save', $scope.selectedObj,
-                salesSucceded,
-                salesFailed);
+            salesSucceded,
+            salesFailed);
         }
         function salesSucceded(response) {
             notificationService.displaySuccess(' has been submitted to Home Cinema');
