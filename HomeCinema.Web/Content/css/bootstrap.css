@@ -5949,8 +5949,9 @@ button.close {
   margin: 10px;
 }
 .modal-content {
+   width:500px;
   position: relative;
-  background-color: #fff;
+  background-color: blue;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #999;
@@ -6798,3 +6799,4 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+

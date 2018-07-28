@@ -20,6 +20,16 @@ namespace HomeCinema.Services.Repository
         {
             _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DapperConStr"].ConnectionString);
         }
+        PurchaseReportDS PR = new PurchaseReportDS();
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(String Name)
+        {
+         
+            PR.UOMName = Name;
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@UOMName", PR.UOMName);
+            return this._db.Query<PurchaseReportDS>("USP_PurchaseGraphicReport", param, commandType: CommandType.StoredProcedure).ToList();
+           
+        }
 
         public List<PurchaseReportDS> GetAllPurchaseReport()
         {

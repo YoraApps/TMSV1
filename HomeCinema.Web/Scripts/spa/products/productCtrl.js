@@ -18,6 +18,10 @@
         $scope.ProductArry = [];
         $scope.modelObj = {};
         $scope.selectedObj = {};
+        //$scope.filteredTodos = [];
+        //$scope.currentPage = 1;
+        //$scope.numPerPage = 3;
+        //$scope.maxSize = 2;
 
 
         //getting data and filtering data
@@ -31,16 +35,21 @@
                     pageSize: 6,
                     filter: $scope.filterMovies
                 }
-            };
+            };             
             apiService.get('/api/Product/getallproduct', config,
                 productLoadCompleted,
                 productLoadFailed);
 
-
             apiService.get('/api/ProductCategoryMaster/GetAllProductCategoryMaster', config,
                 ProductCategoryLoadCompleted,
                 ProductCategoryLoadFailed);
-        
+        }
+        function ProductCategoryLoadCompleted(response) {
+            $scope.ProductArry = response.data;
+        }
+
+        function ProductCategoryLoadFailed() {
+            console.log("error in Product Category Get Call Service");
         }
 
         function ProductCategoryLoadCompleted(response) {
@@ -54,6 +63,8 @@
 
         function productLoadCompleted(result) {
             $scope.products = result.data;
+            //$scope.paginationFunc();
+            $scope.adjustProductList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -116,9 +127,40 @@
         function productRemoveFailed(response) {
             notificationService.displayError(response.data);
             console.log(response);
-        }       
+        }
+        //Paging
+        $scope.filteredProductData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustProductList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredProductData = angular.copy($scope.products.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustProductList();
+        });
+
+        $scope.showPerPageDataOptions = [3,5, 10, 25, 50, 100];
+       // $scope.paginationFunc = function () {
+       //    // $scope.products = [];
+       //    // for ($scope.i = 1; $scope.i <= products.length; $scope.i++) {
+       //    //     debugger
+       //    //     $scope.products.push({ text: "" + products[i], done: false });
+       //    // }
+       ////$scope.paginationFunc();  
+       // $scope.$watch("currentPage + numPerPage", function () {
+       //     var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+       //         , end = begin + $scope.numPerPage;
+       //     $scope.filteredTodos = $scope.products.slice(begin, end);
+          
+       //     });
+       // //$scope.productLoadCompleted();
+        
         $scope.search();
-        activate();
-        function activate() { }
     }
 })(angular.module('homeCinema'));

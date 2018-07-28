@@ -1,7 +1,5 @@
 ﻿(function (app) {
     'use strict';
-
-    
     app.controller('PurchaseReportCtrl', PurchaseReportCtrl);
 
     PurchaseReportCtrl.$inject = ['$scope', 'apiService', 'notificationService','$modal'];
@@ -13,6 +11,7 @@
         $scope.page = 0;
         $scope.pagesCount = 0;
         $scope.search = search;
+        $scope.Name = [];
         $scope.clearSearch = clearSearch;
         $scope.cancelEdit = cancelEdit;
         $scope.UpdatePurchase = UpdatePurchase;
@@ -27,19 +26,21 @@
         $scope.UomObj = {};
         $scope.ProdObj = {};
         $scope.modelObj = {};
-       
+        $scope.selectedObj = {};
+        $scope.selectedStr = '';
+        $scope.purchaseAnguList = [];
+        $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
+        $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
+      
         function search(page) {
             page = page || 0;
-
             $scope.loadingPurchase = true;
-
             var config = {
                 params: {
                     page: page,
                     pageSize: 1,
                     filter: $scope.filterPurchase
                 }
-                   
             };
 
             apiService.get('/api/PurchaseReport/GetAllPurchaseReport', config,  
@@ -49,7 +50,11 @@
 
             apiService.get('/api/PurchaseForm/getallpurchase', config,
                 purchaseLoadCompleted,
-                purchaseLoadFailed);         
+                purchaseLoadFailed);   
+          
+            apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config,
+                unitofmeasurementsLoadCompleted,
+                unitofmeasurementsLoadFailed);
 
         }
 
@@ -62,6 +67,14 @@
         function purchaseLoadFailed(response) {
             notificationService.displayError(response.data);
         }
+
+        function unitofmeasurementsLoadCompleted(result) {
+            debugger
+            $scope.unitofmeasurements = result.data;
+        }
+        function unitofmeasurementsLoadFailed(response) {
+            notificationService.displayError(response.data);
+        }
         function PurchaseReportLoadCompleted(result) {
             console.log("re", result);
             $scope.Purchases = result.data;
@@ -70,13 +83,10 @@
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
             $scope.loadingpurchasereport = false;
-
             if ($scope.filterPurchase && $scope.filterPurchase.length) {
                 notificationService.displayInfo(result.data.length + ' purchaseReport found');
             }
-
         }
-
         function PurchaseReportLoadFailed(response) {
             notificationService.displayError(response.data);
         }
@@ -208,13 +218,39 @@
         };
         $scope.format = 'MM-dd-yyyy';               
 
-       
+        $scope.getPurchaseGuiRep = function (data) {
+            console.log(data.originalObject);
+            apiService.post('/api/PurchaseReport/getPurchaseReportInaGraph/', data.originalObject,
+                PurchaseGraphicReportLoadCompleted,
+                PurchaseGraphicReportLoadFailed);
+        }
+        function PurchaseGraphicReportLoadCompleted(result) {
+            debugger
+            $scope.PurchasesGUI = result.data;  
+            Morris.Bar({
+                element: "purchase-bar",
+                data: $scope.PurchasesGUI,
+                xkey: "ProductName",
+                ykeys: ["Quantity"],
+                labels: ["Product Quantity"],
+                barRatio: 0.4,
+                xLabelAngle: 55,
+                hideHover: "auto",
+                resize: 'true'
+            });
+            $scope.loadingPurchase = false;
+
+        }
+      
+        function PurchaseGraphicReportLoadFailed(response) {
+            notificationService.displayError(response.data);
+        }
+      
         function clearSearch() {
             $scope.filterPurchase = '';
             $scope.search();
         }
 
-        $scope.search(); 
+        $scope.search();
     }
-})(angular
-    .module('homeCinema'));
+})(angular.module('homeCinema'));

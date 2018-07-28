@@ -1,15 +1,14 @@
-﻿<div class="jumbotron">
-    <div class="container text-center">
-        <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
-        <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
-        <br />
-        <div class="btn-group">
-            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddSupplier();" class="btn btn-sm btn-primary">Add Supplier <i class="fa fa-plus pull-right"></i></button>
-
-        </div> <!-- end btn-group -->
-    </div>
-
+﻿<div class="row">
     <div class="panel panel-primary">
+        <div class="container text-center">
+            <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+            <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
+            <br />
+            <div class="btn-group">
+                <button style="margin-left:400%;width:100%;" type="button" ng-click="AddSupplier();" class="btn btn-sm btn-primary">Add Supplier <i class="fa fa-plus pull-right"></i></button>
+
+            </div> <!-- end btn-group -->
+        </div>
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home SupplierTypes</h4>
             <div class="input-group">
@@ -20,6 +19,7 @@
                 </div>
             </div>
         </div>
+
         <div class="panel-body">
             <div class="table-responsive" ng-if="!loadingsupplier">
                 <table class="table table-bordered">
@@ -30,25 +30,25 @@
                             <th>Name</th>
                             <th>Description</th>
                             <!--<th>IsActive</th>
-                            <th>CreatedBy</th>
-                            <th>CreatedDate</th>
-                            <th>ModifiedBy</th>
-                            <th>ModifiedDate</th>-->
+                        <th>CreatedBy</th>
+                        <th>CreatedDate</th>
+                        <th>ModifiedBy</th>
+                        <th>ModifiedDate</th>-->
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="SupplierType in SupplierTypes | filter:filterSupplierTypes">
+                        <tr ng-repeat="SupplierType in filteredSubjectData">
 
                             <td>{{SupplierType.Id}}</td>
                             <td>{{SupplierType.Name}}</td>
                             <td>{{SupplierType.Description}}</td>
                             <!--<td>{{ProductGroup.IsActive}}</td>
-                            <td>{{ProductGroup.CreatedBy}}</td>
-                            <td>{{ProductGroup.CreatedDate}}</td>
-                            <td>{{ProductGroup.ModifiedBy}}</td>
-                            <td>{{ProductGroup.ModifiedDate}}</td>-->
+                        <td>{{ProductGroup.CreatedBy}}</td>
+                        <td>{{ProductGroup.CreatedDate}}</td>
+                        <td>{{ProductGroup.ModifiedBy}}</td>
+                        <td>{{ProductGroup.ModifiedDate}}</td>-->
 
                             <td class="col-sm-2">
                                 <button ng-click="openSupplierTypeDialogContainer(SupplierType);" type="button" class="btn btn-sm btn-primary">Edit</button>
@@ -58,12 +58,43 @@
                     </tbody>
                 </table>
             </div>
-            <div class="panel-footer">
-                <div class="text-center">
-                    <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-4 pull-left">
+                    <div class="dataTables_length" id="datatable_length">
+                        <label>
+                          show
+                            <select name="datatable_length"
+                                    aria-controls="datatable"
+                                    class="form-control input-sm"
+                                    data-ng-model="numPerPage"
+                                    data-ng-options="x for x in showPerPageDataOptions"></select>
+                            entries
+                        </label>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-sm-8 pull-right">
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                       showing {{currentPage*numPerPage - numPerPage  + 1}} to {{SupplierTypes.length > currentPage*numPerPage ? currentPage*numPerPage : SupplierTypes.length}} of {{SupplierTypes.length}} entries
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                        <pagination ng-model="currentPage"
+                                    total-items="SupplierTypes.length"
+                                    max-size="maxSize"
+                                    boundary-links="true"
+                                    items-per-page="numPerPage">
+                        </pagination>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
-

@@ -75,7 +75,6 @@
             };
         }
     );
-
     app.controller('manageSupplierCtrl', manageSupplierCtrl);
 
     manageSupplierCtrl.$inject = ['$scope', 'apiService', 'notificationService', '$modal', '$routeParams'];
@@ -98,7 +97,6 @@
         $scope.selectedObj = {};
 
         //getting data and filtering data
-
         $scope.fileName = "Purchase Details";
         $scope.exportData = [];
         // Headers:
@@ -138,6 +136,8 @@
                 debugger
                 $scope.exportData.push([v.Id, v.SupplierName]);
             });
+            debugger
+            $scope.Purchases = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;

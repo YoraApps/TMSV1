@@ -5,10 +5,29 @@
         <div class="btn-group">
             <!--<div excel-export export-data="Purchases" file-name="{{fileName}}" ng-disabled="disableBtn" style="margin-left:400%;width:100%;" class="btn-btn-sm btn-primary">Export In Excel</div>-->
             <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddPurchase();" class="btn btn-sm btn-primary">Add Purchase<i class="fa fa-plus pull-right"></i></button>-->
+        </div >
         </div>
-    </div>
-
-    <div class="panel panel-primary">
+    <div class="row">        
+        <div class="col-md-4" style="width:200px;height:30px;">
+            <angucomplete-alt id="ex1"
+                              placeholder="Search UOM"
+                              pause="300"
+                              selected-object="selectedStr"
+                              local-data="unitofmeasurements"
+                              search-fields="Name"
+                              title-field="Name"
+                              minlength="0"
+                              input-class="form-control form-control-small">               
+            </angucomplete-alt>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" ng-click="getPurchaseGuiRep(selectedStr);" style="width:100px;height:30px;">Go</button>
+        </div>           
+    </div>  
+    <br />
+    <br />
+    <br />
+    <div class="panel panel-primary">     
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Purchase Report</h4>
             <!--<div class="input-group">
@@ -53,5 +72,17 @@
             </div>
         </div>
     </div>
-
+    <div class="panel panel-success" id="panelMovieGenres">
+        <div class="panel-heading">
+            <h3 class="panel-title">Purchase </h3>
+        </div>
+        <div class="panel-body">
+            <div ng-if="loadingPurchase">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"><i class="fa fa-refresh fa-5x fa-spin"></i> <label class="label label-primary">Loading Genres..</label></div>
+                <div class="col-xs-4"></div>
+            </div>
+            <div id="purchase-bar"></div>
+        </div>
+    </div>
 </div>

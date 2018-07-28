@@ -10,5 +10,6 @@ namespace HomeCinema.Services.IRepository
     public interface ISalesReportsRepository
     {
         List<SalesReportsDS> GetSalesReports();
+        List<SalesReportsDS> GetSalesGraphic(string Name);
     }
 }

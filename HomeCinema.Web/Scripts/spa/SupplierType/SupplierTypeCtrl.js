@@ -19,6 +19,9 @@
         $scope.UpdatedSuppliertype = UpdatedSuppliertype;
         $scope.AddSupplierModel = AddSupplierModel;
         $scope.removeSupplierType = removeSupplierType;
+        
+       
+         
 
 //getall SupplierTypes
 
@@ -30,7 +33,7 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 1,
+                    pageSize: 6,
                     filter: $scope.filterSupplierTypes
                 }
             };
@@ -42,6 +45,7 @@
 
         function suppliertypeLoadCompleted(result) {
             $scope.SupplierTypes = result.data;
+            $scope.adjustSupplierTypeList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -167,6 +171,36 @@
             notificationService.displayError(response);
         }
 
+// pagination 
+           $scope.filteredSubjectData = [];
+             $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustSupplierTypeList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredSubjectData = angular.copy($scope.SupplierTypes.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustSupplierTypeList();
+        });
+
+        $scope.showPerPageDataOptions = [3,5, 10, 25, 50, 100];
+
+
+
+        //$scope.paginationfunc = function () {
+
+        //    $scope.$watch("currentpage + numperpage", function () {
+        //        var begin = (($scope.currentpage - 1) * $scope.numperpage)
+        //            , end = begin + $scope.numperpage;
+        //        $scope.filteredtodos = $scope.suppliertypes.slice(begin, end);
+        //    });
+        //}
+       
         $scope.search();
 
         activate();
@@ -174,3 +208,5 @@
         function activate() { }
     }
 })(angular.module('homeCinema'));
+
+
