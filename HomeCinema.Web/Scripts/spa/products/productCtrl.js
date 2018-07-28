@@ -27,6 +27,7 @@
         //getting data and filtering data
 
         function search(page) {
+
             page = page || 0;
             $scope.loadingProduct = true;
             var config = {
@@ -35,11 +36,12 @@
                     pageSize: 6,
                     filter: $scope.filterMovies
                 }
-            };             
+            };
+            debugger
             apiService.get('/api/Product/getallproduct', config,
                 productLoadCompleted,
                 productLoadFailed);
-
+            debugger
             apiService.get('/api/ProductCategoryMaster/GetAllProductCategoryMaster', config,
                 ProductCategoryLoadCompleted,
                 ProductCategoryLoadFailed);
@@ -62,12 +64,14 @@
 
 
         function productLoadCompleted(result) {
+            debugger
             $scope.products = result.data;
             //$scope.paginationFunc();
             $scope.adjustProductList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
+            debugger
             $scope.loadingProduct = false;
             if ($scope.filterProduct && $scope.filterProduct.length) {
                 notificationService.displayInfo(result.data.length + 'Product found');
@@ -77,13 +81,14 @@
             notificationService.displayError(response.data);
         }
         function clearSearch() {
+            debugger
             $scope.filterProduct = '';
             search();
-        }  
+        }
 
         $scope.Id = 0;
         $scope.SelctedArry = [];
-        
+
         $scope.openProductDialogContainer = function (data) {
             debugger
             $scope.modelObj = data;
@@ -95,6 +100,7 @@
 
         //popup for save
         $scope.AddProduct = function () {
+            debugger
             $scope.modelObj = {};
             $scope.ModelType = 'Add';
             $scope.openProductDialog();
@@ -103,16 +109,19 @@
 
         //modified
         function openProductDialog() {
+            debugger
             $modal.open({
                 templateUrl: 'scripts/spa/products/productAdd.html',
                 controller: 'productAddCtrl',
                 scope: $scope
+
             }).result.then(function ($scope) {
             }, function () {
             });
         }
         //remove
-        function removeproduct(data) {            
+        function removeproduct(data) {
+            debugger
             $scope.removeID = data;
             apiService.post('/api/Product/Delete/' + $scope.removeID, null,
                 productRemoveCompleted,
@@ -120,9 +129,9 @@
         }
         function productRemoveCompleted(result) {
             notificationService.displaySuccess(' has been removed');
-            $scope.search();           
+            $scope.search();
             console.log(result);
-            $scope.products = result.data;            
+            $scope.products = result.data;
         }
         function productRemoveFailed(response) {
             notificationService.displayError(response.data);
@@ -145,22 +154,22 @@
             $scope.adjustProductList();
         });
 
-        $scope.showPerPageDataOptions = [3,5, 10, 25, 50, 100];
-       // $scope.paginationFunc = function () {
-       //    // $scope.products = [];
-       //    // for ($scope.i = 1; $scope.i <= products.length; $scope.i++) {
-       //    //     debugger
-       //    //     $scope.products.push({ text: "" + products[i], done: false });
-       //    // }
-       ////$scope.paginationFunc();  
-       // $scope.$watch("currentPage + numPerPage", function () {
-       //     var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-       //         , end = begin + $scope.numPerPage;
-       //     $scope.filteredTodos = $scope.products.slice(begin, end);
-          
-       //     });
-       // //$scope.productLoadCompleted();
-        
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
+        // $scope.paginationFunc = function () {
+        //    // $scope.products = [];
+        //    // for ($scope.i = 1; $scope.i <= products.length; $scope.i++) {
+        //    //     debugger
+        //    //     $scope.products.push({ text: "" + products[i], done: false });
+        //    // }
+        ////$scope.paginationFunc();  
+        // $scope.$watch("currentPage + numPerPage", function () {
+        //     var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+        //         , end = begin + $scope.numPerPage;
+        //     $scope.filteredTodos = $scope.products.slice(begin, end);
+
+        //     });
+        // //$scope.productLoadCompleted();
+
         $scope.search();
     }
 })(angular.module('homeCinema'));

@@ -9,7 +9,7 @@
         $scope.UpdateProduct = UpdateProduct;
 
         function SaveProduct() {
-           
+            debugger
             $scope.pruduct = {
                 "Name": $scope.modelObj.Name,
                 "Description": $scope.modelObj.Description,
@@ -17,14 +17,18 @@
                 "GRNCode": $scope.modelObj.GRNCode,
                 "Prod_Cat_Id": $scope.selectedObj.Id
             };
+            debugger
             apiService.post('/api/Product/Create', $scope.pruduct,
                 addProductSucceded,
                 addProductFailed);
         }
         function addProductSucceded(response) {
+            debugger
             notificationService.displaySuccess(' has been submitted to Home Cinema');
             $scope.Product = response.data;
+            debugger
             $scope.search();
+            debugger
             $scope.modelObj = {};
             $modalInstance.dismiss();
         }
@@ -35,6 +39,7 @@
         }
         //cancel
         $scope.cancelEdit = function () {
+            debugger
             $scope.modelObj = {};
             $modalInstance.dismiss();
         }
