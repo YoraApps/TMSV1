@@ -105,7 +105,6 @@
             $scope.save = 'add';
             $scope.Modals.openProductgroupDialog();
         }
-        
 
 
 

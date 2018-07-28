@@ -1,0 +1,63 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-if="save=='update'">
+        PurchaseRepository
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="col-xs-4">
+                <label class="control-label">Product</label>
+                <select type="text" placeholder="Name" ng-model="ProdObj" data-ng-options='pa.ProductName for pa in productarr' ng-change="prodObjFromPostModel(ProdObj); " style="width: 163px;height:36px;">
+                    <option value="" disabled>Select A Product</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">Supplier</label>
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="SupObj" data-ng-options='pa.SupplierName for pa in supplierarr' ng-change="supObjFromPostModel(SupObj);">
+                    <option value="" disabled>Select A Supplier</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">PurchaseDate</label>
+                <p class="input-group">
+                    <input type="text"
+                           style="width: 125px;height:36px;"
+                           class="form-control"
+                           init-date="dateOptions.initDate"
+                           datepicker-popup="{{format}}"
+                           ng-model="modelObj.date"
+                           is-open="opened"
+                           min-date="dateOptions.minDate"
+                           max-date="'2100-06-22'"
+                           datepicker-options="dateOptions"
+                           date-disabled="disabled(date, mode)"
+                           ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">UOM</label>
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="UomObj" data-ng-options='pa.UOMName for pa in UOMarr' ng-change="uomObjFromPostModel(UomObj); ">
+                    <option value="" disabled>Select A UOM</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">Quantity</label>
+                <input type="text" placeholder="Quantity" ng-model="modelObj.Quantity" style="width: 163px;height:36px;" /><br />
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">Location</label>
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="LocObj" data-ng-options='pa.LocationName for pa in Locationarr' ng-change="locObjFromPostModel(LocObj);">
+                    <option value="" disabled>Select A Location</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdatePurchase()" ng-if="save =='update'">Update</button>
+        </div>
+    </div>
+</div>

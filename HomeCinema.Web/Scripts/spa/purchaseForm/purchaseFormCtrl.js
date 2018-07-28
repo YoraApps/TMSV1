@@ -41,7 +41,7 @@
        
         $scope.Id = 0;
         $scope.SelctedArry = [];       
-        $scope.AddPurchase = function (data) {
+        $scope.openPurchaseDialogContainer = function (data) {
             $scope.modelObj = data;
             $scope.SelctedArry = $scope.modelObj.LocationList.filter(x => x.Id === data.LocationId);
             $scope.LocationList = [];            

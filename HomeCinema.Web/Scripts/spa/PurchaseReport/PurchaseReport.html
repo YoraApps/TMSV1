@@ -43,26 +43,29 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Produc tName</th>
+                            <th>Id</th>
+                            <th>Product Name</th>
                             <th>Supplier Name</th>
                             <th>Quantity</th>
                             <th>UOMName</th>
                             <th>Location Name</th>
                             <th>Purchase Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="purchase in Purchases">
+                        <tr ng-repeat="purchase in Purchases |filter:filterPurchase">
+                            <td>{{purchase.Id}}</td>
                             <td>{{purchase.ProductName}}</td>
                             <td>{{purchase.SupplierName}}</td>
                             <td>{{purchase.Quantity}}</td>
                             <td>{{purchase.UOMName}}</td>
                             <td>{{purchase.LocationName}}</td>
-                            <td>{{purchase.PurchaseDate}}</td>  
-                            <!--<td class="col-sm-2">-->
-                                <!--<button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>-->
-                            
+                            <td>{{purchase.PurchaseDate}}</td>
+                            <td class="col-sm-2">
+                            <button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                            <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+
                         </tr>
                     </tbody>
                 </table>
