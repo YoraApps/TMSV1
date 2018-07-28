@@ -32,8 +32,6 @@
              <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
          </div>
      </div>-->
-
-
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-primary">
@@ -63,7 +61,7 @@
                                     <td>{{Sale.UOMName}}</td>
                                     <td>{{Sale.SalesDate}}</td>
                                     <td class="col-sm-2">
-                                        <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                        <button ng-click="openSaleReportDialogContainer(Sale);" type="button" class="btn btn-primary btn-xs">Edit</button>
                                         <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
                                     </td>
                                 </tr>
@@ -78,7 +76,6 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Sales Graphics</h3>
                 </div>
-
                 <div class="panel-body">
                     <div ng-if="loadingSales">
                         <div class="col-xs-4"></div>
