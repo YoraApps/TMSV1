@@ -1,5 +1,5 @@
 ﻿<div class="jumbotron">
-    <div class="panel panel-primary">
+
         <div class="container text-center">
             <img alt="{{product.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
             <br />
@@ -60,45 +60,39 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <!--<pagination ng-model="currentPage"
-                    total-items="products.length"
-                    max-size="maxSize"
-                    boundary-links="true">
-        </pagination>-->
-        <div class="row">
-            <div class="col-sm-4 pull-left">
-                <div class="dataTables_length" id="datatable_length">
-                    <label>
-                       show
-                        <select name="datatable_length"
-                                aria-controls="datatable"
-                                class="form-control input-sm"
-                                data-ng-model="numPerPage"
-                                data-ng-options="x for x in showPerPageDataOptions"></select>
-                      entries
-                    </label>
+            <div class="row">
+                <div class="col-sm-4 pull-left">
+                    <div class="dataTables_length" id="datatable_length">
+                        <label>
+                            show
+                            <select name="datatable_length"
+                                    aria-controls="datatable"
+                                    class="form-control input-sm"
+                                    data-ng-model="numPerPage"
+                                    data-ng-options="x for x in showPerPageDataOptions"></select>
+                            entries
+                        </label>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-sm-8 pull-right">
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                        showing {{currentPage*numPerPage - numPerPage  + 1}} to {{products.length > currentPage*numPerPage ? currentPage*numPerPage : products.length}} of {{products.length}} entries
+                    </div>
                 </div>
             </div>
-            &nbsp;&nbsp;&nbsp;
-            <div class="col-sm-8 pull-right">
-                <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
-                    showing {{currentPage*numPerPage - numPerPage  + 1}} to {{products.length > currentPage*numPerPage ? currentPage*numPerPage : products.length}} of {{products.length}} entries
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 pull-right">
-                <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                    <pagination ng-model="currentPage"
-                                total-items="products.length"
-                                max-size="maxSize"
-                                boundary-links="true"
-                                items-per-page="numPerPage">
-                    </pagination>
+            <div class="row">
+                <div class="col-sm-6 pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                        <pagination ng-model="currentPage"
+                                    total-items="products.length"
+                                    max-size="maxSize"
+                                    boundary-links="true"
+                                    items-per-page="numPerPage">
+                        </pagination>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
     </div>
 

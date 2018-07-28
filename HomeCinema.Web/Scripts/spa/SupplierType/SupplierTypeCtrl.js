@@ -172,13 +172,13 @@
         }
 
 // pagination 
-           $scope.filteredSubjectData = [];
+          // $scope.filteredSubjectData = [];
              $scope.currentPage = 1
             , $scope.numPerPage = 5
             , $scope.maxSize = 5;
-        $scope.orderByField = 'Id';
-        $scope.reverseSort = true;
-        $scope.adjustSupplierTypeList = function () {
+            $scope.orderByField = 'Id';
+            $scope.reverseSort = true;
+          $scope.adjustSupplierTypeList = function () {
             var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                 , end = begin + $scope.numPerPage;
 
@@ -189,17 +189,6 @@
         });
 
         $scope.showPerPageDataOptions = [3,5, 10, 25, 50, 100];
-
-
-
-        //$scope.paginationfunc = function () {
-
-        //    $scope.$watch("currentpage + numperpage", function () {
-        //        var begin = (($scope.currentpage - 1) * $scope.numperpage)
-        //            , end = begin + $scope.numperpage;
-        //        $scope.filteredtodos = $scope.suppliertypes.slice(begin, end);
-        //    });
-        //}
        
         $scope.search();
 
