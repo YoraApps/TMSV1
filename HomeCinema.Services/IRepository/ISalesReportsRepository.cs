@@ -11,5 +11,6 @@ namespace HomeCinema.Services.IRepository
     {
         List<SalesReportsDS> GetSalesReports();
         List<SalesReportsDS> GetSalesGraphic(string Name);
+        bool Update(SalesForm salesReportsDS);
     }
 }

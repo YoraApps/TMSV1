@@ -21,14 +21,13 @@
 
         function search(page) {
             page = page || 0;
-
             $scope.loadingCustomerMaster = true;
 
             var config = {
                 params: {
                     page: page,
                     pageSize: 6,
-                    filter: $scope.filtercustomer
+                    filter: $scope.filterMovies
                 }
             };
 
@@ -45,11 +44,9 @@
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
             $scope.loadingBooks = false;
-
             if ($scope.filtercustomer && $scope.filtercustomer.length) {
-                notificationService.displayInfo(result.data.length + ' watches found');
+                notificationService.displayInfo(result.data.length + ' customer found');
             }
-
         }
         function openEditDialog(customer) {
             $scope.EditedCustomer = customer;
@@ -101,11 +98,13 @@
                 CustomerMasterRemoveCompleted,
                CustomerMasterRemoveFailed);
         }
-
         function CustomerMasterRemoveCompleted(result) {
             notificationService.displaySuccess(' has been removed');
-                $scope.CustomerMaster = result.data;
-                $scope.search();
+            debugger
+            $scope.search();
+            console.log(result);
+            debugger
+            $scope.CustomerMaster = result.data;               
         }
 
         function CustomerMasterRemoveFailed(response) {

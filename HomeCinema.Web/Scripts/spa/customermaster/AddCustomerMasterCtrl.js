@@ -43,29 +43,29 @@
 
         //updating
         function UpdateCustomer() {
+        
             $scope.customer = $scope.modelObj;
-            apiService.post('/api/CustomerMaster/Update', $scope.customer,
+            $scope.cusId = $scope.modelObj;
+            apiService.post('/api/CustomerMaster/Update/' +$scope.customer, $scope.cusId,              
                 updateCustomerSucceded,
                 updateCustomerFailed);
         }
 
         function updateCustomerSucceded(response) {
+         
             console.log(response);
             $scope.modelObj = {};
             notificationService.displaySuccess(' has been updated');
+
             $modalInstance.dismiss();
             // $location.path('/watches');
             // $scope.watch = response.data;
 
-        }
-
+        } 
         function updateCustomerFailed(response) {
             console.log(response);
             $scope.modelObj = {};
             notificationService.displayError(response);
         }
-
-
-
     }
 })(angular.module('homeCinema'));

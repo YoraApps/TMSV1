@@ -51,9 +51,7 @@
 
                 notificationService.displayInfo(result.data.length + ' productgroup found');
             }
-
         }
-
         function productgroupsLoadFailed(response) {
             notificationService.displayError(response.data);
         }
@@ -62,9 +60,7 @@
             $scope.filterProductGroup = '';
             search();
         }
-
   //popup modal
-
         $scope.Modals = {
             openProductgroupDialog: function () {
                 
@@ -78,21 +74,16 @@
                 }, function (event) {
                 });
             },
-
   //cnacel modal
-
             cancelproductGroupDialog: function () {
                 $scope.modelInstance.dismiss();
             }
         };
-
   //Cancel Edit popup
         function cancelEdit() {
             $scope.Modals.cancelproductGroupDialog();
         }
-
 //popup edit productgroup
-
         $scope.modelobj = {};
         $scope.openProductGroupDialogContainer = function (data) {
             debugger
@@ -100,18 +91,11 @@
             $scope.save = 'update';
             $scope.Modals.openProductgroupDialog();
         }
-
 //popup Added new ProductGroup
-
-        $scope.AddProductGroup = function () {
-        
+        $scope.AddProductGroup = function () {        
             $scope.save = 'add';
             $scope.Modals.openProductgroupDialog();
         }
-        
-
-
-
 //Update ProductGroup 
         $scope.ProductObj = {};
         function UpdatedProductGroup() {
@@ -120,20 +104,15 @@
                 updateProductedSucceded,
                 updateproductedFailed);
         }
-
         function updateProductedSucceded(response) {
             console.log(response);
             notificationService.displaySuccess('has been updated');
             $scope.cancelEdit();
-
-
         }
-
         function updateproductedFailed(response) {
             notificationService.displayError(response);
             $scope.cancelEdit();
         }
-
 //Save ProductGroup
         function AddProductModel() {
             debugger
@@ -142,22 +121,17 @@
                 AddProductFailed);
         }
         function AddProductSucceded(response) {
-
-            debugger
-
             notificationService.displaySuccess(' has been submitted to Home Cinema');
             $scope.ProductGroups = response.data;
             $scope.modelobj = {};
             $scope.search();
             $scope.cancelEdit();
         }
-
         function AddProductFailed(response) {
             console.log(response);
             notificationService.displayError(response.statusText);
             $scope.modelobj = {};
         }
-
  //remove ProductGroup
         function removeProductGroup(data) {
             $scope.id = data;

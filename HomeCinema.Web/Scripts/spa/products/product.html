@@ -60,19 +60,24 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4 pull-left">
-                    <div class="dataTables_length" id="datatable_length">
-                        <label>
-                            show
-                            <select name="datatable_length"
-                                    aria-controls="datatable"
-                                    class="form-control input-sm"
-                                    data-ng-model="numPerPage"
-                                    data-ng-options="x for x in showPerPageDataOptions"></select>
-                            entries
-                        </label>
-                    </div>
+        </div>
+        <!--<pagination ng-model="currentPage"
+                    total-items="products.length"
+                    max-size="maxSize"
+                    boundary-links="true">
+        </pagination>-->
+        <div class="row">
+            <div class="col-sm-4 pull-left">
+                <div class="dataTables_length" id="datatable_length">
+                    <label>
+                        show
+                        <select name="datatable_length"
+                                aria-controls="datatable"
+                                class="form-control input-sm"
+                                data-ng-model="numPerPage"
+                                data-ng-options="x for x in showPerPageDataOptions"></select>
+                        entries
+                    </label>
                 </div>
                 &nbsp;&nbsp;&nbsp;
                 <div class="col-sm-8 pull-right">
@@ -95,4 +100,5 @@
             </div>
         </div>
     </div>
+</div>
 
