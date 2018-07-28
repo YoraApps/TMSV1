@@ -40,6 +40,7 @@
         }
 
         function productgroupsLoadCompleted(result) {
+
             $scope.ProductGroups = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
@@ -62,6 +63,7 @@
   //popup modal
         $scope.Modals = {
             openProductgroupDialog: function () {
+                
                 $scope.modelInstance = $modal.open({
                     templateUrl: 'scripts/spa/ProductGroup/Add.html',
                     size: 'md',
@@ -84,6 +86,7 @@
 //popup edit productgroup
         $scope.modelobj = {};
         $scope.openProductGroupDialogContainer = function (data) {
+            debugger
             $scope.modelobj = data;
             $scope.save = 'update';
             $scope.Modals.openProductgroupDialog();

@@ -1,16 +1,16 @@
 ﻿
-    <div class="panel panel-primary ng-scope">
+    <div class="panel panel-primary ng-scope" style="text-align:center">
         <div class="panel-heading" ng-if="ModelType=='Edit'">
             Update {{modelObj.Name}}
         </div>
         <div class="panel-heading" ng-if="ModelType=='Add'">
             Added {{modelObj.Name}}
         </div>
-        <div class="panel-body">
+        <div class="panel-body" >
             <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <div class="col-xs-8 selectContainer">
-                        <input type="text" placeholder="Brand" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Name" /><br />
+                <div class="form-group" >
+                    <div class="col-xs-8 selectContainer" >
+                        <input type="text" placeholder="Brand" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Name" />
                     </div>                    
                 </div>
                 <div class="form-group">
@@ -20,7 +20,15 @@
                 </div>
                 <div class="form-group">
                     <div class="col-xs-8">
-                        <input type="text" placeholder="ImageURI" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.ImageURI" /><br />
+                        
+                        <div class="text-center">
+                            <img ng-src="../../Content/images/movies/unknown.jpg" class="avatar img-responsive">
+                            <h6>Add photo...</h6>
+
+                            <!--<input type="file" ng-file-select="prepareFiles($files)">-->
+                            <input type="file" id="file" name="file" />
+                        </div>
+                        <!--<input type="text" placeholder="ImageURI" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.ImageURI" /><br />-->
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,6 +51,7 @@
                 <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
                 <button type="button" class="btn btn-primary" ng-click="UpdateProduct()" ng-if="ModelType=='Edit'">Update</button>
                 <button type="button" class="btn btn-primary" ng-click="SaveProduct()" ng-if="ModelType=='Add'">Save</button>
+
             </div>
         </div>
     </div>

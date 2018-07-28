@@ -13,7 +13,6 @@
         $scope.pagesCount = 0;
         $scope.openSuppliersDialog = openSuppliersDialog;
         $scope.removesupplier = removesupplier;
-       // $scope.openDialog = openDialog;
         $scope.suppliers = [];
         $scope.search = search;
         $scope.clearSearch = clearSearch;
