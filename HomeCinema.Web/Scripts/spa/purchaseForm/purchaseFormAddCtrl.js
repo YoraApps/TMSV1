@@ -7,8 +7,10 @@
         function purchaseFormAddCtrl($scope, apiService, notificationService, $modalInstance){
         $scope.title = 'purchaseFormAddCtrl';
         $scope.purchase = {};       
-        $scope.SavePurchase = SavePurchase;       
-        function SavePurchase() {
+        $scope.SavePurchase = SavePurchase; 
+            
+            function SavePurchase() {
+               
             $scope.purchase = {
                 "Supplier": $scope.SupObj,
                 "Location": $scope.LocObj,

@@ -29,29 +29,29 @@
                 addProductFailed);
         }
 
-        function prepareFiles($files) {
-            debugger
-            Imageurl = $files;
-            console.log("prepareFiles: " + Imageurl)
-        }
+        //function prepareFiles($files) {
+        //    debugger
+        //    Imageurl = $files;
+        //    console.log("prepareFiles: " + Imageurl)
+        //}
         function addProductSucceded(response) {
-            debugger
+           
             notificationService.displaySuccess(' has been submitted to Home Cinema');
             $scope.Product = response.data;
-            debugger
+        
             $scope.search();
-            debugger
+         
             $scope.modelObj = {};
             $modalInstance.dismiss();
 
             //if (Imageurl) {
             //    fileUploadService.uploadImage(Imageurl);
             //}
-            debugger
-            if (document.getElementById('file').files.length > 0) {
-                var f = document.getElementById('file').files;
-                fileUploadService.uploadImage(f, response.data.Id);
-            }
+            //debugger
+            //if (document.getElementById('file').files.length > 0) {
+            //    var f = document.getElementById('file').files;
+            //    fileUploadService.uploadImage(f, response.data.Id);
+            //}
             //    r = new FileReader();
 
             //r.onloadend = function (e) {

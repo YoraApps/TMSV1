@@ -75,7 +75,7 @@ namespace HomeCinema.Web.Controllers
                 response = request.CreateErrorResponse(HttpStatusCode.NotFound, "Invalid product.");
             else
             {
-                var uploadPath = HttpContext.Current.Server.MapPath("~/Content/images/product");
+                var uploadPath = HttpContext.Current.Server.MapPath("~/Content/images/movies");
 
                 var multipartFormDataStreamProvider = new UploadMultipartFormProvider(uploadPath);
 

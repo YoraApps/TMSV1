@@ -47,11 +47,11 @@ namespace HomeCinema.Web.Controllers
                 return Ok(isupdate);
             return BadRequest();
         }
-        
+        [HttpPost]
         [Route("getPurchaseReportInaGraph")]
-        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster uom)
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster UOM)
         {
-            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(uom.Name);
+            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(UOM.Name);
         }
     }
 } 

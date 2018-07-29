@@ -43,6 +43,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>ProductName</th>
                                     <th>CustomerName</th>
                                     <th>POSName</th>
@@ -54,6 +55,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="Sale in Sales | filter:filterSale">
+                                    <td>{{Sale.Id}}</td>
                                     <td>{{Sale.ProductName}}</td>
                                     <td>{{Sale.CustomerName}}</td>
                                     <td>{{Sale.POSName}}</td>
@@ -62,7 +64,7 @@
                                     <td>{{Sale.SalesDate}}</td>
                                     <td class="col-sm-2">
                                         <button ng-click="openSaleReportDialogContainer(Sale);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                        <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                        <button ng-click="removeproduct(Sale.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>

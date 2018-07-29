@@ -41,8 +41,10 @@
        
         $scope.Id = 0;
         $scope.SelctedArry = [];       
-        $scope.openPurchaseDialogContainer = function (data) {
+        $scope.AddPurchase = function (data) {
             $scope.modelObj = data;
+          
+
             $scope.SelctedArry = $scope.modelObj.LocationList.filter(x => x.Id === data.LocationId);
             $scope.LocationList = [];            
             $scope.LocationList = $scope.modelObj.LocationList;       
@@ -53,11 +55,12 @@
             $scope.SelctedArry = $scope.modelObj.uOMList.filter(x => x.Id === data.UOMId);
             $scope.uOMList = [];
             $scope.uOMList = $scope.modelObj.uOMList; 
-
+             
             $scope.SelctedArry = $scope.modelObj.productList.filter(x => x.Id === data.ProductId);
             $scope.productList = [];
             $scope.productList = $scope.modelObj.productList; 
             $scope.openPurchaseDialog();
+           
         }       
         //modified
         function openPurchaseDialog() {

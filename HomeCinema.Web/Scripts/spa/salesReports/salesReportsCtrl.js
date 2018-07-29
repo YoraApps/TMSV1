@@ -122,7 +122,6 @@
             $scope.POSObj = data;
         }
         function UpdatedSales() {
-
             
             $scope.selectedObj = {
                 "SalesId": $scope.modelObj.Id,
@@ -138,13 +137,16 @@
                 SaleReportsLoadFailed);
         }
         function SaleReportsLoadCompleted() {
+
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
-            $modalInstance.dismiss();
+            $scope.cancelEdit();
+    
         }
         function SaleReportsLoadFailed() {
             $scope.modelObj = {};
             notificationService.displayError('error');
+            $scope.cancelEdit();
         }
 
         $scope.Modals = {
@@ -164,7 +166,7 @@
             }
         };
         $scope.openSaleReportDialogContainer = function (fsd) {
-            debugger
+
             $scope.productArr = $scope.saleArry.Product;
             $scope.PrdHoldArr = $scope.productArr.filter(x => x.ProductId == fsd.ProductId)
             $scope.productObj = $scope.PrdHoldArr[0];

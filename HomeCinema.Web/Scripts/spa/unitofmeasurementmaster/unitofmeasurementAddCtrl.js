@@ -8,7 +8,7 @@
 
         $scope.unitofmeasurement = {};
         $scope.Saveunitofmeasurement = Saveunitofmeasurement;
-        $scope.Updateunitofmeasurementr = Updateunitofmeasurement;
+        $scope.Updateunitofmeasurement = Updateunitofmeasurement;
         //function Addwatch() {
         //    AddWatchModel();
         //}
@@ -38,9 +38,10 @@
             $modalInstance.dismiss();
         }
         //updating
-        function Updateunitofmeasurement(modelObj) {
-            debugger
-            $scope.unitofmeasurement = modelObj;
+        $scope.unitofmeasurement = {};
+        function Updateunitofmeasurement() {
+            debugger;
+            $scope.unitofmeasurement = $scope.modelObj;
             apiService.post('/api/UnitOfMeasurementMaster/Update', $scope.unitofmeasurement,
                 UpdateunitofmeasurementSucceded,
                 UpdateunitofmeasurementFailed);
@@ -48,6 +49,7 @@
 
 
         function UpdateunitofmeasurementSucceded(response) {
+            debugger;
             console.log(response);
             $scope.modelObj = {};
             notificationService.displaySuccess(' has been updated');
@@ -56,7 +58,7 @@
         function UpdateunitofmeasurementFailed(response) {
             console.log(response);
             $scope.modelObj = {};       
-            notificationService.displayError(response);
+            notificationService.displayError('error');
         }
 
 

@@ -15,6 +15,8 @@
         $scope.clearSearch = clearSearch;
         $scope.cancelEdit = cancelEdit;
         $scope.UpdatePurchase = UpdatePurchase;
+        $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
+        $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
         $scope.PurchasesArr = [];
         $scope.Purchases = [];
         $scope.LocHoldArr = [];
@@ -29,8 +31,7 @@
         $scope.selectedObj = {};
         $scope.selectedStr = '';
         $scope.purchaseAnguList = [];
-        $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
-        $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
+      
       
         function search(page) {
             page = page || 0;
@@ -69,7 +70,7 @@
         }
 
         function unitofmeasurementsLoadCompleted(result) {
-            debugger
+          
             $scope.unitofmeasurements = result.data;
         }
         function unitofmeasurementsLoadFailed(response) {
@@ -108,6 +109,7 @@
         }
 
         function UpdatePurchase() {
+          
 
             $scope.selectedObj = {
                 "PurchaseId": $scope.modelObj.Id,
@@ -124,7 +126,7 @@
                 ParchaseReportsLoadFailed);
         }
         function PurchaseReportsLoadCompleted() {
-
+            debugger
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
             $scope.cancelEdit();
@@ -206,6 +208,9 @@
         } 
       
         $scope.open = function ($event) {
+
+            debugger
+
             $event.preventDefault();
             $event.stopPropagation();
             $scope.opened = true;
@@ -219,6 +224,9 @@
         $scope.format = 'MM-dd-yyyy';               
 
         $scope.getPurchaseGuiRep = function (data) {
+
+            debugger
+
             console.log(data.originalObject);
             apiService.post('/api/PurchaseReport/getPurchaseReportInaGraph/', data.originalObject,
                 PurchaseGraphicReportLoadCompleted,
