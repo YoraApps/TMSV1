@@ -122,7 +122,9 @@
             $scope.POSObj = data;
         }
         function UpdatedSales() {
-            
+
+            debugger
+
             $scope.selectedObj = {
                 "SalesId": $scope.modelObj.Id,
                 "Product": $scope.productObj,

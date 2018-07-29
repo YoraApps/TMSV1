@@ -149,6 +149,11 @@
                 controller: "unitofmeasurementAddCtrl"
             })
 
+            .when("/location", {
+                templateUrl: "scripts/spa/Location/Location.html",
+                controller: "LocationCtrl"
+            })
+
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"

@@ -89,6 +89,7 @@ namespace HomeCinema.Web.App_Start
                 "~/Scripts/spa/purchase/manageSupplierAddCtrl.js",
                 "~/Scripts/spa/purchaseForm/purchaseFormCtrl.js",
                  "~/Scripts/spa/purchaseForm/purchaseFormAddCtrl.js",
+                   "~/Scripts/spa/Location/LocationCtrl.js",
                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
                   "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js",
                    "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js",
