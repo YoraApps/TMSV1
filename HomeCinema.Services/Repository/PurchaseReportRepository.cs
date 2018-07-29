@@ -62,7 +62,7 @@ namespace HomeCinema.Services.Repository
 
             param.Add("@Id", purchaseFormPostDs.PurchaseId);
             param.Add("@ProductId", purchaseFormPostDs.Product.ProductId);
-            param.Add("@Supplier_Id", purchaseFormPostDs.Supplier.Supplier_Id);
+            param.Add("@Supplier_Id", purchaseFormPostDs.Supplier.SupplierId);
             param.Add("@LocationId", purchaseFormPostDs.Location.LocationId);
             param.Add("@UomId", purchaseFormPostDs.UOM.UomId);
             param.Add("@Quantity", purchaseFormPostDs.Quantity);
