@@ -140,6 +140,14 @@
                 templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
                 controller: "unitofmeasurementAddCtrl"
             })
+            .when("/PosMaster", {
+                templateUrl: "scripts/spa/PosMaster/PosMaster.html",
+                controller: "PosMasterCtrl"
+            })
+            .when("/StudentTest", {
+                templateUrl: "scripts/spa/StudentTest/Student.html",
+                controller: "StudentCtrl"
+            })
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
