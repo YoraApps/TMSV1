@@ -47,7 +47,9 @@
     <Compile Include="Abstract\IMembershipService.cs" />
     <Compile Include="IRepository\IBookRepository.cs" />
     <Compile Include="IRepository\ICusomerMaster.cs" />
+    <Compile Include="IRepository\IPosMasterRepository.cs" />
     <Compile Include="IRepository\IPurchaseReportRepository.cs" />
+    <Compile Include="IRepository\ISalesRepository.cs" />
     <Compile Include="IRepository\IUnitOfMesurement.cs" />
     <Compile Include="IRepository\ICustomerTypeRepository.cs" />
     <Compile Include="IRepository\IProductCategoryMasterRepository.cs" />
@@ -65,7 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\CusomerMasterRepository.cs" />
+    <Compile Include="Repository\PosMasterRepository.cs" />
     <Compile Include="Repository\PurchaseReportRepository.cs" />
+    <Compile Include="Repository\SalesRepository.cs" />
     <Compile Include="Repository\UnitOfMeasurementRepository.cs" />
     <Compile Include="Repository\CustomerTypeRepository.cs" />
     <Compile Include="Repository\ProductCategoryMasterRepository.cs" />
