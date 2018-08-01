@@ -13,12 +13,16 @@
         $scope.pagesCount = 0;
         $scope.openSuppliersDialog = openSuppliersDialog;
         $scope.removesupplier = removesupplier;
-       // $scope.openDialog = openDialog;
         $scope.suppliers = [];
         $scope.search = search;
         $scope.clearSearch = clearSearch;
+        $scope.SupplierArry = [];
+        $scope.selectedObj = {};
+        $scope.suppliertypeLoadCompleted = suppliertypeLoadCompleted;
+        $scope.supplierstypeLoadFailed = supplierstypeLoadFailed;
         
         function search(page) {
+            debugger
             page = page || 0;
 
             $scope.loadingWatches = true;
@@ -34,9 +38,22 @@
             apiService.get('/api/SupplierMaster/getallsupplier', config,
                 suppliersLoadCompleted,
                 suppliersLoadFailed);
+
+            apiService.get('/api/SupplierType/GetAllSupplierType', config,
+                suppliertypeLoadCompleted,
+                supplierstypeLoadFailed);
+        }
+        function suppliertypeLoadCompleted(response) {
+          
+            $scope.SupplierArry = response.data;
+
+        }
+        function supplierstypeLoadFailed(error) {
+            console.log("error in Supplier Type Get Call Service");
         }
 
         function suppliersLoadCompleted(result) {
+           
             $scope.suppliers = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
@@ -58,9 +75,15 @@
             $scope.filtersuppliers = '';
             search();
         }
+        $scope.Id = 0;
+        $scope.SelctedArry = [];
+
         $scope.modelObj = {};
         //popup for update
         $scope.openRentDialogContainer = function (data) {
+            $scope.SelctedArry = $scope.SupplierArry.filter(x => x.Id === data.SupplierTypeId);
+            $scope.selectedObj = $scope.SelctedArry[0];
+
             $scope.ModelType = 'Edit';
             $scope.modelObj = data;     //editing
             openSuppliersDialog();
@@ -81,28 +104,33 @@
             }, function () {
             });
         }
-        function removesupplier(data) {
-            // $scope.loadingWatches = true;
-            $scope.removeId = data;
-            apiService.post('/api/SupplierMaster/Delete/' + $scope.removeId, null,
-                supplierRemoveCompleted,
-                supplierRemoveFailed);
+        $scope.fetchSupplier = function (data) {
+            $scope.selectedObj = data;
+
         }
+    
+    function removesupplier(data) {
+        // $scope.loadingWatches = true;
+        $scope.id = data;
+        apiService.post('/api/SupplierMaster/Delete/' + $scope.id, null,
+            supplierRemoveCompleted,
+            supplierRemoveFailed);
+    }
 
         function supplierRemoveCompleted(result) {
-            notificationService.displaySuccess(' has been removed');
-            $scope.search();
-            // $modalInstance.dismiss();
-            console.log(result);
-            $scope.supplier = result.data;
-           
-        }
+            debugger
+        notificationService.displaySuccess(' has been removed');
+        $scope.search();
+        // $modalInstance.dismiss();
+        console.log(result);
+        $scope.supplier = result.data;
 
-        function supplierRemoveFailed(response) {
-            notificationService.displayError(response.data);
-            console.log(response);
-        }
+    }
 
+    function supplierRemoveFailed(response) {
+        notificationService.displayError(response.data);
+        console.log(response);
+    }
 
         $scope.search();
         activate();

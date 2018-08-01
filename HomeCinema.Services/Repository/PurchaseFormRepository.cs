@@ -28,7 +28,7 @@ namespace HomeCinema.Services.Repository
             purchaseSave.CreatedDate = now;    
             DynamicParameters param = new DynamicParameters();
             param.Add("@ProductId", purchaseSave.Product.ProductId);
-            param.Add("@Supplier_Id", purchaseSave.Supplier.Supplier_Id);
+            param.Add("@Supplier_Id", purchaseSave.Supplier.SupplierId);
             param.Add("@PurchaseDate", purchaseSave.PurchaseDate);
             param.Add("@UomId", purchaseSave.UOM.UomId);
             param.Add("@Quantity", purchaseSave.Quantity);

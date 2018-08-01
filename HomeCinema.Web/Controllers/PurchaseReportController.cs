@@ -1,4 +1,5 @@
-﻿using HomeCinema.Entities.DataSource;
+﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace HomeCinema.Web.Controllers
         {
             return _PurchaseReportRepository.GetAllPurchaseReport();
         }
+        
         [HttpPost]
         [Route("Update")]
         public IHttpActionResult Update(PurchaseFormPostDs purchaseFormPostDs)
@@ -44,7 +46,12 @@ namespace HomeCinema.Web.Controllers
 
                 return Ok(isupdate);
             return BadRequest();
-
+        }
+        [HttpPost]
+        [Route("getPurchaseReportInaGraph")]
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster UOM)
+        {
+            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(UOM.Name);
         }
     }
 } 

@@ -12,5 +12,6 @@ namespace HomeCinema.Services.IRepository
         List<PurchaseReportDS> GetAllPurchaseReport();
         bool Update(PurchaseFormPostDs purchaseFormPostDs);
         bool RemovePerchaseReport(PurchaseReportDS purchaseReportDS);
+        List<PurchaseReportDS> GetAllPurchaseGraphicReport(String Name);
     }
 }

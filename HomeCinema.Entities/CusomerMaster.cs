@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace HomeCinema.Entities
 {
-  public class CustomerMaster : IEntityBase
+  public class CustomerMaster 
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string EmailId { get; set; }
-        public int? PhoneNumber { get; set; }
-        public int? AlternatePhoneNumber { get; set; }
-        public int? FaxNumber { get; set; }
+        public double PhoneNumber { get; set; }
+        public double AlternatePhoneNumber { get; set; }
+        public double FaxNumber { get; set; }
         public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }

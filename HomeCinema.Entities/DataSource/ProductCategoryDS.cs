@@ -17,6 +17,6 @@ namespace HomeCinema.Entities.DataSource
         public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string ProductGroupName { get; set; }
-        public int? GroupId { get; set; }
+        public int? Prod_Grp_Id { get; set; }
     }
 }

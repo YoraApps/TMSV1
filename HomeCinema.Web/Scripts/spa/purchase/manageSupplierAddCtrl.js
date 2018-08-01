@@ -57,6 +57,7 @@
             notificationService.displaySuccess(' has been updated');
             $modalInstance.dismiss();
         }
+
         function updatePurchaseFailed(response) {
             console.log(response);
             $scope.modelObj = {};

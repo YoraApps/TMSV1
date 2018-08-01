@@ -21,14 +21,13 @@
 
         function search(page) {
             page = page || 0;
-
             $scope.loadingCustomerMaster = true;
 
             var config = {
                 params: {
                     page: page,
                     pageSize: 6,
-                    filter: $scope.filtercustomer
+                    filter: $scope.filterMovies
                 }
             };
 
@@ -45,11 +44,9 @@
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
             $scope.loadingBooks = false;
-
             if ($scope.filtercustomer && $scope.filtercustomer.length) {
-                notificationService.displayInfo(result.data.length + ' watches found');
+                notificationService.displayInfo(result.data.length + ' customer found');
             }
-
         }
         function openEditDialog(customer) {
             $scope.EditedCustomer = customer;
@@ -95,30 +92,25 @@
             });
         }
         function removeCustomerMaster(data) {
-            // $scope.loadingCustomerMaster = true;
-            $scope.removeID = data;
-            apiService.post('/api/CustomerMaster/Delete/' + $scope.removeID, null,
+            debugger
+            $scope.id= data;
+            apiService.post('/api/CustomerMaster/Delete/' + $scope.id, null,
                 CustomerMasterRemoveCompleted,
                CustomerMasterRemoveFailed);
         }
-
         function CustomerMasterRemoveCompleted(result) {
             notificationService.displaySuccess(' has been removed');
+            debugger
             $scope.search();
-            // $modalInstance.dismiss();
             console.log(result);
-            $scope.CustomerMaster = result.data;
-            // $location.path('/watches');
-            //$scope.loadingWatches = false;
+            debugger
+            $scope.CustomerMaster = result.data;               
         }
 
         function CustomerMasterRemoveFailed(response) {
-            notificationService.displayError(response.data);
-            console.log(response);
+            notificationService.displayError(response);
+           
         }
-
-
-
 
         $scope.search();
         activate();

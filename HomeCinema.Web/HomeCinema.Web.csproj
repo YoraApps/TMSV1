@@ -278,6 +278,12 @@
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
+    <Content Include="Scripts\spa\SalesForm\Add.html" />
+    <Content Include="Scripts\spa\SalesForm\Sales.html" />
+    <Content Include="Scripts\spa\SalesForm\SalesFormCtrl.js" />
+    <Content Include="Scripts\spa\Sales\Add.html" />
+    <Content Include="Scripts\spa\Sales\Sales.html" />
+    <Content Include="Scripts\spa\Sales\SalesCtrl.js" />
     <Content Include="Scripts\spa\salesReports\salesReports.html" />
     <Content Include="Scripts\spa\salesReports\salesReportsCtrl.js" />
     <Content Include="Scripts\spa\services\fileUploadService.js" />
@@ -361,6 +367,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
     <Compile Include="Controllers\PosMasterController.cs" />
+    <Compile Include="Controllers\PosController.cs" />
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
@@ -369,6 +376,8 @@
     <Compile Include="Controllers\PurchaseReportController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\SalesDetalisController.cs" />
     <Compile Include="Controllers\SalesReportsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
@@ -450,6 +459,7 @@
   <ItemGroup>
     <Folder Include="bin\bin\" />
     <Folder Include="Content\images\movies\" />
+    <Folder Include="Content\images\product\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

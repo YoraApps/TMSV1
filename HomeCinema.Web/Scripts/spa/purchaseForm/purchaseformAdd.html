@@ -1,15 +1,18 @@
-﻿<div class="panel panel-primary" >
-    <div class="panel-body">
+﻿<div class="panel panel-primary" style="width:582px" >
+    <div class="panel-heading">
+        PurchaseForm
+    </div>
+    <div class="panel-body" style="width:574px">
         <form class="form-horizontal" role="form">   
             <div class="col-xs-4">
                 <label class="control-label">Product</label>
-                <select type="text" placeholder="Name" ng-model="ProdObj" data-ng-options='pa.ProductName for pa in productList' ng-change="fetchSupplier(ProdObj); " style="width: 163px;height:36px;">
+                <select type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched"ng-model="ProdObj" data-ng-options='pa.ProductName for pa in productList' ng-change="fetchSupplier(ProdObj); " style="width: 163px;height:36px;">
                     <option value="" disabled>Select A Product</option>
                 </select>
             </div>
             <div class="col-xs-4">
                 <label class="control-label">Supplier</label>
-                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="SupObj" data-ng-options='pa.SupplierName for pa in supplierList' ng-change="fetchSupplier(SupObj);">
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="SupObj" data-ng-options='pa.SupplierName for pa in supplierList' ng-change="fetchSupplier(SupObj);">
                     <option value="" disabled>Select A Supplier</option>
                 </select>
             </div>
@@ -27,32 +30,33 @@
                                max-date="'2100-06-22'"
                                datepicker-options="dateOptions"
                                date-disabled="disabled(date, mode)"
-                               ng-required="true" close-text="Close" />
+                               ng-required="true" close-text="Close" 
+                               />
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default form-control form-control-small ng-valid-maxlength ng-touched" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
                     </p>
                 </div>
             <div class="col-xs-4">
                 <label class="control-label">UOM</label>
-                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="UomObj" data-ng-options='pa.UOMName for pa in uOMList' ng-change="fetchSupplier(UomObj);">
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched"ng-model="UomObj" data-ng-options='pa.UOMName for pa in uOMList' ng-change="fetchSupplier(UomObj);">
                     <option value="" disabled>Select A UOM</option>
                 </select>
             </div>
             <div class="col-xs-4">
                 <label class="control-label">Quantity</label>
-                <input type="text" placeholder="Quantity" ng-model="modelObj.Quantity" style="width: 163px;height:36px;"/><br />
+                <input type="text" placeholder="Quantity" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Quantity" style="width: 163px;height:36px;"/><br />
             </div>
             <div class="col-xs-4">
                 <label class="control-label">Location</label>
-                <select style="width: 163px;height:36px;" type="text" placeholder="Name" ng-model="LocObj" data-ng-options='pa.LocationName for pa in LocationList' ng-change="fetchSupplier(LocObj);">
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="LocObj" data-ng-options='pa.LocationName for pa in LocationList' ng-change="fetchSupplier(LocObj);">
                     <option value="" disabled>Select A Location</option>
                 </select>
             </div>            
 </form>
     </div>
     <div class="panel-footer clearfix">
-        <div class="pull-left">
+        <div class="pull-right">
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>         
             <button type="button" class="btn btn-primary" ng-click="SavePurchase()" >Save</button>
         </div>

@@ -29,17 +29,18 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 1,
+                    pageSize: 6,
                     filter: $scope.filterProductGroup
                 }
             };
 
-            apiService.get('/api/ProductGroupMaster/GetAllProductGroups', config,
+            apiService.get('/api/ProductGroupMaster/GetAllProductGroups/', config,
                 productgroupsLoadCompleted,
                 productgroupsLoadFailed);
         }
 
         function productgroupsLoadCompleted(result) {
+
             $scope.ProductGroups = result.data;
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
@@ -47,11 +48,10 @@
             $scope.loadingproductgroups = false;
 
             if ($scope.filterProductGroup && $scope.filterProductGroup.length) {
+
                 notificationService.displayInfo(result.data.length + ' productgroup found');
             }
-
         }
-
         function productgroupsLoadFailed(response) {
             notificationService.displayError(response.data);
         }
@@ -60,11 +60,10 @@
             $scope.filterProductGroup = '';
             search();
         }
-
   //popup modal
-
         $scope.Modals = {
             openProductgroupDialog: function () {
+                
                 $scope.modelInstance = $modal.open({
                     templateUrl: 'scripts/spa/ProductGroup/Add.html',
                     size: 'md',
@@ -75,37 +74,28 @@
                 }, function (event) {
                 });
             },
-
   //cnacel modal
-
             cancelproductGroupDialog: function () {
                 $scope.modelInstance.dismiss();
             }
         };
-
   //Cancel Edit popup
         function cancelEdit() {
             $scope.Modals.cancelproductGroupDialog();
         }
-
 //popup edit productgroup
-
         $scope.modelobj = {};
         $scope.openProductGroupDialogContainer = function (data) {
+            debugger
             $scope.modelobj = data;
             $scope.save = 'update';
             $scope.Modals.openProductgroupDialog();
         }
-
 //popup Added new ProductGroup
-
-        $scope.AddProductGroup = function () {
+        $scope.AddProductGroup = function () {        
             $scope.save = 'add';
             $scope.Modals.openProductgroupDialog();
         }
-
-
-
 //Update ProductGroup 
         $scope.ProductObj = {};
         function UpdatedProductGroup() {
@@ -114,20 +104,15 @@
                 updateProductedSucceded,
                 updateproductedFailed);
         }
-
         function updateProductedSucceded(response) {
             console.log(response);
             notificationService.displaySuccess('has been updated');
             $scope.cancelEdit();
-
-
         }
-
         function updateproductedFailed(response) {
             notificationService.displayError(response);
             $scope.cancelEdit();
         }
-
 //Save ProductGroup
         function AddProductModel() {
             debugger
@@ -142,13 +127,11 @@
             $scope.search();
             $scope.cancelEdit();
         }
-
         function AddProductFailed(response) {
             console.log(response);
             notificationService.displayError(response.statusText);
             $scope.modelobj = {};
         }
-
  //remove ProductGroup
         function removeProductGroup(data) {
             $scope.id = data;

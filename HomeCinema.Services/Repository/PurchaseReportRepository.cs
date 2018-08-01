@@ -20,6 +20,16 @@ namespace HomeCinema.Services.Repository
         {
             _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DapperConStr"].ConnectionString);
         }
+        PurchaseReportDS PR = new PurchaseReportDS();
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(String Name)
+        {
+         
+            PR.UOMName = Name;
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@UOMName", PR.UOMName);
+            return this._db.Query<PurchaseReportDS>("USP_PurchaseGraphicReport", param, commandType: CommandType.StoredProcedure).ToList();
+           
+        }
 
         public List<PurchaseReportDS> GetAllPurchaseReport()
         {
@@ -52,7 +62,7 @@ namespace HomeCinema.Services.Repository
 
             param.Add("@Id", purchaseFormPostDs.PurchaseId);
             param.Add("@ProductId", purchaseFormPostDs.Product.ProductId);
-            param.Add("@Supplier_Id", purchaseFormPostDs.Supplier.Supplier_Id);
+            param.Add("@Supplier_Id", purchaseFormPostDs.Supplier.SupplierId);
             param.Add("@LocationId", purchaseFormPostDs.Location.LocationId);
             param.Add("@UomId", purchaseFormPostDs.UOM.UomId);
             param.Add("@Quantity", purchaseFormPostDs.Quantity);

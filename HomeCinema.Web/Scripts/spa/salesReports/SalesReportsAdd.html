@@ -1,0 +1,87 @@
+﻿<div class="panel panel-primary" style="width:500px">
+    <div class="panel-heading" ng-if="save=='update'">
+        SalesForm
+    </div>
+    <div class="panel-heading" ng-if="save=='add'">
+        SalesForm
+    </div>
+    <div class="panel-body">
+        <form role="form" style="width:434px;">
+            <div class="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label" from="Productofsale">Productofsale</label>
+                            <select type="text" placeholder="Productofsale" ng-model="productObj" class="form-control" name="Productofsale" id="Productofsale" validate-on="blur" required required-message="'Productofsale is required'" data-ng-options='pa.ProductName for pa in productArr' ng-change="prodObjFrmPostModel(productObj);">
+                                <option value="" disabled>Sale Products</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-6 selectContainer">
+                            <label class="control-label" from="CustomerSale">CustomerSale</label>
+                            <select type="text" placeholder="CustomerSale" ng-model="customerObj" class="form-control" name="CustomerSale" id="CustomerSale" validate-on="blur" required required-message="' Address is required'" data-ng-options='pa.CustName for pa in customerArr' ng-change="custObjFrmPostModel(customerObj);">
+                                <option value="" disabled> Sale Customers</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label">Sales Date</label>
+                            <p class="input-group">
+                                <input type="text"
+                                       style="width: 160px;height:36px;"
+                                       class="form-control"
+                                       init-date="dateOptions.initDate"
+                                       datepicker-popup="{{format}}"
+                                       ng-model="modelObj.date"
+                                       is-open="opened"
+                                       min-date="dateOptions.minDate"
+                                       max-date="'2100-06-22'"
+                                       datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)"
+                                       ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+
+                        </div>
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label" from="UOM">UOM</label>
+                            <select type="text" placeholder="UOM" ng-model="UOMObj" class="form-control" name="UOM" id="UOM" validate-on="blur" required required-message="' UOM is required'" data-ng-options='pa.UOMName for pa in UOMArr' ng-change="uomObjFrmPostModel(UOMObj);">
+                                <option value="" disabled>Unit Of Measuremeant</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label" from="Quantity">Quantity</label>
+                            <input type="text" placeholder="Quantity" class="form-control" name="Quantity" id="Quantity" validate-on="blur" required required-message="'Quantity  is required'" ng-model="modelObj.Quantity" />
+                        </div>
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label" form="POS">POS</label>
+                            <select type="text" placeholder="POS" ng-model="POSObj" class="form-control" name="POS" id="POS" validate-on="blur" required required-message="' POS is required'" data-ng-options='pa.PosName for pa in POSArr' ng-change="posObjFrmPostModel(POSObj);">
+                                <option value="" disabled>Product Of Sale</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            
+                <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="UpdatedSales()" ng-if="save=='update'">submit</button>
+                <button ng-click="AddSalesForm();" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
+
+         
+        </div>
+    </div>
+</div>

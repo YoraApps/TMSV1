@@ -1,11 +1,15 @@
 ﻿using HomeCinema.Entities;
 using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
+using HomeCinema.Web.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace HomeCinema.Web.Controllers
@@ -36,7 +40,7 @@ namespace HomeCinema.Web.Controllers
         }
         [HttpPost]
         [Route("Update/{id}")]
-        public IHttpActionResult Update(Product product,int? id)
+        public IHttpActionResult Update(Product product,int? id) 
         {
             var isupdate = _productRepository.UpdateProduct(product,id);
             if (isupdate == true)
@@ -59,6 +63,46 @@ namespace HomeCinema.Web.Controllers
             if (isdel == true)
                 return Ok(isdel);
             return BadRequest();
+        }
+        [MimeMultipart]
+        [Route("images/upload")]
+        public async Task<HttpResponseMessage> PostAsync(HttpRequestMessage request, int productId)
+        {
+            HttpResponseMessage response = null;
+
+            var productOld = _productRepository.GetSingleProduct(productId);
+            if (productOld == null)
+                response = request.CreateErrorResponse(HttpStatusCode.NotFound, "Invalid product.");
+            else
+            {
+                var uploadPath = HttpContext.Current.Server.MapPath("~/Content/images/movies");
+
+                var multipartFormDataStreamProvider = new UploadMultipartFormProvider(uploadPath);
+
+                // Read the MIME multipart asynchronously 
+                await Request.Content.ReadAsMultipartAsync(multipartFormDataStreamProvider);
+
+                string _localFileName = multipartFormDataStreamProvider
+                    .FileData.Select(multiPartData => multiPartData.LocalFileName).FirstOrDefault();
+
+                // Create response
+                FileUploadResult fileUploadResult = new FileUploadResult
+                {
+                    LocalFilePath = _localFileName,
+
+                    FileName = Path.GetFileName(_localFileName),
+
+                    FileLength = new FileInfo(_localFileName).Length
+                };
+
+                // update database
+                productOld.ImageURI = fileUploadResult.FileName;
+                _productRepository.UpdateProduct(productOld, productOld.Id);
+
+                response = request.CreateResponse(HttpStatusCode.OK, fileUploadResult);
+            }
+
+            return response;
         }
     }
 }

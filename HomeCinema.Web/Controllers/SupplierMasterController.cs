@@ -1,4 +1,5 @@
 ﻿using HomeCinema.Entities;
+using HomeCinema.Entities.DataSource;
 using HomeCinema.Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace HomeCinema.Web.Controllers
         }
         [HttpGet]
         [Route("getallsupplier")]
-        public List<SupplierMaster> GetAllSupplierMaster ()
+        public List<SupplierMasterDS> GetAllSupplierMaster ()
         {
             return _suppliermasterRepository.GetAllSupplierMaster();
         }
