@@ -133,6 +133,73 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\homecinema.sql" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\Autofac.dll" />
+    <Content Include="bin\Autofac.Integration.WebApi.dll" />
+    <Content Include="bin\Autofac.Integration.WebApi.xml" />
+    <Content Include="bin\Autofac.xml" />
+    <Content Include="bin\AutoMapper.dll" />
+    <Content Include="bin\AutoMapper.Net4.dll" />
+    <Content Include="bin\AutoMapper.Net4.pdb" />
+    <Content Include="bin\AutoMapper.pdb" />
+    <Content Include="bin\AutoMapper.xml" />
+    <Content Include="bin\Dapper.dll" />
+    <Content Include="bin\Dapper.xml" />
+    <Content Include="bin\da\FluentValidation.resources.dll" />
+    <Content Include="bin\de\FluentValidation.resources.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\es\FluentValidation.resources.dll" />
+    <Content Include="bin\fi\FluentValidation.resources.dll" />
+    <Content Include="bin\FluentValidation.dll" />
+    <Content Include="bin\FluentValidation.pdb" />
+    <Content Include="bin\FluentValidation.xml" />
+    <Content Include="bin\fr\FluentValidation.resources.dll" />
+    <Content Include="bin\HomeCinema.Data.dll" />
+    <Content Include="bin\HomeCinema.Data.pdb" />
+    <Content Include="bin\HomeCinema.Entities.dll" />
+    <Content Include="bin\HomeCinema.Entities.pdb" />
+    <Content Include="bin\HomeCinema.Services.dll" />
+    <Content Include="bin\HomeCinema.Services.pdb" />
+    <Content Include="bin\HomeCinema.Web.dll" />
+    <Content Include="bin\HomeCinema.Web.pdb" />
+    <Content Include="bin\it\FluentValidation.resources.dll" />
+    <Content Include="bin\ko\FluentValidation.resources.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\mk\FluentValidation.resources.dll" />
+    <Content Include="bin\MockData.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\nl\FluentValidation.resources.dll" />
+    <Content Include="bin\pl\FluentValidation.resources.dll" />
+    <Content Include="bin\pt\FluentValidation.resources.dll" />
+    <Content Include="bin\ru\FluentValidation.resources.dll" />
+    <Content Include="bin\sv\FluentValidation.resources.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
+    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
+    <Content Include="bin\System.Web.Webpages.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="bin\tr\FluentValidation.resources.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\css\blank.gif" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -171,6 +238,9 @@
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\PosMaster\PosMaster.html" />
+    <Content Include="Scripts\spa\PosMaster\PosMasterAdd.html" />
+    <Content Include="Scripts\spa\PosMaster\PosMasterCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
@@ -296,6 +366,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\PosMasterController.cs" />
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -362,6 +433,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="App_Data\Building Single Page Applications using Web API and angularJS.pdf" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="bin\HomeCinema.Data.dll.config" />
+    <None Include="bin\HomeCinema.Web.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -384,6 +457,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\bin\" />
     <Folder Include="Content\images\movies\" />
     <Folder Include="Content\images\product\" />
   </ItemGroup>
