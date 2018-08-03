@@ -23,10 +23,12 @@
         $scope.SupHoldArr = [];
         $scope.UomHoldArr = [];
         $scope.ProdHoldArr = [];
+        $scope.storeHoldArr = [];
         $scope.LocObj = {};
         $scope.SupObj = {};
         $scope.UomObj = {};
         $scope.ProdObj = {};
+        $scope.storeObj = {};
         $scope.modelObj = {};
         $scope.selectedObj = {};
         $scope.selectedStr = '';
@@ -61,9 +63,9 @@
 
         function purchaseLoadCompleted(result) {
             console.log(result);
+   
             $scope.PurchasesArr = result.data;
-            console.log("purchase", $scope.Purchases)
-            $scope.loadingPurchase = false;
+          
         }
         function purchaseLoadFailed(response) {
             notificationService.displayError(response.data);
@@ -77,9 +79,11 @@
             notificationService.displayError(response.data);
         }
         function PurchaseReportLoadCompleted(result) {
-            console.log("re", result);
+
+            
+           
             $scope.Purchases = result.data;
-            console.log("pr", result);
+           
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -108,6 +112,11 @@
             $scope.LocObj = data;
         }
 
+        $scope.storeObjFromPostModel = function (data) {
+            $scope.storeObj = data;
+        }
+        
+
         function UpdatePurchase() {
           
 
@@ -116,7 +125,8 @@
                 "Product": $scope.ProdObj,
                 "Supplier": $scope.SupObj,
                 "UOM": $scope.UomObj,
-                "Location": $scope.LocObj,
+                //"Location": $scope.LocObj,
+                "Store": $scope.storeObj,
                 "Quantity": $scope.modelObj.Quantity,
                 "PurchaseDate": $scope.modelObj.date
                 
@@ -126,7 +136,7 @@
                 ParchaseReportsLoadFailed);
         }
         function PurchaseReportsLoadCompleted() {
-            debugger
+        
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
             $scope.cancelEdit();
@@ -199,6 +209,10 @@
             $scope.LocHoldArr = $scope.Locationarr.filter(x => x.LocationId == abc.LocationId);
             $scope.LocObj = $scope.LocHoldArr[0];
 
+
+            $scope.storearr = $scope.PurchasesArr.storeList;
+            $scope.storeHoldArr = $scope.storearr.filter(x => x.StoreId == abc.StoreId);
+            $scope.storeObj = $scope.storeHoldArr[0];
            
             $scope.save = 'update';
             $scope.modelObj = abc;

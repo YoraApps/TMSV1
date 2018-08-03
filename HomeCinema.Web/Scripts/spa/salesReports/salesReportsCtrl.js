@@ -19,7 +19,6 @@
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
         $scope.Sales = [];
-        $scope.Name = [];
         $scope.saleArry = [];
         $scope.PrdHoldArr = [];
         $scope.custHoldArr = [];

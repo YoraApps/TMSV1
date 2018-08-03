@@ -28,9 +28,10 @@ namespace HomeCinema.Services.Repository
             purchaseSave.CreatedDate = now;    
             DynamicParameters param = new DynamicParameters();
             param.Add("@ProductId", purchaseSave.Product.ProductId);
-            param.Add("@Supplier_Id", purchaseSave.Supplier.SupplierId);
+            param.Add("@Supplier_Id", purchaseSave.Supplier.Supplier_Id);
             param.Add("@PurchaseDate", purchaseSave.PurchaseDate);
             param.Add("@UomId", purchaseSave.UOM.UomId);
+            param.Add("@StoreId", purchaseSave.Store.StoreId);
             param.Add("@Quantity", purchaseSave.Quantity);
             param.Add("@Status", purchaseSave.Status);
             param.Add("@IsActive", purchaseSave.IsActive); 
@@ -38,7 +39,7 @@ namespace HomeCinema.Services.Repository
             param.Add("@CreatedDate", purchaseSave.CreatedDate);
             param.Add("@ModifiedBy", purchaseSave.ModifiedBy);
             param.Add("@ModifiedDate", purchaseSave.ModifiedDate);        
-            param.Add("@LocationId", purchaseSave.Location.LocationId);
+            //param.Add("@LocationId", purchaseSave.Location.LocationId);
             _db.Open();
             var val = _db.Execute("USP_PurchaseFormSave", param, commandType: CommandType.StoredProcedure);
             
@@ -62,6 +63,7 @@ namespace HomeCinema.Services.Repository
                 ds.supplierList = multi.Read<PurchaseSupplierDs>().ToList();
                 ds.uOMList = multi.Read<PurchaseUomDs>().ToList();
                 ds.productList = multi.Read<PurchaseProductDs>().ToList();
+                ds.storeList = multi.Read<PurchaseStoreDs>().ToList();
             }
             return ds;
         }

@@ -171,6 +171,9 @@
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\Location\AddLocation.html" />
+    <Content Include="Scripts\spa\Location\Location.html" />
+    <Content Include="Scripts\spa\Location\LocationCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
@@ -205,6 +208,8 @@
     <Content Include="Scripts\spa\ProductGroup\Add.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroup.html" />
     <Content Include="Scripts\spa\ProductGroup\ProductGroupCtrl.js" />
+    <Content Include="Scripts\spa\Registration\Registration.html" />
+    <Content Include="Scripts\spa\Registration\RegistrationCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\rental\rentStatsCtrl.js" />
@@ -228,6 +233,9 @@
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
+    <Content Include="Scripts\spa\testdev\testdev.html" />
+    <Content Include="Scripts\spa\testdev\testdevController.js" />
+    <Content Include="Scripts\spa\testdev\testdevform.html" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAdd.html" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAddCtrl.js" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementCtrl.js" />
@@ -293,9 +301,11 @@
     <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
+    <Compile Include="Controllers\OrgnizationController.cs" />
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -303,6 +313,7 @@
     <Compile Include="Controllers\PurchaseFormController.cs" />
     <Compile Include="Controllers\PurchaseMasterController.cs" />
     <Compile Include="Controllers\PurchaseReportController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RentalsExtendedController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
@@ -311,6 +322,7 @@
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
+    <Compile Include="Controllers\TestDevController.cs" />
     <Compile Include="Controllers\UnitOfMeasurementMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -386,6 +398,7 @@
   <ItemGroup>
     <Folder Include="Content\images\movies\" />
     <Folder Include="Content\images\product\" />
+    <Folder Include="Views\Registration\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

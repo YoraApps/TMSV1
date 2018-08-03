@@ -1,0 +1,29 @@
+﻿<div class="panel panel-primary" style="width:582px">
+    <div class="panel-heading">
+        PurchaseForm
+    </div>
+    <div class="panel-body" style="width:574px">
+        <form class="form-horizontal" role="form">
+            <div class="col-xs-4">
+                <label class="control-label">Product Category Name</label>
+                <input type="text" />
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">Product Category Description</label>
+                <input type="text" />
+            </div>
+            <div class="col-xs-4">
+                <label class="control-label">Product Group</label>
+                <select style="width: 163px;height:36px;" type="text" placeholder="ProductGroup" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="pgObj" data-ng-options='pg.Name for pg in productGroupMasterList' ng-change="fetchCategoryByGroup(pgObj);">
+                    <option value="" disabled>Select A Product Group</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" >Save</button>
+        </div>
+    </div>
+</div>

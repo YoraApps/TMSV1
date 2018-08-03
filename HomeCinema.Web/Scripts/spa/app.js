@@ -154,10 +154,21 @@
                 controller: "LocationCtrl"
             })
 
+            .when("/registers", {
+                templateUrl: "scripts/spa/Registration/Registration.html",
+                controller: "RegistrationCtrl"
+            })
+
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
-            }).otherwise({ redirectTo: "/" });
+            })
+            .when("/testdev", {
+                templateUrl: "scripts/spa/testdev/testdev.html",
+                controller: "testdevController"
+            })
+            .otherwise({ redirectTo: "/" });
+
 
     }
 
