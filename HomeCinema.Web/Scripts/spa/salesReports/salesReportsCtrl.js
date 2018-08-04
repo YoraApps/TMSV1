@@ -19,7 +19,6 @@
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
         $scope.Sales = [];
-        $scope.Name = [];
         $scope.saleArry = [];
         $scope.PrdHoldArr = [];
         $scope.custHoldArr = [];
@@ -123,7 +122,8 @@
         }
         function UpdatedSales() {
 
-            
+            debugger
+
             $scope.selectedObj = {
                 "SalesId": $scope.modelObj.Id,
                 "Product": $scope.productObj,
@@ -138,13 +138,16 @@
                 SaleReportsLoadFailed);
         }
         function SaleReportsLoadCompleted() {
+
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
-            $modalInstance.dismiss();
+            $scope.cancelEdit();
+    
         }
         function SaleReportsLoadFailed() {
             $scope.modelObj = {};
             notificationService.displayError('error');
+            $scope.cancelEdit();
         }
 
         $scope.Modals = {
@@ -164,7 +167,7 @@
             }
         };
         $scope.openSaleReportDialogContainer = function (fsd) {
-            debugger
+
             $scope.productArr = $scope.saleArry.Product;
             $scope.PrdHoldArr = $scope.productArr.filter(x => x.ProductId == fsd.ProductId)
             $scope.productObj = $scope.PrdHoldArr[0];

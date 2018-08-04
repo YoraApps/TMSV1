@@ -11,6 +11,7 @@
       
       
         function SaveSupplier(data) {
+           
             $scope.supplier = {
                 "Name": data.Name,
                 "Address": data.Address,
@@ -18,7 +19,7 @@
                 "PhoneNumber": data.PhoneNumber,
                 "AlternatePhoneNumber": data.AlternatePhoneNumber,
                 "FaxNumber": data.FaxNumber,
-                "SupplierTypeId": $scope.selectedObj.Id
+                //"SupplierTypeId": $scope.selectedObj.Id
             }
             $scope.selectedObj;
             apiService.post('/api/SupplierMaster/Create', $scope.supplier,
@@ -55,7 +56,7 @@
                 "PhoneNumber": data.PhoneNumber,
                 "AlternatePhoneNumber": data.AlternatePhoneNumber,
                 "FaxNumber": data.FaxNumber,
-                "SupplierTypeId": $scope.selectedObj.Id
+                //"SupplierTypeId": $scope.selectedObj.Id
             }
             apiService.post('/api/SupplierMaster/Update', $scope.supplier,
                 updateSupplierSucceded,
@@ -75,10 +76,10 @@
             $scope.modelObj = {};
             notificationService.displayError(response);
         }
-        $scope.fetchSupplier = function (data) {
-            $scope.selectedObj = data;
+        //$scope.fetchSupplier = function (data) {
+        //    $scope.selectedObj = data;
 
-        }
+        //}
 
 
     }

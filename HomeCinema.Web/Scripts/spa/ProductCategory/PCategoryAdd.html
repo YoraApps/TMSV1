@@ -1,24 +1,29 @@
 ﻿
-<div class="panel panel-primary">
-
+<div class="panel panel-primary ng-scope">
+    <div class="panel-heading" ng-if="ModelType=='Edit'">
+        Update {{modelObj.Name}}
+    </div>
+    <div class="panel-heading" ng-if="ModelType=='Add'">
+        Added {{modelObj.Name}}
+    </div>
     <div class="panel-body">
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <div class="col-xs-8 selectContainer">
                     <label class="control-label">Name</label>
-                    <input type="text" placeholder="Name" ng-model="modelObj.Name" /><br />
+                    <input type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Name" /><br />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-8">
                     <label class="control-label">Description</label>
-                    <textarea placeholder="Description" ng-model="modelObj.Description"></textarea>
+                    <textarea placeholder="Description" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Description"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-8 selectContainer">
                     <label class="control-label">Product Group</label>
-                    <select type="text" placeholder="Name" ng-model="selectedObj"  data-ng-options='pa.Name for pa in ProductArry' ng-change="fetchProduct(selectedObj);">
+                    <select type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="selectedObj"  data-ng-options='pa.Name for pa in ProductArry' ng-change="fetchProduct(selectedObj);">
                         <option value="" disabled>Select A Group</option>
                     </select>
                 </div>
@@ -26,7 +31,7 @@
         </form>
     </div>
     <div class="panel-footer clearfix">
-        <div class="pull-left">
+        <div class="pull-right">
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
             <button type="button" class="btn btn-primary" ng-click="Updateproduct(modelObj)" ng-if="ModelType=='Edit'">Update</button>
             <button type="button" class="btn btn-primary" ng-click="SaveProduct(modelObj)" ng-if="ModelType=='Add'">Save</button>

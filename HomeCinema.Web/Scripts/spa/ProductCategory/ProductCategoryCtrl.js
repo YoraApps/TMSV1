@@ -123,9 +123,11 @@
             $scope.Modals.openProductCategoryDialog();
         };
 
-        //Update ProductGroup 
+        //Update ProductGroup
+        
         $scope.ProductObj = {};
         function Updateproduct(data) {
+            debugger
             $scope.ProductObj = {
                 "Id": data.Id,
                 "Name": data.Name,
@@ -138,6 +140,7 @@
         }
 
         function updateProductedSucceded(response) {
+            debugger
             console.log(response);
             notificationService.displaySuccess('has been updated');
             $scope.cancelEdit();
@@ -159,7 +162,7 @@
                 "Description": data.Description,
                 "Prod_Grp_Id": $scope.selectedObj.Id
             };
-            $scope.selectedObj;
+            //$scope.selectedObj;
             debugger;
             apiService.post('/api/ProductCategoryMaster/Insert', $scope.Data,
                 AddProductSucceded,

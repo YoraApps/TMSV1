@@ -1,6 +1,6 @@
 ﻿<div class="jumbotron">
     <div class="container text-center">
-        <img alt="{{Sale.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <img alt="{{Sale.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
         <br />
         <div class="btn-group">
             <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddSale();" class="btn btn-sm btn-primary">Add Sales Report<i class="fa fa-plus pull-right"></i></button>-->
@@ -43,6 +43,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>ProductName</th>
                                     <th>CustomerName</th>
                                     <th>POSName</th>
@@ -54,6 +55,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="Sale in Sales | filter:filterSale">
+                                    <td>{{Sale.Id}}</td>
                                     <td>{{Sale.ProductName}}</td>
                                     <td>{{Sale.CustomerName}}</td>
                                     <td>{{Sale.POSName}}</td>
@@ -62,7 +64,7 @@
                                     <td>{{Sale.SalesDate}}</td>
                                     <td class="col-sm-2">
                                         <button ng-click="openSaleReportDialogContainer(Sale);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                        <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                        <button ng-click="removeproduct(Sale.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>

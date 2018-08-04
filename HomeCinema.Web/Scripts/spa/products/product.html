@@ -1,76 +1,101 @@
 ﻿<div class="jumbotron">
+
+    <div class="container text-center">
+        <img alt="{{product.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
+        <br />
+        <div class="btn-group">
+            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddProduct();" class="btn btn-sm btn-primary">Add Product<i class="fa fa-plus pull-right"></i></button>
+        </div>
+    </div>
+
     <div class="panel panel-primary">
-        <div class="container text-center">
-            <img alt="{{product.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
-            <br />
-            <div class="btn-group">
-                <button style="margin-left:400%;width:100%;" type="button" ng-click="AddProduct();" class="btn btn-sm btn-primary">Add Product<i class="fa fa-plus pull-right"></i></button>
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Product</h4>
+            <div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterProduct" class="form-control shortInputSearch" placeholder="Filter, search Products..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
             </div>
         </div>
-
-        <div class="panel panel-primary">
-            <div class="panel-heading clearfix">
-                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Product</h4>
-                <div class="input-group">
-                    <input id="inputSearchMovies" type="search" ng-model="filterProduct" class="form-control shortInputSearch" placeholder="Filter, search Products..">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
-                        <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingProduct">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>ImageURI</th>
+                            <th>GRNCode</th>
+                            <th>IsActive</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedBy</th>
+                            <th>ModifiedDate</th>
+                            <th>ProductCategoryName</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in filteredProductData">
+                            <td>{{product.Id}}</td>
+                            <td>{{product.Name}}</td>
+                            <td>{{product.Description}}</td>
+                            <td>{{product.ImageURI}}</td>
+                            <td>{{product.GRNCode}}</td>
+                            <td>{{product.IsActive}}</td>
+                            <td>{{product.CreatedBy}}</td>
+                            <td>{{product.CreatedDate}}</td>
+                            <td>{{product.ModifiedBy}}</td>
+                            <td>{{product.ModifiedDate}}</td>
+                            <td>{{product.ProductCategoryName}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 pull-left">
+                <div class="dataTables_length" id="datatable_length">
+                    <label>
+                        show
+                        <select name="datatable_length"
+                                aria-controls="datatable"
+                                class="form-control input-sm"
+                                data-ng-model="numPerPage"
+                                data-ng-options="x for x in showPerPageDataOptions"></select>
+                        entries
+                    </label>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-sm-8 pull-right">
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                        showing {{currentPage*numPerPage - numPerPage  + 1}} to {{products.length > currentPage*numPerPage ? currentPage*numPerPage : products.length}} of {{products.length}} entries
                     </div>
                 </div>
             </div>
-            <div class="panel-body">
-                <div class="table-responsive" ng-if="!loadingProduct">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>ImageURI</th>
-                                <th>GRNCode</th>
-                                <th>IsActive</th>
-                                <th>CreatedBy</th>
-                                <th>CreatedDate</th>
-                                <th>ModifiedBy</th>
-                                <th>ModifiedDate</th>
-                                <th>ProductCategoryName</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="product in filteredTodos  | filter:filterProduct">
-                                <td>{{product.Id}}</td>
-                                <td>{{product.Name}}</td>
-                                <td>{{product.Description}}</td>
-                                <td>{{product.ImageURI}}</td>
-                                <td>{{product.GRNCode}}</td>
-                                <td>{{product.IsActive}}</td>
-                                <td>{{product.CreatedBy}}</td>
-                                <td>{{product.CreatedDate}}</td>
-                                <td>{{product.ModifiedBy}}</td>
-                                <td>{{product.ModifiedDate}}</td>
-                                <td>{{product.ProductCategoryName}}</td>
-                                <td class="col-sm-2">
-                                    <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                    <button ng-click="removeproduct(product.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div class="col-sm-6 pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                        <pagination ng-model="currentPage"
+                                    total-items="products.length"
+                                    max-size="maxSize"
+                                    boundary-links="true"
+                                    items-per-page="numPerPage">
+                        </pagination>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--<div class="panel-footer">
-            <div class="text-center">
-                <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
-            </div>
-        </div>-->
-        <pagination ng-model="currentPage"
-                    total-items="products.length"
-                    max-size="maxSize"
-                    boundary-links="true">
-        </pagination>
-      </div>
     </div>
+
+
+</div>
+
 

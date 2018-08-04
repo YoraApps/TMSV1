@@ -43,6 +43,7 @@ namespace HomeCinema.Services.Repository
         public List<SupplierMasterDS> GetAllSupplierMaster()
         {
             return this._db.Query<SupplierMasterDS>("Usp_GetAllSupplier", commandType: CommandType.StoredProcedure).ToList();
+
         }
 
         public SupplierMaster GetSingleSupplierMaster(int? id)

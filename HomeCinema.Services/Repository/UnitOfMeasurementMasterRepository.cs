@@ -76,7 +76,7 @@ namespace HomeCinema.Services.Repository
         {
             DateTime now = DateTime.Now;
             unitofmeasurementmaster.ModifiedDate = now;
-            int rowsAffected = this._db.Execute("@UPDATE UnitOfMeasurementMaster SET Name = @Name ,Description = @Description,ModifiedBy=1, ModifiedDate = @ModifiedDate WHERE Id = " +
+            int rowsAffected = this._db.Execute("UPDATE UnitOfMeasurementMaster SET Name = @Name ,Description = @Description,ModifiedBy=1, ModifiedDate = @ModifiedDate WHERE Id = " +
                         unitofmeasurementmaster.Id, unitofmeasurementmaster);
 
             if (rowsAffected > 0)

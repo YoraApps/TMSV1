@@ -1,0 +1,27 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-if="save=='update'">
+        Update {{modelobj.Name}}
+    </div>
+    <div class="panel-heading" ng-if="save=='add'">
+        Added {{modelobj.Name}}
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Name</label>
+                    <input type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelobj.Name" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-left">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdatePosMaster()" ng-if="save=='update'">submit</button>
+            <button ng-click="AddCustomerModel();" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
+
+        </div>
+    </div>
+</div>

@@ -1,13 +1,14 @@
 ﻿<div class="jumbotron">
     <div class="container text-center">
-        <img alt="{{purchase.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <img alt="{{purchase.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
         <br />
         <div class="btn-group">
             <!--<div excel-export export-data="Purchases" file-name="{{fileName}}" ng-disabled="disableBtn" style="margin-left:400%;width:100%;" class="btn-btn-sm btn-primary">Export In Excel</div>-->
             <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddPurchase();" class="btn btn-sm btn-primary">Add Purchase<i class="fa fa-plus pull-right"></i></button>-->
         </div >
-        <div class="form-group col-xs-6">
-        <div class="panel panel-primary form-group col-xs-4">
+        </div>
+    <div class="row">        
+        <div class="col-md-4" style="width:200px;height:30px;">
             <angucomplete-alt id="ex1"
                               placeholder="Search UOM"
                               pause="300"
@@ -16,15 +17,16 @@
                               search-fields="Name"
                               title-field="Name"
                               minlength="0"
-                              input-class="form-control form-control-small">
-               
+                              input-class="form-control form-control-small">               
             </angucomplete-alt>
         </div>
-        <div class="form-group col-xs-2">
-            <button type="submit" ng-click="getPurchaseGuiRep(selectedStr);" >Go</button>
-        </div>
-            </div>
+        <div class="col-md-4">
+            <button type="submit" ng-click="getPurchaseGuiRep(selectedStr);" style="width:100px;height:30px;">Go</button>
+        </div>           
     </div>  
+    <br />
+    <br />
+    <br />
     <div class="panel panel-primary">     
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Purchase Report</h4>
@@ -41,26 +43,31 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Produc tName</th>
+                            <th>Id</th>
+                            <th>Product Name</th>
                             <th>Supplier Name</th>
                             <th>Quantity</th>
                             <th>UOMName</th>
+                            <th>StoreName</th>
                             <th>Location Name</th>
                             <th>Purchase Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="purchase in Purchases">
+                        <tr ng-repeat="purchase in Purchases |filter:filterPurchase">
+                            <td>{{purchase.Id}}</td>
                             <td>{{purchase.ProductName}}</td>
                             <td>{{purchase.SupplierName}}</td>
                             <td>{{purchase.Quantity}}</td>
                             <td>{{purchase.UOMName}}</td>
-                            <td>{{purchase.LocationName}}</td>
-                            <td>{{purchase.PurchaseDate}}</td>  
-                            <!--<td class="col-sm-2">-->
-                                <!--<button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>-->
-                            
+                            <td>{{purchase.StoreName}}</td>
+                            <!--<td>{{purchase.LocationName}}</td>-->
+                            <td>{{purchase.PurchaseDate}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openPurchaseDialogContainer(purchase);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                <button ng-click="removePurchase(purchase.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+
                         </tr>
                     </tbody>
                 </table>

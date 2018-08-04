@@ -13,13 +13,13 @@
             uploadImage: uploadImage
         }
 
-        function uploadImage($files, movieId, callback) {
+        function uploadImage($files, productId, callback) {
             //$files: an array of files selected
             for (var i = 0; i < $files.length; i++) {
                 var $file = $files[i];
                 (function (index) {
                     $rootScope.upload[index] = $upload.upload({
-                        url: "api/movies/images/upload?movieId=" + movieId, // webapi url
+                        url: "api/Product/images/upload?productId=" + productId, // webapi url
                         method: "POST",
                         file: $file
                     }).progress(function (evt) {

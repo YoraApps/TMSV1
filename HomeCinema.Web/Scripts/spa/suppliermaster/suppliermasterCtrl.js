@@ -13,7 +13,6 @@
         $scope.pagesCount = 0;
         $scope.openSuppliersDialog = openSuppliersDialog;
         $scope.removesupplier = removesupplier;
-       // $scope.openDialog = openDialog;
         $scope.suppliers = [];
         $scope.search = search;
         $scope.clearSearch = clearSearch;
@@ -112,13 +111,14 @@
     
     function removesupplier(data) {
         // $scope.loadingWatches = true;
-        $scope.removeId = data;
-        apiService.post('/api/SupplierMaster/Delete/' + $scope.removeId, null,
+        $scope.id = data;
+        apiService.post('/api/SupplierMaster/Delete/' + $scope.id, null,
             supplierRemoveCompleted,
             supplierRemoveFailed);
     }
 
-    function supplierRemoveCompleted(result) {
+        function supplierRemoveCompleted(result) {
+            debugger
         notificationService.displaySuccess(' has been removed');
         $scope.search();
         // $modalInstance.dismiss();

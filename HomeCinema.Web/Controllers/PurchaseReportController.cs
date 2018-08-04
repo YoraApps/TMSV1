@@ -24,11 +24,34 @@ namespace HomeCinema.Web.Controllers
         {
             return _PurchaseReportRepository.GetAllPurchaseReport();
         }
+        
+        [HttpPost]
+        [Route("Update")]
+        public IHttpActionResult Update(PurchaseFormPostDs purchaseFormPostDs)
+        {
+            var isupdate = _PurchaseReportRepository.Update(purchaseFormPostDs);
+            if (isupdate == true)
+
+                return Ok(isupdate);
+            return BadRequest();
+
+        }
+
+        [HttpPost]
+        [Route("delete/{Id}")]
+        public IHttpActionResult Remove(PurchaseReportDS purchaseReportDS)
+        {
+            var isupdate = _PurchaseReportRepository.RemovePerchaseReport(purchaseReportDS);
+            if (isupdate == true)
+
+                return Ok(isupdate);
+            return BadRequest();
+        }
         [HttpPost]
         [Route("getPurchaseReportInaGraph")]
-        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster uom)
+        public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster UOM)
         {
-            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(uom.Name);
+            return _PurchaseReportRepository.GetAllPurchaseGraphicReport(UOM.Name);
         }
     }
 } 

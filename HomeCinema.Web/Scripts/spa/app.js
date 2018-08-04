@@ -148,9 +148,13 @@
                 templateUrl: "scripts/spa/unitofmeasurementmaster/unitofmeasurementAdd.html",
                 controller: "unitofmeasurementAddCtrl"
             })
-            .when("/test", {
-                templateUrl: "scripts/spa/test/Test.html",
-                controller: "TestCtrl"
+            .when("/PosMaster", {
+                templateUrl: "scripts/spa/PosMaster/PosMaster.html",
+                controller: "PosMasterCtrl"
+            })
+            .when("/registers", {
+                templateUrl: "scripts/spa/Registration/Registration.html",
+                controller: "RegistrationCtrl"
             })
             .when("/location", {
                 templateUrl: "scripts/spa/location/location.html",
@@ -159,7 +163,13 @@
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
-            }).otherwise({ redirectTo: "/" });
+            })
+            .when("/testdev", {
+                templateUrl: "scripts/spa/testdev/testdev.html",
+                controller: "testdevController"
+            })
+            .otherwise({ redirectTo: "/" });
+
 
     }
 
