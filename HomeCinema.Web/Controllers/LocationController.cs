@@ -12,35 +12,37 @@ namespace HomeCinema.Web.Controllers
     [RoutePrefix("api/Location")]
     public class LocationController : ApiController
     {
-        private LocationMasterRepository _locationMasterRepository;
+        private LocationRepository _locationRepository;
 
         public LocationController()
         {
-            _locationMasterRepository = new LocationMasterRepository();
+            _locationRepository = new LocationRepository();
         }
 
-        [HttpGet]
-        [Route("getallLocations")]
-        public List<LocationMaster> GetAllLocation()
-        {
-            return _locationMasterRepository.GetAllLocations();
-        }
 
         [HttpPost]
-        [Route("Create")]
+        [Route("Insert")]
         public IHttpActionResult CreateLocation(LocationMaster locationMaster)
         {
-            var isSave = _locationMasterRepository.CreateLocation(locationMaster);
+            var isSave = _locationRepository.CreateLocation(locationMaster);
             if (isSave == true)
                 return Ok(isSave);
             return BadRequest();
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("GetAllLocation")]
+        public Location GetAllLocation()
+        {
+            return _locationRepository.GetAllLocation();
         }
 
         [HttpPost]
         [Route("Update")]
         public IHttpActionResult UpdateLocation(LocationMaster locationMaster)
         {
-            var isupdate = _locationMasterRepository.UpdateLocation(locationMaster);
+            var isupdate = _locationRepository.UpdateLocation(locationMaster);
             if (isupdate == true)
 
                 return Ok(isupdate);
@@ -51,19 +53,16 @@ namespace HomeCinema.Web.Controllers
         [Route("getById/{id}")]
         public IHttpActionResult GetSingleLocation(int id)
         {
-            return Ok(_locationMasterRepository.GetSingleLocation(id));
+            return Ok(_locationRepository.GetSingleLocation(id));
         }
         [HttpPost]
         [Route("Delete/{id}")]
-        public IHttpActionResult RemoveLoaction(int? id)
+        public IHttpActionResult RemoveLocation(int? id)
         {
-            var isdel = _locationMasterRepository.RemoveLocation(id);
+            var isdel = _locationRepository.RemoveLocation(id);
             if (isdel == true)
                 return Ok(isdel);
             return BadRequest();
         }
-
-
-
-    }   
+    }
 }

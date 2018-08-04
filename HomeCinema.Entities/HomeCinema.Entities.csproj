@@ -60,6 +60,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />
     <Compile Include="LocationMaster.cs" />
+    <Compile Include="list.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="PosMaster.cs" />
     <Compile Include="Pos.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Rental.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Stock.cs" />
+    <Compile Include="LocationMaster.cs" />
     <Compile Include="SupplierMaster.cs" />
     <Compile Include="SupplierTypeMaster.cs" />
     <Compile Include="Test.cs" />
