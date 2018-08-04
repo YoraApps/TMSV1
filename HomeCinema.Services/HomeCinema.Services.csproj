@@ -48,6 +48,7 @@
     <Compile Include="IRepository\IBookRepository.cs" />
     <Compile Include="IRepository\ICusomerMaster.cs" />
     <Compile Include="IRepository\IFlowerRepository.cs" />
+    <Compile Include="IRepository\ILocationRespository.cs" />
     <Compile Include="IRepository\IPurchaseReportRepository.cs" />
     <Compile Include="IRepository\ITestRepository.cs" />
     <Compile Include="IRepository\IUnitOfMesurement.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\CusomerMasterRepository.cs" />
     <Compile Include="Repository\FlowerRepository.cs" />
+    <Compile Include="Repository\LocationRepository.cs" />
     <Compile Include="Repository\PurchaseReportRepository.cs" />
     <Compile Include="Repository\TestRepository.cs" />
     <Compile Include="Repository\UnitOfMeasurementRepository.cs" />

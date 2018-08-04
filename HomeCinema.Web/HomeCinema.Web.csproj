@@ -171,6 +171,9 @@
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\location\location.html" />
+    <Content Include="Scripts\spa\location\locationAdd.html" />
+    <Content Include="Scripts\spa\location\locationCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
@@ -211,6 +214,7 @@
     <Content Include="Scripts\spa\SalesForm\Add.html" />
     <Content Include="Scripts\spa\SalesForm\Sales.html" />
     <Content Include="Scripts\spa\SalesForm\SalesFormCtrl.js" />
+    <Content Include="Scripts\spa\salesReports\SalesReportsAdd.html" />
     <Content Include="Scripts\spa\Sales\Add.html" />
     <Content Include="Scripts\spa\Sales\Sales.html" />
     <Content Include="Scripts\spa\Sales\SalesCtrl.js" />
@@ -228,6 +232,9 @@
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAdd.html" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterAddCtrl.js" />
     <Content Include="Scripts\spa\suppliermaster\suppliermasterCtrl.js" />
+    <Content Include="Scripts\spa\test\Test.html" />
+    <Content Include="Scripts\spa\test\TestAdd.html" />
+    <Content Include="Scripts\spa\test\TestCtrl.js" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAdd.html" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementAddCtrl.js" />
     <Content Include="Scripts\spa\unitofmeasurementmaster\unitofmeasurementCtrl.js" />
@@ -293,6 +300,7 @@
     <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MoviesExtendedController.cs" />
@@ -311,6 +319,7 @@
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UnitOfMeasurementMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">

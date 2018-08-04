@@ -1,0 +1,55 @@
+﻿<div class="jumbotron">
+    <div class="container text-center">
+        <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
+        <br />
+        <div class="btn-group">
+            <button style="margin-left:200%;width:100%;" type="button" ng-click="AddLocation();" class="btn btn-sm btn-primary">Add Location<i class="fa fa-plus pull-right"></i></button>
+
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Location</h4>
+            <div class="input-group">
+                <input id="inputSearchMovies" type="search" ng-model="filterLocation" class="form-control shortInputSearch" placeholder="Filter, search Location..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" ng-if="!loadingLocations">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>LocationId</th>
+                            <th>LocationName</th>
+                            <th>Description</th>
+                            <th>StoreName</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Location in LocationList | filter:filterLocation">
+                            <td>{{Location.LocationId}}</td>
+                            <td>{{Location.LocationName}}</td>
+                            <td>{{Location.Description}}</td>
+                            <td>{{Location.StoreName}}</td>
+                            <td class="col-sm-2">
+                                <button ng-click="openLocationContainer(Location);" type="button" class="btn btn-sm btn-primary">Edit</button>
+                                <button ng-click="removeLocation(Location.LocationId);" type="button" class="btn btn-sm btn-primary">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="text-center">
+                <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+            </div>
+        </div>
+    </div>
+</div>
+

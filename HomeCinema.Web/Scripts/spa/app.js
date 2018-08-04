@@ -152,6 +152,10 @@
                 templateUrl: "scripts/spa/test/Test.html",
                 controller: "TestCtrl"
             })
+            .when("/location", {
+                templateUrl: "scripts/spa/location/location.html",
+                controller: "locationCtrl"
+            })
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"

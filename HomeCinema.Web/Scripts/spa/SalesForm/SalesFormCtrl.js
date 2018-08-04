@@ -1,6 +1,5 @@
 ﻿(function (app) {
     'use strict';
-
    
     app.controller('SalesFormCtrl', SalesFormCtrl);
 
@@ -38,19 +37,13 @@
 
        
         function suppliertypeLoadCompleted(response) {
-            debugger
             $scope.saleArry = response.data;
-
         }
         function supplierstypeLoadFailed(error) {
             console.log("error in  Get Call Service");
         }
-
-
         //popup
-
         $scope.Modals = {
-
             opensalesDialog: function () {
                 $scope.modelInstance = $modal.open({
                     templateUrl: 'scripts/spa/SalesForm/Add.html',
@@ -66,30 +59,18 @@
                 $scope.modelInstance.dismiss();
             }
         };
-
         function cancelEdit() {
             $scope.Modals.cancelsalesDialog();
         }
-
-        //$scope.fetchSale = function (data) {
-        //    $scope.selectedObj = data;
-
-        //}
-
         $scope.Id = 0;
         $scope.modelobj = {};
-
-        $scope.openSalesFormDialogContainer = function (data) {
-           
+        $scope.openSalesFormDialogContainer = function (data) {           
             $scope.modelobj = data;
             $scope.save = 'update';
             $scope.Modals.opensalesDialog();
         }
-
         //popup new sales
-
-        $scope.AddSales = function () {
-            
+        $scope.AddSales = function () {            
             $scope.productArr = $scope.saleArry.Product;
             // $scope.saleArry = $scope.sales.filter(x => x.Id === data.CustomerId);
             $scope.customerArr = $scope.saleArry.Customer;
