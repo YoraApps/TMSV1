@@ -3,10 +3,10 @@
         PurchaseForm
     </div>
     <div class="panel-body" style="width:574px">
-        <form class="form-horizontal" role="form">   
+        <form class="form-horizontal" role="form">
             <div class="col-xs-4">
                 <label class="control-label">Product</label>
-                <select type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched"ng-model="ProdObj" data-ng-options='pa.ProductName for pa in productList' ng-change="fetchSupplier(ProdObj); " style="width: 163px;height:36px;">
+                <select type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="ProdObj" data-ng-options='pa.ProductName for pa in productList' ng-change="fetchSupplier(ProdObj); " style="width: 163px;height:36px;">
                     <option value="" disabled>Select A Product</option>
                 </select>
             </div>
@@ -16,44 +16,50 @@
                     <option value="" disabled>Select A Supplier</option>
                 </select>
             </div>
-                <div class="col-xs-4" >
-                    <label class="control-label">PurchaseDate</label>
-                    <p class="input-group">
-                        <input type="text"
-                               style="width: 125px;height:36px;"
-                               class="form-control"
-                               init-date="dateOptions.initDate"
-                               datepicker-popup="{{format}}"
-                               ng-model="dt"
-                               is-open="opened"
-                               min-date="dateOptions.minDate"
-                               max-date="'2100-06-22'"
-                               datepicker-options="dateOptions"
-                               date-disabled="disabled(date, mode)"
-                               ng-required="true" close-text="Close" 
-                               />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default form-control form-control-small ng-valid-maxlength ng-touched" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </p>
-                </div>
+            <div class="col-xs-4">
+                <label class="control-label">PurchaseDate</label>
+                <p class="input-group">
+                    <input type="text"
+                           style="width: 125px;height:36px;"
+                           class="form-control"
+                           init-date="dateOptions.initDate"
+                           datepicker-popup="{{format}}"
+                           ng-model="modelObj.date"
+                           is-open="opened"
+                           min-date="dateOptions.minDate"
+                           max-date="'2100-06-22'"
+                           datepicker-options="dateOptions"
+                           date-disabled="disabled(date, mode)"
+                           ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default form-control form-control-small ng-valid-maxlength ng-touched" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
             <div class="col-xs-4">
                 <label class="control-label">UOM</label>
-                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched"ng-model="UomObj" data-ng-options='pa.UOMName for pa in uOMList' ng-change="fetchSupplier(UomObj);">
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="UomObj" data-ng-options='pa.UOMName for pa in uOMList' ng-change="fetchSupplier(UomObj);">
                     <option value="" disabled>Select A UOM</option>
                 </select>
             </div>
             <div class="col-xs-4">
                 <label class="control-label">Quantity</label>
-                <input type="text" placeholder="Quantity" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Quantity" style="width: 163px;height:36px;"/><br />
+                <input type="text" placeholder="Quantity" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelObj.Quantity" style="width: 163px;height:36px;" /><br />
+            </div>
+
+            <div class="col-xs-4">
+                <label class="control-label">Store</label>
+                <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="storeObj" data-ng-options='pa.StoreName for pa in storeList' ng-change="fetchSupplier(storeObj);">
+                    <option value="" disabled>Select A Store</option>
+                </select>
             </div>
             <div class="col-xs-4">
                 <label class="control-label">Location</label>
                 <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="LocObj" data-ng-options='pa.LocationName for pa in LocationList' ng-change="fetchSupplier(LocObj);">
                     <option value="" disabled>Select A Location</option>
                 </select>
-            </div>            
-</form>
+            </div>
+        </form>
     </div>
     <div class="panel-footer clearfix">
         <div class="pull-right">

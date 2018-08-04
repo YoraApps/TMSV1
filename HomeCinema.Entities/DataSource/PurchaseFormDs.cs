@@ -8,7 +8,7 @@ namespace HomeCinema.Entities.DataSource
 {
     public class PurchaseSupplierDs
     {
-        public int? SupplierId { get; set; }
+        public int? Supplier_Id { get; set; }
         public string SupplierName { get; set; }
 
     }
@@ -28,13 +28,21 @@ namespace HomeCinema.Entities.DataSource
         public string ProductName { get; set; }
         public int? ProductId { get; set; }       
         
-    }     
+    }
+
+    public class PurchaseStoreDs
+    {
+        public string StoreName { get; set; }
+        public int? StoreId { get; set; }
+
+    }
     public class PurchaseFormPostDs
     {
         public PurchaseSupplierDs Supplier { get; set; }
         public PurchaseLocationDs Location { get; set; }
         public PurchaseUomDs UOM { get; set; }
         public PurchaseProductDs Product { get; set; }
+        public PurchaseStoreDs Store { get; set; }
         public string Quantity { get; set; }
         public DateTime? PurchaseDate { get; set; }
         public int PurchaseId { get; set; }
@@ -64,6 +72,7 @@ namespace HomeCinema.Entities.DataSource
         public List<PurchaseLocationDs> LocationList { get; set; }
         public List<PurchaseUomDs> uOMList { get; set; }
         public List<PurchaseProductDs> productList { get; set; }
+        public List<PurchaseStoreDs> storeList { get; set; }
     }
 
     

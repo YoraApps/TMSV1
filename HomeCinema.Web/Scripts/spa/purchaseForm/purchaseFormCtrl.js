@@ -13,10 +13,11 @@
         $scope.openPurchaseDialog = openPurchaseDialog;     
         $scope.modelObj = {};       
         $scope.SupplierArry = [];
-        $scope.LocObj = {};
+        //$scope.LocObj = {};
         $scope.SupObj = {};
         $scope.UomObj = {};
         $scope.ProdObj = {};
+        $scope.storeObj = {};
         function search(page) {
             page = page || 0;
             $scope.loadingPurchase = true;
@@ -41,28 +42,32 @@
        
         $scope.Id = 0;
         $scope.SelctedArry = [];       
-        $scope.AddPurchase = function (data) {
-            $scope.modelObj = data;
-          
+        $scope.AddPurchase = function () {
 
-            $scope.SelctedArry = $scope.modelObj.LocationList.filter(x => x.Id === data.LocationId);
-            $scope.LocationList = [];            
-            $scope.LocationList = $scope.modelObj.LocationList;       
-            $scope.SelctedArry = $scope.modelObj.supplierList.filter(x => x.Id === data.SupplierId);
+            debugger
+          
+            $scope.Purchases;
+
+            //$scope.LocationList = [];
+            //$scope.LocationList = $scope.Purchases.LocationList;
+
             $scope.supplierList = [];
-            $scope.supplierList = $scope.modelObj.supplierList;
-            
-            $scope.SelctedArry = $scope.modelObj.uOMList.filter(x => x.Id === data.UOMId);
+            $scope.supplierList = $scope.Purchases.supplierList;
+
             $scope.uOMList = [];
-            $scope.uOMList = $scope.modelObj.uOMList; 
-             
-            $scope.SelctedArry = $scope.modelObj.productList.filter(x => x.Id === data.ProductId);
+            $scope.uOMList = $scope.Purchases.uOMList;
+
             $scope.productList = [];
-            $scope.productList = $scope.modelObj.productList; 
+            $scope.productList = $scope.Purchases.productList;
+
+            $scope.storeList = [];
+            $scope.storeList = $scope.Purchases.storeList;
             $scope.openPurchaseDialog();
            
-        }       
+        } 
+        
         //modified
+
         function openPurchaseDialog() {
             $modal.open({
                 templateUrl: 'scripts/spa/purchaseForm/purchaseformAdd.html', 
@@ -73,10 +78,11 @@
             });
         }
         $scope.fetchSupplier = function (data) {
-            $scope.LocationList = data; 
+            //$scope.LocationList = data; 
             $scope.supplierList = data;
             $scope.uOMList = data;
             $scope.productList = data;
+            $scope.storeList = data;
 
         }
         $scope.search();

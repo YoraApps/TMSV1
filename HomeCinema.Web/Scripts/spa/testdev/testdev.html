@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <button class="btn btn-info pull-right" ng-click="opentestdevModel();">Click To Add New Category</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Product Category Name
+                </th>
+                <th>
+                    Product Category Description 
+                </th>
+                <th>
+                    Product Group Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pcl in productCategoryGridList">
+                <td>{{pcl.ProductCategoryName}}</td>
+                <td>{{pcl.ProductGroupName}}</td>
+                <td>{{pcl.Description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

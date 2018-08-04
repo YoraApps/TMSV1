@@ -13,11 +13,12 @@
                
             $scope.purchase = {
                 "Supplier": $scope.SupObj,
-                "Location": $scope.LocObj,
+                //"Location": $scope.LocObj,
                 "UOM": $scope.UomObj,
                 "Product": $scope.ProdObj,
+                "Store": $scope.storeObj,
                 "Quantity": $scope.modelObj.Quantity,
-                "PurchaseDate": $scope.dt
+                "PurchaseDate":$scope.modelObj.date
             }
           
             //$scope.purchase = $scope.modelObj;

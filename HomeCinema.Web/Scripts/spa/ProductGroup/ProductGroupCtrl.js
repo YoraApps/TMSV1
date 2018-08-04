@@ -149,8 +149,6 @@
             notificationService.displayError(response);
         }
         $scope.search();
-        activate();
 
-        function activate() { }
     }
 })(angular.module('homeCinema'));

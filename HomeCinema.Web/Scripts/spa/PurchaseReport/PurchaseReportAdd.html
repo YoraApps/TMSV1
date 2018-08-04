@@ -62,6 +62,13 @@
                             <label class="control-label" from="Quantity">Quantity</label>
                             <input type="text" placeholder="Quantity" class="form-control" name="Quantity" id="Quantity" validate-on="blur" required required-message="'Quantity  is required'" ng-model="modelObj.Quantity" />
                         </div>
+
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label">Store</label>
+                            <select style="width: 163px;height:36px;" type="text" placeholder="Name" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="storeObj" data-ng-options='pa.StoreName for pa in storearr' ng-change="storeObjFromPostModel(storeObj);">
+                                <option value="" disabled>Select A Store</option>
+                            </select>
+                        </div>
                         <div class="col-xs-6 selectContainer">
 
                             <label class="control-label" form="Location">Location</label>

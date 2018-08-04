@@ -1,0 +1,34 @@
+﻿<div class="row ng-scope">
+    <form class="form-signin ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+        <h3 class="form-signin-heading">Your Inventory </h3>
+        <div class="form-group">
+            <label for="companyname" class="">CompanyName</label>
+            <input type="text" name="companyname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="modelObj.CompanyName" placeholder="CompanyName" validate-on="blur" required="" required-message="'CompanyName is required'">
+        </div>
+        <div class="form-group">
+            <label for="portalname">PortalName</label>
+            <input type="text" name="portalname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="modelObj.PortalName" placeholder="PortalName" validate-on="blur" required="" required-message="'PortalName is required'">
+        </div>
+        <div class="form-group">
+            <label class="" from="country">CountryName</label>
+            <select type="text" placeholder="country" class="form-control" name="country" id="country" validate-on="blur" required required-message="' country is required'" ng-model="countryObj" data-ng-options='pa.country for pa in countryarr' ng-change="countryObjFrmPostModel(countryObj);">
+                <option value="" disabled>Select A Group</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="" from="Province">Province</label>
+            <input type="text" name="Province" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="modelObj.Province_Name" placeholder="Province_Name" validate-on="blur" required="" required-message="'Province_Name is required'">
+        </div>
+
+        <div class="form-group">
+            <label class="" from="Currency">Currency</label>
+            <input type="text" name="portalname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="modelObj.Currency_Name" placeholder="Currency_Name" validate-on="blur" required="" required-message="'Currency_Name is required'">
+        </div>
+        <div class="form-group">
+            <label class="" from="TimeZone">TimeZone</label>
+            <input type="text" name="portalname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="modelObj.Zone_Name" placeholder="Zone_Name" validate-on="blur" required="" required-message="'Zone_Name is required'">
+        </div>
+        <button ng-click="AddRegister(modelObj);" type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+
+    </form>
+</div>

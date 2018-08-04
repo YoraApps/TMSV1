@@ -91,11 +91,11 @@
         $scope.AddSales = function () {
             
             $scope.productArr = $scope.saleArry.Product;
-            // $scope.saleArry = $scope.sales.filter(x => x.Id === data.CustomerId);
+         
             $scope.customerArr = $scope.saleArry.Customer;
-            // $scope.saleArry = $scope.sales.filter(x => x.Id === data.UOMId);
+
             $scope.UOMArr = $scope.saleArry.UOM;
-            //$scope.saleArry = $scope.sales.filter(x => x.Id === data.PosId);
+    
             $scope.POSArr = $scope.saleArry.pos;
 
             $scope.save = 'add';
@@ -120,7 +120,6 @@
 
 
  //save slaes details
-      
 
         $scope.prodObjFrmPostModel = function (data) {
             $scope.productObj = data;

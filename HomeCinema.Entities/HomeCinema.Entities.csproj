@@ -43,6 +43,7 @@
     <Compile Include="CusomerMaster.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerTypeMaster.cs" />
+    <Compile Include="DataSource\Organization.cs" />
     <Compile Include="DataSource\ProductCategoryDS.cs" />
     <Compile Include="DataSource\ProductDS.cs" />
     <Compile Include="DataSource\SalesDS.cs" />
@@ -53,10 +54,12 @@
     <Compile Include="DataSource\SalesReportsDS.cs" />
     <Compile Include="DataSource\PurchaseMasterDS.cs" />
     <Compile Include="DataSource\PurchaseReportDS.cs" />
+    <Compile Include="DataSource\testdev.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />
+    <Compile Include="LocationMaster.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="PosMaster.cs" />
     <Compile Include="Pos.cs" />
