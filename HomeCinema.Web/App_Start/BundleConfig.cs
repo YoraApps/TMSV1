@@ -92,11 +92,10 @@ namespace HomeCinema.Web.App_Start
                    "~/Scripts/spa/Location/LocationCtrl.js",
                  "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementCtrl.js",
                   "~/Scripts/spa/unitofmeasurementmaster/unitofmeasurementAddCtrl.js",
-                   "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js",
                      "~/Scripts/spa/Registration/RegistrationCtrl.js",
-                   "~/Scripts/spa/test/TestCtrl.js",
                    "~/Scripts/spa/testdev/testdevController.js"
-
+                      "~/Scripts/spa/PosMaster/PosMasterCtrl.js",
+                   "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

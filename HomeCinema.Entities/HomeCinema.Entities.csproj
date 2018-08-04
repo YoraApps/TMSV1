@@ -50,6 +50,7 @@
     <Compile Include="DataSource\SalesFormListDs.cs" />
     <Compile Include="DataSource\SupplierMasterDS.cs" />
     <Compile Include="DataSource\PurchaseFormDs.cs" />
+    <Compile Include="DataSource\SalesDS.cs" />
     <Compile Include="DataSource\SalesReportsDS.cs" />
     <Compile Include="DataSource\PurchaseMasterDS.cs" />
     <Compile Include="DataSource\PurchaseReportDS.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="IEntityBase.cs" />
     <Compile Include="LocationMaster.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="PosMaster.cs" />
     <Compile Include="Pos.cs" />
     <Compile Include="ProductCategoryMaster.cs" />
     <Compile Include="Product.cs" />
