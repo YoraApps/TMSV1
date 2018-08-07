@@ -108,7 +108,7 @@
 
         $scope.openRentDialogContainer = function (data) {
             $scope.modelObj = data;
-            $scope.SelctedArry = $scope.ProductArry.filter(x => x.Id === data.GroupId);
+            $scope.SelctedArry = $scope.ProductArry.filter(x => x.Id === data.Prod_Grp_Id);
             $scope.selectedObj = $scope.SelctedArry[0];
             $scope.ModelType = 'Edit';
             $scope.Modals.openProductCategoryDialog();

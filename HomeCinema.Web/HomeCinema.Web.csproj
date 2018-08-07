@@ -238,6 +238,10 @@
     <Content Include="Scripts\spa\CustomerType\CustomerTypeCtrl.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\exportToExcelApp.js" />
+    <Content Include="Scripts\spa\Location\AddLocation.html" />
+    <Content Include="Scripts\spa\Location\Location.html" />
+    <Content Include="Scripts\spa\Location\locationAdd.html" />
+    <Content Include="Scripts\spa\Location\LocationCtrl.js" />
     <Content Include="Scripts\spa\PosMaster\PosMaster.html" />
     <Content Include="Scripts\spa\PosMaster\PosMasterAdd.html" />
     <Content Include="Scripts\spa\PosMaster\PosMasterCtrl.js" />
@@ -249,6 +253,7 @@
     <Content Include="Scripts\spa\purchaseForm\purchaseformAdd.html" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormAddCtrl.js" />
     <Content Include="Scripts\spa\PurchaseReport\PurchaseReport.html" />
+    <Content Include="Scripts\spa\PurchaseReport\PurchaseReportAdd.html" />
     <Content Include="Scripts\spa\PurchaseReport\PurchaseReportCtrl.js" />
     <Content Include="Scripts\spa\purchase\manageSupplier.html" />
     <Content Include="Scripts\spa\purchase\manageSupplierAdd.html" />
@@ -286,7 +291,7 @@
     <Content Include="Scripts\spa\SalesForm\Add.html" />
     <Content Include="Scripts\spa\SalesForm\Sales.html" />
     <Content Include="Scripts\spa\SalesForm\SalesFormCtrl.js" />
-    <Content Include="Scripts\spa\salesReports\SalesReportsAdd.html" />
+    <Content Include="Scripts\spa\salesReports\SalesReportAdd.html" />
     <Content Include="Scripts\spa\Sales\Add.html" />
     <Content Include="Scripts\spa\Sales\Sales.html" />
     <Content Include="Scripts\spa\Sales\SalesCtrl.js" />
@@ -297,6 +302,9 @@
     <Content Include="Scripts\spa\services\notificationService.js" />
     <Content Include="Scripts\spa\services\apiService.js" />
     <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Scripts\spa\StoreMaster\StoreMaster.html" />
+    <Content Include="Scripts\spa\StoreMaster\StoreMasterAdd.html" />
+    <Content Include="Scripts\spa\StoreMaster\StoreMasterCtrl.js" />
     <Content Include="Scripts\spa\SupplierType\Add.html" />
     <Content Include="Scripts\spa\SupplierType\Supplier.html" />
     <Content Include="Scripts\spa\SupplierType\SupplierTypeCtrl.js" />
@@ -375,7 +383,6 @@
     <Compile Include="Controllers\MoviesExtendedController.cs" />
     <Compile Include="Controllers\OrgnizationController.cs" />
     <Compile Include="Controllers\PosMasterController.cs" />
-    <Compile Include="Controllers\PosController.cs" />
     <Compile Include="Controllers\ProductCategoryMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductGroupController.cs" />
@@ -389,6 +396,7 @@
     <Compile Include="Controllers\SalesDetalisController.cs" />
     <Compile Include="Controllers\SalesReportsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
+    <Compile Include="Controllers\StoreMasterController.cs" />
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
     <Compile Include="Controllers\TestDevController.cs" />

@@ -168,6 +168,16 @@
                 templateUrl: "scripts/spa/testdev/testdev.html",
                 controller: "testdevController"
             })
+
+            .when("/StoreMaster", {
+                templateUrl: "scripts/spa/StoreMaster/StoreMaster.html",
+                controller: "StoreMasterCtrl"
+            })
+
+            .when("/location", {
+                templateUrl: "scripts/spa/location/location.html",
+                controller: "locationCtrl"
+            })
             .otherwise({ redirectTo: "/" });
 
 
@@ -199,6 +209,7 @@
                 $('[data-toggle=offcanvas]').click(function () {
                     $('.row-offcanvas').toggleClass('active');
                 });
+
             });
         }
 

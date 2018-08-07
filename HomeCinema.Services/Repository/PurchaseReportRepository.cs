@@ -36,36 +36,35 @@ namespace HomeCinema.Services.Repository
             return this._db.Query<PurchaseReportDS>("USP_PurchaseReport",commandType:CommandType.StoredProcedure).ToList();
         }
 
-        public bool RemovePerchaseReport(PurchaseReportDS purchaseReportDS)
-        {
-            bool returnvalue = false;
+        //public bool RemovePerchaseReport(PurchaseReportDS purchaseReportDS)
+        //{
+        //    bool returnvalue = false;
 
-            DynamicParameters param = new DynamicParameters();
+        //    DynamicParameters param = new DynamicParameters();
 
-            param.Add("@Id", purchaseReportDS.Id);
-            _db.Open();
-            var val = _db.Execute("USP_PurchaseReport", param, commandType: CommandType.StoredProcedure);
+        //    param.Add("@Id", purchaseReportDS.Id);
+        //    _db.Open();
+        //    var val = _db.Execute("USP_PurchaseReport", param, commandType: CommandType.StoredProcedure);
 
-            if (val > 0)
-            {
-                returnvalue = true;
-            }
-            _db.Close();
-            return returnvalue;
-        }
+        //    if (val > 0)
+        //    {
+        //        returnvalue = true;
+        //    }
+        //    _db.Close();
+        //    return returnvalue;
+        //}
 
         public bool Update(PurchaseFormPostDs purchaseFormPostDs)
         {
             bool returnvalue = false;
          
             DynamicParameters param = new DynamicParameters();
-
             param.Add("@Id", purchaseFormPostDs.PurchaseId);
             param.Add("@ProductId", purchaseFormPostDs.Product.ProductId);
             param.Add("@Supplier_Id", purchaseFormPostDs.Supplier.Supplier_Id);
             //param.Add("@LocationId", purchaseFormPostDs.Location.LocationId);
             param.Add("@UomId", purchaseFormPostDs.UOM.UomId);
-            param.Add("@StoreId", purchaseFormPostDs.Store.StoreId);    
+            param.Add("@StoreId", purchaseFormPostDs.Store.StoreId);
             param.Add("@Quantity", purchaseFormPostDs.Quantity);
             param.Add("@ModifiedBy", 1);
             param.Add("@ModifiedDate", DateTime.UtcNow);

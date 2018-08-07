@@ -1,9 +1,9 @@
 ﻿<div class="panel panel-primary">
     <div class="panel-heading" ng-if="save=='update'">
-        Update Pos
+        Update Store
     </div>
     <div class="panel-heading" ng-if="save=='add'">
-        Added Pos
+        Added Store
     </div>
     <div class="panel-body">
         <form class="form-horizontal" role="form">
@@ -19,8 +19,8 @@
     <div class="panel-footer clearfix">
         <div class="pull-left">
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
-            <button type="button" class="btn btn-primary" ng-click="UpdatePosMaster()" ng-if="save=='update'">submit</button>
-            <button ng-click="AddCustomerModel();" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdateStoreMaster()" ng-if="save=='update'">submit</button>
+            <button ng-click="AddStoreModel();" type="button" class="btn btn-primary ng-scope" ng-if="save=='add'">save</button>
 
         </div>
     </div>

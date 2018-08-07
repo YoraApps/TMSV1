@@ -21,31 +21,27 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadinglocatons">
+            <div class="table-responsive" ng-if="!loadingLocations">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
+                            <th>LocationId</th>
+                            <th>Location Name</th>
                             <th>Description</th>
-                            <!--<th>IsActive</th>
-                            <th>CreatedBy</th>
-                            <th>CreatedDate</th>
-                            <th>ModifiedBy</th>
-                            <th>ModifiedDate</th>-->
+                            <th>StoreName</th>
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="location in locations | filter:filterLocation">
-
-                            <td>{{location.Id}}</td>
-                            <td>{{location.Name}}</td>
+                        <tr ng-repeat="location in LocationList | filter:filterLocation">
+                            <td>{{location.LocationId}}</td>
+                            <td>{{location.LocationName}}</td>
                             <td>{{location.Description}}</td>
+                            <td>{{location.StoreName}}</td>
                             <td class="col-sm-2">
-                                <button ng-click="openLocationDialogContainer(location);" type="button" class="btn btn-sm btn-primary">Edit</button>
-                                <button ng-click="removeLocation(location.Id);" type="button" class="btn btn-sm btn-primary">Delete</button>
+                                <button ng-click="openLocationContainer(location);" type="button" class="btn btn-sm btn-primary">Edit</button>
+                                <button ng-click="removeLocation(location.LocationId);" type="button" class="btn btn-sm btn-primary">Delete</button>
                             </td>
                         </tr>
                     </tbody>

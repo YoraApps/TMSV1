@@ -13,7 +13,7 @@
                
             $scope.purchase = {
                 "Supplier": $scope.SupObj,
-                //"Location": $scope.LocObj,
+                "Location": $scope.LocObj,
                 "UOM": $scope.UomObj,
                 "Product": $scope.ProdObj,
                 "Store": $scope.storeObj,

@@ -1,152 +1,147 @@
 ﻿(function (app) {
     'use strict';
 
-    app.controller('LocationCtrl', LocationCtrl);
+    app.controller('locationCtrl', locationCtrl);
 
-    LocationCtrl.$inject = ['$scope', '$modal','apiService', 'notificationService'];
+    locationCtrl.$inject = ['$scope', 'apiService', '$modal', 'notificationService'];
 
-    function LocationCtrl($scope, $modal, apiService, notificationService) {
-        $scope.title = 'LocationCtrl';
-        $scope.pageClass = 'page-Location';
-        $scope.loadinglocatons = true;
-        $scope.page = 0;
-        $scope.pagesCount = 0;
-        $scope.locations = [];
-        $scope.modelobj = {};
+    function locationCtrl($scope, apiService, $modal, notificationService) {
+        $scope.title = 'locationCtrl';
+        $scope.loadingLocations = true;
+        $scope.LocationList = [];
         $scope.search = search;
+        $scope.cancelEdit = cancelEdit;
         $scope.clearSearch = clearSearch;
-        $scope.cancelEdit = cancelEdit; 
-        $scope.saveLoaction = saveLoaction;
-        $scope.UpdatedLocation = UpdatedLocation;
         $scope.removeLocation = removeLocation;
+        $scope.updatedLocation = updatedLocation;
+        $scope.saveLocation = saveLocation;
+        $scope.LocationLoadCompleted = LocationLoadCompleted;
+        $scope.LocationLoadFailed = LocationLoadFailed;
 
-
-        function search(page) {
-            page = page || 0;
-
-            $scope.loadinglocatons = true;
-
-            var config = {
-                params: {
-                    page: page,
-                    pageSize: 6,
-                    filter: $scope.filterLocation
-                }
-            };
-
-            apiService.get('/api/Location/getallLocations/', config,
-               locationsLoadCompleted,
-               locationsLoadFailed);
+        function search() {
+            $scope.loadingLocations = true;
+            apiService.get('/api/Location/GetAllLocation', null,
+                LocationLoadCompleted,
+                LocationLoadFailed);
         }
-        function locationsLoadCompleted(result) {
-
-            $scope.locations = result.data;
-            $scope.page = result.data.Page;
-            $scope.pagesCount = result.data.TotalPages;
-            $scope.totalCount = result.data.TotalCount;
-            $scope.loadinglocatons = false;
-
+        function LocationLoadCompleted(result) {
+            $scope.objList = result.data;
+            $scope.LocationList = $scope.objList.LocationList;
+            $scope.StoreList = $scope.objList.StoreList;
+            $scope.loadingLocations = false;
             if ($scope.filterLocation && $scope.filterLocation.length) {
-
-                notificationService.displayInfo(result.data.length + ' location found');
+                notificationService.displayInfo(result.data.length + ' Location found');
             }
         }
-        function locationsLoadFailed(response) {
+        function LocationLoadFailed(response) {
             notificationService.displayError(response.data);
         }
-
+        function clearSearch() {
+            $scope.filterLocation = '';
+            search();
+        }
+        function removeLocation(data) {
+            debugger
+            $scope.id = data;
+            apiService.post('/api/Location/Delete/' + $scope.id, null,
+                LocationremoveCompleted,
+                LocationremoveFailed);
+        }
+        function LocationremoveCompleted(result) {
+            $scope.LocationList = result.data;
+            notificationService.displaySuccess('has been remove');
+            $scope.search();
+        }
+        function LocationremoveFailed(response) {
+            notificationService.displayError(response);
+        }
         $scope.Modals = {
-            openlocationDialog: function () {
-
+            openLocationDialog: function () {
                 $scope.modelInstance = $modal.open({
-                    templateUrl: 'scripts/spa/Location/AddLocation.html',
+                    templateUrl: 'scripts/spa/Location/locationAdd.html',
                     size: 'md',
                     scope: $scope
                 });
                 $scope.modelInstance.result.then(function ($scope) {
 
-                }, function (event) {
-                });
+                },
+                    function (event) {
+                    });
             },
-            //cnacel modal
-            cancellocationDialog: function () {
+            //cancel modal
+            cancelLocationDialog: function () {
                 $scope.modelInstance.dismiss();
             }
         };
         //Cancel Edit popup
         function cancelEdit() {
-            $scope.Modals.cancellocationDialog();
+            $scope.Modals.cancelLocationDialog();
         }
-
-        $scope.AddLocation = function () {
-            $scope.save = 'add';
-            $scope.Modals.openlocationDialog();
-        }
-        $scope.openLocationDialogContainer = function (data) {
-            debugger
+        //popup edit productgroup
+        $scope.modelobj = {};
+        $scope.arr = [];
+        $scope.openLocationContainer = function (data) {
             $scope.modelobj = data;
-            $scope.save = 'update';
-            $scope.Modals.openlocationDialog();
-        }
-
-        function saveLoaction() {
-            apiService.post('/api/Location/Create', $scope.modelobj,
-                AddlocationSucceded,
-                AddlocationFailed);
-        }
-        function AddlocationSucceded(response) {
-
-            debugger
-
-            $scope.locations = response.data;
-            $scope.modelobj = {};
-            notificationService.displaySuccess(' has been submitted to Home Cinema');
-            $scope.search();
-            $scope.cancelEdit();
-        }
-        function AddlocationFailed(response) {
-            console.log(response);
-            $scope.modelobj = {};
-            notificationService.displayError(response.statusText);
-        
-        }
+            $scope.arr = $scope.StoreList.filter(x => x.Id === data.StoreId);
+            $scope.selectedObj = $scope.arr[0];
+            $scope.ModelType = 'Edit';
+            $scope.Modals.openLocationDialog();
+        };  
+        $scope.fetchLocation = function (data) {
+            $scope.selectedObj = data;
+        };
+        //popup Added new ProductGroup
+        $scope.AddLocation = function () {
+            $scope.ModelType = 'Add';
+            $scope.Modals.openLocationDialog();
+        };
+        //Update ProductGroup 
         $scope.LocationObj = {};
-        function UpdatedLocation() {
-            $scope.LocationObj = $scope.modelobj;
+        function updatedLocation() {
+            $scope.LocationObj = {
+                "LocationId": $scope.modelobj.LocationId,
+                "LocationName": $scope.modelobj.LocationName,
+                "Description": $scope.modelobj.Description,
+                "StoreId": $scope.selectedObj.Id
+            };
             apiService.post('/api/Location/Update', $scope.LocationObj,
-                updatelocationSucceded,
-                updatelocationFailed);
+                updateLocationSucceded,
+                updateLocationFailed);
         }
-        function updatelocationSucceded(response) {
+        function updateLocationSucceded(response) {
             console.log(response);
             notificationService.displaySuccess('has been updated');
             $scope.cancelEdit();
         }
-        function updatelocationFailed(response) {
+        function updateLocationFailed(response) {
             notificationService.displayError(response);
             $scope.cancelEdit();
         }
-
-        function removeLocation(data) {
-            $scope.id = data;
-            apiService.post('/api/Location/Delete/' + $scope.id, null,
-               locationremoveCompleted,
-                locationremoveFailed);
+        //Save ProductGroup
+        $scope.modelobj = {};
+        function saveLocation() {
+            $scope.modelobj = {
+                "LocationName": $scope.modelobj.LocationName,
+                "Description": $scope.modelobj.Description,
+                "StoreId": $scope.selectedObj.Id
+            };
+            apiService.post('/api/Location/Insert', $scope.modelobj,
+                AddedLocationSucceded,
+                AddedLocationFailed);
         }
-        function locationremoveCompleted(result) {
-            $scope.locations = result.data;
-            notificationService.displaySuccess('has been remove');
+        function AddedLocationSucceded(response) {
+            notificationService.displaySuccess(' has been submitted to Home Cinema');
+            $scope.LocationList = response.data;
+            $scope.modelobj = {};
             $scope.search();
+            $scope.cancelEdit();
+        }
+        function AddedLocationFailed(response) {
+            console.log(response);
+            notificationService.displayError(response.statusText);
+            $scope.modelobj = {};
+        }
 
-        }
-        function locationremoveFailed(response) {
-            notificationService.displayError(response);
-        }
-     
-        function clearSearch() {
-            $scope.filterLocation = '';
-            search();
-        }
         $scope.search();
     }
 })(angular.module('homeCinema'));
