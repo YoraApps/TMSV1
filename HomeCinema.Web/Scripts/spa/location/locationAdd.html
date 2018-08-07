@@ -1,0 +1,42 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-if="ModelType=='Edit'">
+        Update
+    </div>
+    <div class="panel-heading" ng-if="ModelType=='Add'">
+        Added
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">LocationName</label>
+                    <input type="text" placeholder="LocationName" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelobj.LocationName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">Description</label>
+                    <input type="text" placeholder="Description" class="form-control form-control-small ng-valid-maxlength ng-touched" ng-model="modelobj.Description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 selectContainer">
+                    <label class="control-label">StoreName</label>
+                    <select type="text" placeholder="Store" ng-model="selectedObj" data-ng-options='pa.Name for pa in StoreList' ng-change="fetchLocation(selectedObj);">
+                        <option value="" disabled>Select A Store</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull1-right">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="updatedLocation()" ng-if="ModelType=='Edit'">submit</button>
+            <button type="button" class="btn btn-primary" ng-click="saveLocation()" ng-if="ModelType=='Add'">save</button>
+        </div>
+    </div>
+</div>
+
+

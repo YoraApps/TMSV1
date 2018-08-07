@@ -52,6 +52,9 @@
     <Compile Include="IRepository\IOrgnizationRepository.cs" />
     <Compile Include="IRepository\IStoreMasterRepository.cs" />
     <Compile Include="IRepository\ItestdevRepo.cs" />
+    <Compile Include="IRepository\ICusomerMaster.cs" />
+    <Compile Include="IRepository\IFlowerRepository.cs" />
+    <Compile Include="IRepository\ILocationRespository.cs" />
     <Compile Include="IRepository\IPurchaseReportRepository.cs" />
     <Compile Include="IRepository\IUnitOfMesurement.cs" />
     <Compile Include="IRepository\ICustomerTypeRepository.cs" />
