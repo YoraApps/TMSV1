@@ -37,16 +37,16 @@ namespace HomeCinema.Web.Controllers
 
         }
 
-        [HttpPost]
-        [Route("delete/{Id}")]
-        public IHttpActionResult Remove(PurchaseReportDS purchaseReportDS)
-        {
-            var isupdate = _PurchaseReportRepository.RemovePerchaseReport(purchaseReportDS);
-            if (isupdate == true)
+        //[HttpPost]
+        //[Route("delete/{Id}")]
+        //public IHttpActionResult Remove(PurchaseReportDS purchaseReportDS)
+        //{
+        //    var isupdate = _PurchaseReportRepository.RemovePerchaseReport(purchaseReportDS);
+        //    if (isupdate == true)
 
-                return Ok(isupdate);
-            return BadRequest();
-        }
+        //        return Ok(isupdate);
+        //    return BadRequest();
+        //}
         [HttpPost]
         [Route("getPurchaseReportInaGraph")]
         public List<PurchaseReportDS> GetAllPurchaseGraphicReport(UnitOfMeasurementMaster UOM)

@@ -13,7 +13,7 @@
         $scope.openPurchaseDialog = openPurchaseDialog;     
         $scope.modelObj = {};       
         $scope.SupplierArry = [];
-        //$scope.LocObj = {};
+        $scope.LocObj = {};
         $scope.SupObj = {};
         $scope.UomObj = {};
         $scope.ProdObj = {};
@@ -48,8 +48,8 @@
           
             $scope.Purchases;
 
-            //$scope.LocationList = [];
-            //$scope.LocationList = $scope.Purchases.LocationList;
+            $scope.LocationList = [];
+            $scope.LocationList = $scope.Purchases.LocationList;
 
             $scope.supplierList = [];
             $scope.supplierList = $scope.Purchases.supplierList;
@@ -78,7 +78,7 @@
             });
         }
         $scope.fetchSupplier = function (data) {
-            //$scope.LocationList = data; 
+            $scope.LocationList = data; 
             $scope.supplierList = data;
             $scope.uOMList = data;
             $scope.productList = data;

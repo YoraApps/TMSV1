@@ -26,7 +26,7 @@ namespace HomeCinema.Services.Repository
             sa.UOMName = Name;
             DynamicParameters param = new DynamicParameters();
 
-            param.Add("@UomName ", sa.UOMName);
+            param.Add("@UOMName ", sa.UOMName);
 
             return this._db.Query<SalesReportsDS>("USP_SalesGraphicsReports", param, commandType: CommandType.StoredProcedure).ToList();
         }

@@ -76,6 +76,7 @@
         }
         
         function salesGraphicReportsLoadCompleted(result) {
+        
             $scope.SalesGUI = result.data;
             Morris.Bar({
                 element: "sales-bar",
@@ -153,7 +154,7 @@
         $scope.Modals = {
             openSaleReportDialog: function () {
                 $scope.modelInstance = $modal.open({
-                    templateUrl: 'scripts/spa/salesReports/SalesReportsAdd.html',
+                    templateUrl: 'scripts/spa/salesReports/SalesReportAdd.html',
                     size: 'md',
                     scope: $scope
                 });

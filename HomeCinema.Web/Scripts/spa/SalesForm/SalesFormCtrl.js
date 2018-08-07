@@ -152,8 +152,10 @@
             salesFailed);
         }
         function salesSucceded(response) {
-            notificationService.displaySuccess(' has been submitted to Home Cinema');
             debugger
+
+            notificationService.displaySuccess(' has been submitted to Home Cinema');
+           
             $scope.selectedObj = response.data;
             $scope.selectedObj = {};
             $scope.cancelEdit();

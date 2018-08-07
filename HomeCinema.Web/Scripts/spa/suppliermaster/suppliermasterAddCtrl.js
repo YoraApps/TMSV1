@@ -19,7 +19,7 @@
                 "PhoneNumber": data.PhoneNumber,
                 "AlternatePhoneNumber": data.AlternatePhoneNumber,
                 "FaxNumber": data.FaxNumber,
-                //"SupplierTypeId": $scope.selectedObj.Id
+                "SupplierTypeId": $scope.selectedObj.Id
             }
             $scope.selectedObj;
             apiService.post('/api/SupplierMaster/Create', $scope.supplier,
@@ -56,7 +56,7 @@
                 "PhoneNumber": data.PhoneNumber,
                 "AlternatePhoneNumber": data.AlternatePhoneNumber,
                 "FaxNumber": data.FaxNumber,
-                //"SupplierTypeId": $scope.selectedObj.Id
+                "SupplierTypeId": $scope.selectedObj.Id
             }
             apiService.post('/api/SupplierMaster/Update', $scope.supplier,
                 updateSupplierSucceded,

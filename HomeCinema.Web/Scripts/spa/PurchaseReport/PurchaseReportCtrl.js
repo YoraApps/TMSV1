@@ -62,6 +62,7 @@
         }
 
         function purchaseLoadCompleted(result) {
+          
             console.log(result);
    
             $scope.PurchasesArr = result.data;
@@ -80,7 +81,7 @@
         }
         function PurchaseReportLoadCompleted(result) {
 
-            
+          
            
             $scope.Purchases = result.data;
            
@@ -118,7 +119,6 @@
         
 
         function UpdatePurchase() {
-          
 
             $scope.selectedObj = {
                 "PurchaseId": $scope.modelObj.Id,
@@ -136,7 +136,7 @@
                 ParchaseReportsLoadFailed);
         }
         function PurchaseReportsLoadCompleted() {
-        
+           
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
             $scope.cancelEdit();
@@ -147,23 +147,23 @@
             $scope.cancelEdit();
         }
 
-        function removePurchase(data) {
-            $scope.Id = data;
-            apiService.post('api/PurchaseReport/delete/' + $scope.Id, null,
-                PurchaseReportsremoveCompleted,
-                PurchaseReporsremoveFailed);
+        //function removePurchase(data) {
+        //    $scope.Id = data;
+        //    apiService.post('api/PurchaseReport/delete/' + $scope.Id, null,
+        //        PurchaseReportsremoveCompleted,
+        //        PurchaseReporsremoveFailed);
 
-            function PurchaseReportsremoveCompleted(result) {
+        //    function PurchaseReportsremoveCompleted(result) {
 
-                notificationService.displaySuccess('has been remove');
-                $scope.Purchases = result.data;
-                $scope.search();
+        //        notificationService.displaySuccess('has been remove');
+        //        $scope.Purchases = result.data;
+        //        $scope.search();
 
-            }
-            function PurchaseReporsremoveFailed(response) {
-                notificationService.displayError(response);
-            }
-        }
+        //    }
+        //    function PurchaseReporsremoveFailed(response) {
+        //        notificationService.displayError(response);
+        //    }
+        //}
        
      
 
@@ -192,6 +192,7 @@
 
 
         $scope.openPurchaseDialogContainer = function (abc) {
+
 
             $scope.productarr = $scope.PurchasesArr.productList;
             $scope.ProdHoldArr = $scope.productarr.filter(x => x.ProductId == abc.ProductId)
