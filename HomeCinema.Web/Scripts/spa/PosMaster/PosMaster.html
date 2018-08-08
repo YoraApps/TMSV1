@@ -4,7 +4,7 @@
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
         <br />
         <div class="btn-group">
-            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddPosMaster();" class="btn btn-sm btn-primary">Add PosMaster<i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddPosMaster();" class="btn btn-sm btn-primary">Add PosMaster<i class="fa fa-plus pull-right"></i></button>-->
             <!-- <a href="#/movies/edit/{{movie.ID}}" class="btn btn-sm btn-default">Add Watches<i class="fa fa-pencil-square-o pull-right"></i></a>-->
         </div> <!-- end btn-group -->
     </div>
@@ -17,15 +17,15 @@
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    <button class="btn btn-primary" ng-click="AddPosMaster();"><i class="fa "></i>Add New </button>
                 </div>
-            </div>
         </div>
         <div class="panel-body">
             <div class="table-responsive" ng-if="!loadingPosmaster">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <!--<th>Id</th>-->
                             <th>Name</th>
                             <th> Action</th>
                         </tr>
@@ -34,7 +34,7 @@
                         <tr ng-repeat="posmaster in posmasters | filter:filterPosMaster">
 
 
-                            <td>{{posmaster.Id}}</td>
+                            <!--<td>{{posmaster.Id}}</td>-->
                             <td>{{posmaster.Name}}</td>
                          
 

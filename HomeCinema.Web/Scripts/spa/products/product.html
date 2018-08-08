@@ -4,7 +4,7 @@
         <img alt="{{product.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
         <br />
         <div class="btn-group">
-            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddProduct();" class="btn btn-sm btn-primary">Add Product<i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddProduct();" class="btn btn-sm btn-primary">Add Product<i class="fa fa-plus pull-right"></i></button>-->
         </div>
     </div>
 
@@ -16,6 +16,7 @@
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    <button class="btn btn-primary" ng-click="AddProduct();"><i class="fa "></i>Add New Product</button>
                 </div>
             </div>
         </div>
@@ -24,32 +25,32 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <!--<th>Id</th>-->
                             <th>Name</th>
                             <th>Description</th>
                             <th>ImageURI</th>
                             <th>GRNCode</th>
-                            <th>IsActive</th>
+                            <!--<th>IsActive</th>
                             <th>CreatedBy</th>
                             <th>CreatedDate</th>
                             <th>ModifiedBy</th>
-                            <th>ModifiedDate</th>
+                            <th>ModifiedDate</th>-->
                             <th>ProductCategoryName</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="product in filteredProductData">
-                            <td>{{product.Id}}</td>
+                            <!--<td>{{product.Id}}</td>-->
                             <td>{{product.Name}}</td>
                             <td>{{product.Description}}</td>
                             <td>{{product.ImageURI}}</td>
                             <td>{{product.GRNCode}}</td>
-                            <td>{{product.IsActive}}</td>
+                            <!--<td>{{product.IsActive}}</td>
                             <td>{{product.CreatedBy}}</td>
                             <td>{{product.CreatedDate}}</td>
                             <td>{{product.ModifiedBy}}</td>
-                            <td>{{product.ModifiedDate}}</td>
+                            <td>{{product.ModifiedDate}}</td>-->
                             <td>{{product.ProductCategoryName}}</td>
                             <td class="col-sm-2">
                                 <button ng-click="openProductDialogContainer(product);" type="button" class="btn btn-primary btn-xs">Edit</button>

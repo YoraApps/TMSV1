@@ -4,7 +4,7 @@
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
         <br />
         <div class="btn-group">
-            <button style="margin-left:200%;width:100%;" type="button" ng-click="AddProductGroup();" class="btn btn-sm btn-primary">Add productGroup <i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:200%;width:100%;" type="button" ng-click="AddProductGroup();" class="btn btn-sm btn-primary">Add productGroup <i class="fa fa-plus pull-right"></i></button>-->
            
         </div> <!-- end btn-group -->
     </div>
@@ -17,6 +17,7 @@
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    <button class="btn btn-primary" ng-click="AddProductGroup();"><i class="fa "></i>Add New</button>
                 </div>
             </div>
         </div>
@@ -26,7 +27,7 @@
                     <thead>
                         <tr>
 
-                            <th>Id</th>
+                            <!--<th>Id</th>-->
                             <th>Name</th>
                             <th>Description</th>
                             <!--<th>IsActive</th>
@@ -41,7 +42,7 @@
                     <tbody>
                         <tr ng-repeat="ProductGroup in ProductGroups | filter:filterProductGroup">
 
-                            <td>{{ProductGroup.Id}}</td>
+                            <!--<td>{{ProductGroup.Id}}</td>-->
                             <td>{{ProductGroup.Name}}</td>
                             <td>{{ProductGroup.Description}}</td>
                             <!--<td>{{ProductGroup.IsActive}}</td>

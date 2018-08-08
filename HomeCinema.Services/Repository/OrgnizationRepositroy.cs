@@ -23,7 +23,7 @@ namespace HomeCinema.Services.Repository
 
         public List<CounrtyDs> GetAllCountry()
         {
-            return this._db.Query<CounrtyDs>("Usp_createCountry", commandType: CommandType.StoredProcedure).ToList();
+            return this._db.Query<CounrtyDs>("Usp_GetAllCountry", commandType: CommandType.StoredProcedure).ToList();
         }
 
         public List<OrganizationDs> GetAllCountryform(int Country_Id)

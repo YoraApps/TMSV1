@@ -4,7 +4,7 @@
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
         <br />
         <div class="btn-group">
-            <button style="margin-left:200%;width:100%;" type="button" ng-click="AddLocation();" class="btn btn-sm btn-primary">Add New Loacton <i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:200%;width:100%;" type="button" ng-click="AddLocation();" class="btn btn-sm btn-primary">Add New Loacton <i class="fa fa-plus pull-right"></i></button>-->
 
         </div> <!-- end btn-group -->
     </div>
@@ -17,6 +17,7 @@
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    <button class="btn btn-primary" ng-click="AddLocation();"><i class="fa "></i>Add New </button>
                 </div>
             </div>
         </div>
@@ -25,7 +26,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>LocationId</th>
+                            <!--<th>LocationId</th>-->
                             <th>Location Name</th>
                             <th>Description</th>
                             <th>StoreName</th>
@@ -35,7 +36,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="location in LocationList | filter:filterLocation">
-                            <td>{{location.LocationId}}</td>
+                            <!--<td>{{location.LocationId}}</td>-->
                             <td>{{location.LocationName}}</td>
                             <td>{{location.Description}}</td>
                             <td>{{location.StoreName}}</td>
