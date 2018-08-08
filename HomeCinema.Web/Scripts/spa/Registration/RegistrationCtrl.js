@@ -53,7 +53,7 @@
 
 
         function RegistrationLoadCompleted(response) {
-         
+            debugger
             $scope.registerArry = response.data;
 
         }

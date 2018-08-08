@@ -4,7 +4,7 @@
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
         <br />
         <div class="btn-group">
-            <button style="margin-left:200%;width:100%;" type="button" ng-click="AddUnitOfMeasurement();" class="btn btn-sm btn-primary">Add UnitOfMeasurement<i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:200%;width:100%;" type="button" ng-click="AddUnitOfMeasurement();" class="btn btn-sm btn-primary">Add UnitOfMeasurement<i class="fa fa-plus pull-right"></i></button>-->
             <!-- <a href="#/movies/edit/{{movie.ID}}" class="btn btn-sm btn-default">Add Watches<i class="fa fa-pencil-square-o pull-right"></i></a>-->
         </div> <!-- end btn-group -->
     </div>
@@ -17,6 +17,7 @@
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    <button class="btn btn-primary" ng-click="AddUnitOfMeasurement();"><i class="fa "></i>Add New </button>
                 </div>
             </div>
         </div>
@@ -28,11 +29,11 @@
 
                             <th>Name</th>
                             <th>Description</th>
-                            <th>IsActive</th>
+                            <!--<th>IsActive</th>
                             <th>CreatedBy</th>
                             <th>CreatedDate</th>
                             <th>ModifiedBy</th>
-                            <th>ModifiedDate</th>
+                            <th>ModifiedDate</th>-->
                             <th> Action</th>
                         </tr>
                     </thead>
@@ -42,11 +43,11 @@
 
                             <td>{{unitofmeasurement.Name}}</td>
                             <td>{{unitofmeasurement.Description}}</td>                        
-                            <td>{{unitofmeasurement.IsActive}}</td>
+                            <!--<td>{{unitofmeasurement.IsActive}}</td>
                             <td>{{unitofmeasurement.CreatedBy}}</td>
                             <td>{{unitofmeasurement.CreatedDate}}</td>
                             <td>{{unitofmeasurement.ModifiedBy}}</td>
-                            <td>{{unitofmeasurement.ModifiedDate}}</td>
+                            <td>{{unitofmeasurement.ModifiedDate}}</td>-->
 
                             <td class="col-sm-2">
                                 <button ng-click="openRentDialogContainer(unitofmeasurement);" type="button" class="btn btn-primary btn-xs">Edit</button>
