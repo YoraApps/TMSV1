@@ -187,6 +187,7 @@
 
         //remove ProductGroup
         function removeProduct(data) {
+            debugger
             $scope.id = data;
             apiService.post('/api/ProductCategoryMaster/Delete/' + $scope.id, null,
                 ProductCategoryremoveCompleted,

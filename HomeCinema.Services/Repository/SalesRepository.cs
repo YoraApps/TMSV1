@@ -24,7 +24,9 @@ namespace HomeCinema.Services.Repository
         {
             DateTime now = DateTime.Now;
             salesDS.CreatedDate = now;
-            salesDS.ModifiedDate = now;            salesDS.SalesDate = now;
+            salesDS.ModifiedDate = now;
+            salesDS.SalesDate = now;
+
             int rowsAffected = this._db.Execute(@"INSERT SalesMaster(IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,SalesDate,PosId,CustomerId) values (1,1,@CreatedDate,1,@ModifiedDate,@SalesDate,@PosId,@CustomerId)",
 
                 new {  IsActive = 1, CreatedBy = 1, CreatedDate = salesDS.CreatedDate, ModifiedBy = 1, ModifiedDate = salesDS.ModifiedDate, SalesDate = salesDS.SalesDate, PosId = salesDS.PosId, CustomerId = salesDS.CustomerId });

@@ -59,6 +59,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="IEntityBase.cs" />
     <Compile Include="LocationMaster.cs" />
+    <Compile Include="list.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="PosMaster.cs" />
     <Compile Include="ProductCategoryMaster.cs" />

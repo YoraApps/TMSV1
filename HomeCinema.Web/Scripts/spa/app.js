@@ -156,6 +156,10 @@
                 templateUrl: "scripts/spa/Registration/Registration.html",
                 controller: "RegistrationCtrl"
             })
+            .when("/location", {
+                templateUrl: "scripts/spa/location/location.html",
+                controller: "locationCtrl"
+            })
             .when("/PurchaseReport", {
                 templateUrl: "scripts/spa/PurchaseReport/PurchaseReport.html",
                 controller: "PurchaseReportCtrl"
