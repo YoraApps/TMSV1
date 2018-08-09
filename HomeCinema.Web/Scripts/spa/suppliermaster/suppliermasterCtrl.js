@@ -126,17 +126,11 @@
         $scope.supplier = result.data;
 
     }
-
     function supplierRemoveFailed(response) {
         notificationService.displayError(response.data);
         console.log(response);
     }
-
         $scope.search();
-        activate();
-
-        function activate() { }
-
     }
 })(angular.module('homeCinema'));
 

@@ -1,0 +1,74 @@
+﻿<div class="panel panel-primary" style="width:500px">
+    <div class="panel-heading" ng-if="ModelType=='Edit'">
+        Update Employee
+    </div>
+    <div class="panel-heading" ng-if="ModelType=='Add'">
+        Added Employee
+    </div>
+    <div class="panel-body">
+        <form role="form" style="width:434px;">
+            <div class="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label" for="Name">EmpNumber</label>
+                            <input type="text" class="form-control" name="Name" placeholder="Name" id="Name" validate-on="blur" required required-message="'Name is required'" ng-model="modelObj.EmpNumber" />
+                        </div>
+
+                        <div class="col-sm-6 selectContainer">
+                            <label class="control-label" for="Address">EmpFirstName</label>
+                            <input type="text" class="form-control" name="Address" placeholder="Address" id="Address" validate-on="blur" required required-message="' Address is required'" ng-model="modelObj.EmpFirstName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label" form="EmailId">EmpLastName</label>
+                            <input type="text" class="form-control" name="EmailId" placeholder="EmailId" id="EmailId" validate-on="blur" required required-message="' EmailId is required'" ng-model="modelObj.EmpLastName" />
+                        </div>
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label" form="PhoneNumber">DOB</label>
+                            <input type="text" class="form-control" name="PhoneNumber" placeholder="PhoneNumber" id="PhoneNumber" validate-on="blur" required required-message="' PhoneNumber is required'" ng-model="modelObj.DOB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label" form="AlternatePhoneNumber">BloodGroup</label>
+                            <input type="text" class="form-control" name="AlternatePhoneNumber" placeholder="AlternatePhoneNumber" id="AlternatePhoneNumber" validate-on="blur" required required-message="'AlternatePhoneNumber  is required'" ng-model="modelObj.BloodGroup" />
+
+                        </div>
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label" form="FaxNumber">MaritalStatus</label>
+                            <input type="text" class="form-control" name="FaxNumber" placeholder="FaxNumber" id="FaxNumber" validate-on="blur" required required-message="' FaxNumber is required'" ng-model="modelObj.MaritalStatus" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label" form="AlternatePhoneNumber">EmailId</label>
+                            <input type="text" class="form-control" name="AlternatePhoneNumber" placeholder="AlternatePhoneNumber" id="AlternatePhoneNumber" validate-on="blur" required required-message="'AlternatePhoneNumber  is required'" ng-model="modelObj.EmailId" />
+
+                        </div>
+                        <div class="col-xs-6 selectContainer">
+                            <label class="control-label" form="FaxNumber">WorkPhone</label>
+                            <input type="text" class="form-control" name="FaxNumber" placeholder="FaxNumber" id="FaxNumber" validate-on="blur" required required-message="' FaxNumber is required'" ng-model="modelObj.WorkPhone" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            <button type="button" class="btn btn-primary" ng-click="UpdateEmployee()" ng-if="ModelType=='Edit'">Update</button>
+            <button type="button" class="btn btn-primary" ng-click="SaveEmployee()" ng-if="ModelType=='Add'">Save</button>
+        </div>
+    </div>
+</div>
