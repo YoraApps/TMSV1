@@ -178,6 +178,14 @@
                 templateUrl: "scripts/spa/location/location.html",
                 controller: "locationCtrl"
             })
+            .when("/employee", {
+                templateUrl: "scripts/spa/employee/employee.html",
+                controller: "employeeCtrl"
+            })
+            .when("/employee/add", {
+                templateUrl: "scripts/spa/employee/employeeAdd.html",
+                controller: "employeeAddCtrl"
+            })
             .otherwise({ redirectTo: "/" });
 
 

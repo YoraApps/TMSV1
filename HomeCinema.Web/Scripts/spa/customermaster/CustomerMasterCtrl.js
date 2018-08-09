@@ -13,7 +13,7 @@
         $scope.pagesCount = 0;
         $scope.openCustomerMasterDialog = openCustomerMasterDialog;
         $scope.removeCustomerMaster = removeCustomerMaster;
-
+        $scope.CustomerArry = [];
         $scope.customerMaster = [];
         $scope.search = search;
         $scope.clearSearch = clearSearch;
@@ -34,17 +34,27 @@
             apiService.get('/api/CustomerMaster/getAllCustomer', config,
                 CustomerMasterLoadCompleted,
                 CustomerMasterLoadFailed);
+
+            apiService.get('/api/CustomerTypeMaster/GetAllCustomers', config,
+                CustomertypeLoadCompleted,
+                CustomerstypeLoadFailed);
+        }
+        function CustomertypeLoadCompleted(response) {
+
+            $scope.CustomerArry = response.data;
+
+        }
+        function CustomerstypeLoadFailed(error) {
+            console.log("error in Supplier Type Get Call Service");
         }
 
         function CustomerMasterLoadCompleted(result) {
-            console.log("res",result);
             $scope.CustomerMaster = result.data;
-            console.log("arr",$scope.CustomerMaster);
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
             $scope.loadingBooks = false;
-            if ($scope.filtercustomer && $scope.filtercustomer.length) {
+            if ($scope.CustomerArry && $scope.CustomerArry.length) {
                 notificationService.displayInfo(result.data.length + ' customer found');
             }
         }
@@ -68,9 +78,13 @@
             search();
         }
 
+        $scope.Id = 0;
+        $scope.SelctedArry = [];
         $scope.modelObj = {};
         //popup for update
         $scope.openRentDialogContainer = function (data) {
+            $scope.SelctedArry = $scope.CustomerArry.filter(x => x.Id === data.CustTypeId);
+            $scope.selectedObj = $scope.CustomerArry[0];
             $scope.ModelType = 'Edit';
             $scope.modelObj = data;     //editing
             $scope.openCustomerMasterDialog();
@@ -90,6 +104,10 @@
                 //loadMovieDetails();
             }, function () {
             });
+        }
+            $scope.fetchCustomer= function (data) {
+                $scope.selectedObj = data
+
         }
         function removeCustomerMaster(data) {
             debugger

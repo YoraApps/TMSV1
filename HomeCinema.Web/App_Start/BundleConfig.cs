@@ -97,7 +97,9 @@ namespace HomeCinema.Web.App_Start
                       "~/Scripts/spa/PosMaster/PosMasterCtrl.js",
                    "~/Scripts/spa/PurchaseReport/PurchaseReportCtrl.js",
                     "~/Scripts/spa/StoreMaster/StoreMasterCtrl.js",
-                     "~/Scripts/spa/location/locationCtrl.js"
+                     "~/Scripts/spa/location/locationCtrl.js",
+                     "~/Scripts/spa/employee/employeeCtrl.js",
+                     "~/Scripts/spa/employee/employeeAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

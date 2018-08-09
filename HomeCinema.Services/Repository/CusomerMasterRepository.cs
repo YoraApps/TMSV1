@@ -26,8 +26,8 @@ namespace HomeCinema.Services.Repository
         {
             customerMaster.CreatedDate = now;
             customerMaster.ModifiedDate = now;
-            int rowsAffected = this._db.Execute(@"Insert CustomerMaster(Name,Address,EmailId,PhoneNumber,AlternatePhoneNumber,FaxNumber,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate)values(@Name, @Address,@EmailId,@PhoneNumber,@AlternatePhoneNumber,@FaxNumber,1,1,@CreatedDate,1,@ModifiedDate)",
-                new { Name = customerMaster.Name, Address = customerMaster.Address, EmailId = customerMaster.EmailId, PhoneNumber = customerMaster.PhoneNumber, AlternatePhoneNumber = customerMaster.AlternatePhoneNumber, FaxNumber = customerMaster.FaxNumber, IsActive = 1, CreatedBy = 1, CreatedDate = customerMaster.CreatedDate, ModifiedBy = 1, ModifiedDate = customerMaster.ModifiedDate });
+            int rowsAffected = this._db.Execute(@"Insert CustomerMaster(Name,Address,EmailId,PhoneNumber,AlternatePhoneNumber,FaxNumber,IsActive,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,CustTypeId)values(@Name, @Address,@EmailId,@PhoneNumber,@AlternatePhoneNumber,@FaxNumber,1,1,@CreatedDate,1,@ModifiedDate,@CustTypeId)",
+                new { Name = customerMaster.Name, Address = customerMaster.Address, EmailId = customerMaster.EmailId, PhoneNumber = customerMaster.PhoneNumber, AlternatePhoneNumber = customerMaster.AlternatePhoneNumber, FaxNumber = customerMaster.FaxNumber, IsActive = 1, CreatedBy = 1, CreatedDate = customerMaster.CreatedDate, ModifiedBy = 1, ModifiedDate = customerMaster.ModifiedDate, CustTypeId= customerMaster.CustTypeId });
             if (rowsAffected > 0)
             {
                 return true;
@@ -37,7 +37,7 @@ namespace HomeCinema.Services.Repository
 
         public List<CustomerMaster> GetAllCustomer()
         {
-            return this._db.Query<CustomerMaster>("Select * from CustomerMaster where IsActive=1").ToList();
+            return this._db.Query<CustomerMaster>("Usp_GetAllCustomer", commandType: CommandType.StoredProcedure).ToList();
         }
 
         public bool RemoveCustomer(int? id)
@@ -57,7 +57,7 @@ namespace HomeCinema.Services.Repository
         {
             customerMaster.ModifiedDate = now;
             int rowsAffected = this._db.Execute(
-                      "UPDATE CustomerMaster SET Name = @Name ,Address = @Address,EmailId=@EmailId,PhoneNumber=@PhoneNumber,AlternatePhoneNumber=@AlternatePhoneNumber,FaxNumber=@FaxNumber,ModifiedDate=customerMaster.ModifiedDate WHERE Id = " +
+                      "UPDATE CustomerMaster SET Name = @Name ,Address = @Address,EmailId=@EmailId,PhoneNumber=@PhoneNumber,AlternatePhoneNumber=@AlternatePhoneNumber,FaxNumber=@FaxNumber,ModifiedDate=customerMaster.ModifiedDate,CustTypeId=customerMaster.CustTypeId WHERE Id = " +
                         customerMaster.Id, customerMaster);
 
             if (rowsAffected > 0)
