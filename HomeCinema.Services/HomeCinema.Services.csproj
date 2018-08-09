@@ -46,13 +46,11 @@
     <Compile Include="Abstract\IEncryptionService.cs" />
     <Compile Include="Abstract\IMembershipService.cs" />
     <Compile Include="IRepository\IBookRepository.cs" />
-    <Compile Include="IRepository\ILocationRespository.cs" />
     <Compile Include="IRepository\IPosMasterRepository.cs" />
     <Compile Include="IRepository\ICusomerMasterRepository.cs" />
     <Compile Include="IRepository\IOrgnizationRepository.cs" />
     <Compile Include="IRepository\IStoreMasterRepository.cs" />
     <Compile Include="IRepository\ItestdevRepo.cs" />
-    <Compile Include="IRepository\ICusomerMaster.cs" />
     <Compile Include="IRepository\IFlowerRepository.cs" />
     <Compile Include="IRepository\ILocationRespository.cs" />
     <Compile Include="IRepository\IPurchaseReportRepository.cs" />
