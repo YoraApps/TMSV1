@@ -400,7 +400,6 @@
     <Compile Include="Controllers\SupplierMasterController.cs" />
     <Compile Include="Controllers\SupplierTypeController.cs" />
     <Compile Include="Controllers\TestDevController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UnitOfMeasurementMasterController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">

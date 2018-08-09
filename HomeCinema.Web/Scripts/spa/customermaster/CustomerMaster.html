@@ -4,12 +4,12 @@
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
         <br />
         <div class="btn-group">
-            <button style="margin-left:400%;width:100%;" type="button" ng-click="AddCustomerMaster();" class="btn btn-sm btn-primary">Add Customer<i class="fa fa-plus pull-right"></i></button>
+            <!--<button style="margin-left:400%;width:100%;" type="button" ng-click="AddCustomerMaster();" class="btn btn-sm btn-primary">Add Customer<i class="fa fa-plus pull-right"></i></button>-->
             <!-- <a href="#/movies/edit/{{movie.Id}}" class="btn btn-sm btn-default">Add Watches<i class="fa fa-pencil-square-o pull-right"></i></a>-->
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary"style="opacity: 0.9;margin-top: -12%"; >
+    <div class="panel panel-primary"style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Customer</h4>
             <div class="input-group">
@@ -22,13 +22,12 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive">
+            <div class="table-responsive" ng-show="CustomerMaster.length > 0">
                 <div class="row">
                     <div class="col-xs-12">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-
                                     <th>Name</th>
                                     <th>Address</th>
                                     <th>EmailId</th>
@@ -66,9 +65,12 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
                 </div>
             </div>
+            <div class="row"  ng-hide="CustomerMaster.length > 0">
+                <h4 class="col-xs-pull-6" style="color:black"><span> </span> There Is No Customer To Show Please Add one !</h4>
+            </div>
+         </div>
     </div>
 
     <!-- end container -->
