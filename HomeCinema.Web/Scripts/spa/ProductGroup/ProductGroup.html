@@ -1,4 +1,4 @@
-﻿<div class="jumbotron">
+﻿<div class="jumbotron"  style="padding-bottom: 400px;">
     <div class="container text-center">
         <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
@@ -9,7 +9,7 @@
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home ProductGroups</h4>
             <div class="input-group">
@@ -22,49 +22,55 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadingproductgroups">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
+            <div class="table-responsive" ng-show="ProductGroups.length > 0">
+                <div class="table-responsive" ng-if="!loadingproductgroups">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
 
-                            <!--<th>Id</th>-->
-                            <th>Name</th>
-                            <th>Description</th>
-                            <!--<th>IsActive</th>
-                    <th>CreatedBy</th>
-                    <th>CreatedDate</th>
-                    <th>ModifiedBy</th>
-                    <th>ModifiedDate</th>-->
-                            <th>Action</th>
+                                <!--<th>Id</th>-->
+                                <th>Name</th>
+                                <th>Description</th>
+                                <!--<th>IsActive</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedBy</th>
+                            <th>ModifiedDate</th>-->
+                                <th>Action</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="ProductGroup in ProductGroups | filter:filterProductGroup">
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ProductGroup in ProductGroups | filter:filterProductGroup">
 
-                            <!--<td>{{ProductGroup.Id}}</td>-->
-                            <td>{{ProductGroup.Name}}</td>
-                            <td>{{ProductGroup.Description}}</td>
-                            <!--<td>{{ProductGroup.IsActive}}</td>
+                                <!--<td>{{ProductGroup.Id}}</td>-->
+                                <td>{{ProductGroup.Name}}</td>
+                                <td>{{ProductGroup.Description}}</td>
+                                <!--<td>{{ProductGroup.IsActive}}</td>
                             <td>{{ProductGroup.CreatedBy}}</td>
                             <td>{{ProductGroup.CreatedDate}}</td>
                             <td>{{ProductGroup.ModifiedBy}}</td>
                             <td>{{ProductGroup.ModifiedDate}}</td>-->
 
-                            <td class="col-sm-2">
-                                <button ng-click="openProductGroupDialogContainer(ProductGroup);" type="button" class="btn btn-sm btn-primary">Edit</button>
-                                <button ng-click="removeProductGroup(ProductGroup.Id);" type="button" class="btn btn-sm btn-primary">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-            <div class="panel-footer">
-                <div class="text-center">
-                    <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+                                <td class="col-sm-2">
+                                 
+                                    <button ng-click="openProductGroupDialogContainer(ProductGroup);" type="button" class="btn btn-sm btn-primary">Edit</button>
+                                    <button ng-click="removeProductGroup(ProductGroup.Id);" type="button" class="btn btn-sm btn-primary">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+        <div class="row" ng-hide="ProductGroups.length > 0">
+            <h4 class="col-xs-pull-6" style="color:black"><span> </span> There Is No Products To Show Please Add one !</h4>
+        </div>
+        <div class="panel-footer">
+            <div class="text-center">
+                <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+            </div>
+        </div>
     </div>
 </div>
 

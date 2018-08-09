@@ -9,7 +9,7 @@
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary"style="opacity: 0.9;">
+    <div class="panel panel-primary" style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Customer</h4>
             <div class="input-group">
@@ -35,10 +35,10 @@
                                     <th>AlternatePhoneNumber</th>
                                     <th>FaxNumber</th>
                                     <!--<th>IsActive</th>
-                                    <th>CreatedBy</th>
-                                    <th>CreatedDate</th>
-                                    <th>ModifiedBy</th>
-                                    <th>ModifiedDate</th>-->
+                                <th>CreatedBy</th>
+                                <th>CreatedDate</th>
+                                <th>ModifiedBy</th>
+                                <th>ModifiedDate</th>-->
                                     <th>Action</th>
 
                                 </tr>
@@ -53,10 +53,10 @@
                                     <td>{{Customer.AlternatePhoneNumber}}</td>
                                     <td>{{Customer.FaxNumber}}</td>
                                     <!--<td>{{Customer.IsActive}}</td>
-                                    <td>{{Customer.CreatedBy}}</td>
-                                    <td>{{Customer.CreatedDate}}</td>
-                                    <td>{{Customer.ModifiedBy}}</td>
-                                    <td>{{Customer.ModifiedDate}}</td>-->
+                                <td>{{Customer.CreatedBy}}</td>
+                                <td>{{Customer.CreatedDate}}</td>
+                                <td>{{Customer.ModifiedBy}}</td>
+                                <td>{{Customer.ModifiedDate}}</td>-->
                                     <td class="col-sm-2">
                                         <button ng-click="openRentDialogContainer(Customer);" type="button" class="btn btn-primary btn-xs">Edit</button>
                                         <button ng-click="removeCustomerMaster(Customer.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
@@ -67,10 +67,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row"  ng-hide="CustomerMaster.length > 0">
-                <h4 class="col-xs-pull-6" style="color:black"><span> </span> There Is No Customer To Show Please Add one !</h4>
+            <div class="row" ng-hide="CustomerMaster.length > 0">
+                <h4 class="col-xs-pull-6" style="color:black;text-align:center"><span> </span> There Is No Customer To Show Please Add one !</h4>
             </div>
-         </div>
+        </div> 
     </div>
 
     <!-- end container -->

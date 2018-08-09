@@ -245,8 +245,6 @@
     <Content Include="Scripts\spa\PosMaster\PosMaster.html" />
     <Content Include="Scripts\spa\PosMaster\PosMasterAdd.html" />
     <Content Include="Scripts\spa\PosMaster\PosMasterCtrl.js" />
-    <Content Include="Scripts\spa\location\location.html" />
-    <Content Include="Scripts\spa\location\locationAdd.html" />
     <Content Include="Scripts\spa\location\locationCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseFormCtrl.js" />
     <Content Include="Scripts\spa\purchaseForm\purchaseForm.html" />
