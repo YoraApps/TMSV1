@@ -1,4 +1,4 @@
-﻿<div class="jumbotron">
+﻿<div class="jumbotron" style="padding-bottom: 400px;">
     <div class="container text-center">
         <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
@@ -19,6 +19,7 @@
                     <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
                     <button class="btn btn-primary" ng-click="AddPosMaster();"><i class="fa "></i>Add New </button>
                 </div>
+            </div>
         </div>
         <div class="panel-body">
             <div class="table-responsive" ng-if="!loadingPosmaster">
@@ -47,7 +48,7 @@
                 </table>
             </div>
         </div>
-    </div>
+   
 
     <!-- end container -->
 </div>

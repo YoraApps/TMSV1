@@ -27,11 +27,11 @@ namespace HomeCinema.Web.Controllers
             return _orgnizationRepositroy.GetAllCountry();
         }
 
-       [HttpGet]
-        [Route("getallcountryfrom/{Country_Id}")]
-        public List<OrganizationDs> GetAllCountryfrom(int Country_Id)
+       [HttpPost]
+        [Route("getallcountryfrom")]
+        public List<OrganizationDs> GetAllCountryfrom(CounrtyDs counrtyDs)
         {
-            return _orgnizationRepositroy.GetAllCountryform(Country_Id);
+            return _orgnizationRepositroy.GetAllCountryform(counrtyDs);
         }
 
     }

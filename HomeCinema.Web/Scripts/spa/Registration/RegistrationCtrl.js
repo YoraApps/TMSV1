@@ -36,7 +36,7 @@
            
             $scope.countryObj = data;
 
-            apiService.get('/api/Orgnization/getallcountryfrom', $scope.countryObj,
+            apiService.post('/api/Orgnization/getallcountryfrom', $scope.countryObj,
                 RegistrationfromLoadCompleted,
                 RegistrationfromLoadFailed);
 

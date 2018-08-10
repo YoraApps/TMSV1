@@ -17,6 +17,7 @@
         $scope.UpdatePurchase = UpdatePurchase;
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
+        $scope.openPurchaseDialog = openPurchaseDialog;
         $scope.PurchasesArr = [];
         $scope.Purchases = [];
         $scope.LocHoldArr = [];
@@ -33,8 +34,10 @@
         $scope.selectedObj = {};
         $scope.selectedStr = '';
         $scope.purchaseAnguList = [];
-      
-      
+        $scope.openPurchaseDialog = openPurchaseDialog;
+        $scope.purchase = {};
+        $scope.SavePurchase = SavePurchase;
+
         function search(page) {
             page = page || 0;
             $scope.loadingPurchase = true;
@@ -223,9 +226,6 @@
         } 
       
         $scope.open = function ($event) {
-
-            debugger
-
             $event.preventDefault();
             $event.stopPropagation();
             $scope.opened = true;
@@ -239,9 +239,6 @@
         $scope.format = 'MM-dd-yyyy';               
 
         $scope.getPurchaseGuiRep = function (data) {
-
-            debugger
-
             console.log(data.originalObject);
             apiService.post('/api/PurchaseReport/getPurchaseReportInaGraph/', data.originalObject,
                 PurchaseGraphicReportLoadCompleted,
@@ -274,6 +271,83 @@
             $scope.search();
         }
 
+
+
+        $scope.Id = 0;
+        $scope.SelctedArry = [];
+        $scope.AddPurchase = function () {
+            debugger
+            $scope.Purchases;
+
+            $scope.LocationList = [];
+            $scope.LocationList = $scope.PurchasesArr.LocationList;
+
+            $scope.supplierList = [];
+            $scope.supplierList = $scope.PurchasesArr.supplierList;
+
+            $scope.uOMList = [];
+            $scope.uOMList = $scope.PurchasesArr.uOMList;
+
+            $scope.productList = [];
+            $scope.productList = $scope.PurchasesArr.productList;
+
+            $scope.storeList = [];
+            $scope.storeList = $scope.PurchasesArr.storeList;
+            $scope.openPurchaseDialog();
+
+        } 
+        function openPurchaseDialog() {
+            $modal.open({
+                templateUrl: 'scripts/spa/purchaseForm/purchaseformAdd.html',
+                controller: 'purchaseFormAddCtrl',
+                scope: $scope
+            }).result.then(function ($scope) {
+            }, function () {
+            });
+        }
+        $scope.fetchSupplier = function (data) {
+            $scope.LocationList = data;
+            $scope.supplierList = data;
+            $scope.uOMList = data;
+            $scope.productList = data;
+            $scope.storeList = data;
+
+        }
+        function SavePurchase() {
+            debugger
+            $scope.purchase = {
+               
+                "Supplier": $scope.SupObj,
+                "Location": $scope.LocObj,
+                "UOM": $scope.UomObj,
+                "Product": $scope.ProdObj,
+                "Store": $scope.storeObj,
+                "Quantity": $scope.modelObj.Quantity,
+                "PurchaseDate": $scope.modelObj.date
+            }
+
+            //$scope.purchase = $scope.modelObj;
+            // console.log(watch);
+            apiService.post('/api/PurchaseForm/save', $scope.purchase,
+                addPurchaseSucceded,
+                addPurchaseFailed);
+        }
+        function addPurchaseSucceded(response) {
+            notificationService.displaySuccess(' has been submitted to Home Cinema');
+            debugger
+            $scope.purchase = response.data;
+            $scope.search();
+            $scope.modelObj = {};
+            $modalInstance.dismiss();
+        }
+        function addPurchaseFailed(response) {
+            console.log(response);
+            $scope.modelObj = {};
+            notificationService.displayError('error');
+        }
+        $scope.fetchSupplier = function (data) {
+            $scope.selectedObj = data;
+        }
         $scope.search();
     }
 })(angular.module('homeCinema'));
