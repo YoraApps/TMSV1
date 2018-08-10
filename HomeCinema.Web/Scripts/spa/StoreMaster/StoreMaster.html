@@ -9,7 +9,7 @@
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">StoreMaster</h4>
             <div class="input-group">
@@ -23,31 +23,36 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadingStoreMaster">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                           <!-- <th>Id</th>-->
-                            <th>Name</th>
-                            <th> Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="storemaster in storemasters | filter:filterStoreMaster">
+            <div class="table-responsive" ng-show="storemasters.length > 0">
+                <div class="table-responsive" ng-if="!loadingStoreMaster">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <!-- <th>Id</th>-->
+                                <th>Name</th>
+                                <th> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="storemaster in storemasters | filter:filterStoreMaster">
 
 
-                            <!--<td>{{storemaster.Id}}</td>-->
-                            <td>{{storemaster.Name}}</td>
+                                <!--<td>{{storemaster.Id}}</td>-->
+                                <td>{{storemaster.Name}}</td>
 
 
-                            <td class="col-sm-2">
-                                <button ng-click="openStoreMasterContainer(storemaster);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removestoremaster(storemaster.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td class="col-sm-2">
+                                    <button ng-click="openStoreMasterContainer(storemaster);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                    <button ng-click="removestoremaster(storemaster.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+        <div class="row" ng-hide="storemasters.length > 0">
+            <h4 class="col-xs-pull-6" style="color:black"><span> </span> There Is No stores To Show Please Add one !</h4>
         </div>
     </div>
 

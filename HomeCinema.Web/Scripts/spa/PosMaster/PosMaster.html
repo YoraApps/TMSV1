@@ -1,4 +1,4 @@
-﻿<div class="jumbotron" style="padding-bottom: 400px;">
+<div class="jumbotron" style="padding-bottom: 400px;">
     <div class="container text-center">
         <img alt="{{movie.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="120" />
         <!--<div class="movieDescription"><i><i class="fa fa-quote-left"></i>{{movie.Description}}</i></div>-->
@@ -9,7 +9,7 @@
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary"  style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">PosMaster</h4>
             <div class="input-group">
@@ -20,35 +20,37 @@
                     <button class="btn btn-primary" ng-click="AddPosMaster();"><i class="fa "></i>Add New </button>
                 </div>
             </div>
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadingPosmaster">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <!--<th>Id</th>-->
-                            <th>Name</th>
-                            <th> Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="posmaster in posmasters | filter:filterPosMaster">
+            <div class="panel-body">
+                <div class="table-responsive" ng-show="posmasters.length > 0">
+                    <div class="table-responsive" ng-if="!loadingPosmaster">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <!--<th>Id</th>-->
+                                    <th>Name</th>
+                                    <th> Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="posmaster in posmasters | filter:filterPosMaster">
+                                    <!--<td>{{posmaster.Id}}</td>-->
+                                    <td>{{posmaster.Name}}</td>
 
 
-                            <!--<td>{{posmaster.Id}}</td>-->
-                            <td>{{posmaster.Name}}</td>
-                         
-
-                            <td class="col-sm-2">
-                                <button ng-click="openPosMasterContainer(posmaster);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removeposmaster(posmaster.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <td class="col-sm-2">
+                                        <button ng-click="openPosMasterContainer(posmaster);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                        <button ng-click="removeposmaster(posmaster.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-hide="posmasters.length > 0">
+                <h4 class="col-xs-pull-6" style="color:black" style=" Text-align:center"><span> </span> There Is No Pos To Show Please Add one !</h4>
             </div>
         </div>
-   
-
     <!-- end container -->
+</div>
 </div>

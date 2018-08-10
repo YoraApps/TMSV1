@@ -9,7 +9,7 @@
         </div> <!-- end btn-group -->
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home UnitOfMeasurement</h4>
             <div class="input-group">
@@ -22,41 +22,47 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadingunitofmeasurement">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
+            <div class="table-responsive" ng-show="unitofmeasurements.length > 0">
+                <div class="table-responsive" ng-if="!loadingunitofmeasurement">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
 
-                            <th>Name</th>
-                            <th>Description</th>
-                            <!--<th>IsActive</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <!--<th>IsActive</th>
                             <th>CreatedBy</th>
                             <th>CreatedDate</th>
                             <th>ModifiedBy</th>
                             <th>ModifiedDate</th>-->
-                            <th> Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="unitofmeasurement in unitofmeasurements | filter:filterunitofmeasurement">
+                                <th> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="unitofmeasurement in unitofmeasurements | filter:filterunitofmeasurement">
 
 
-                            <td>{{unitofmeasurement.Name}}</td>
-                            <td>{{unitofmeasurement.Description}}</td>                        
-                            <!--<td>{{unitofmeasurement.IsActive}}</td>
+                                <td>{{unitofmeasurement.Name}}</td>
+                                <td>{{unitofmeasurement.Description}}</td>
+                                <!--<td>{{unitofmeasurement.IsActive}}</td>
                             <td>{{unitofmeasurement.CreatedBy}}</td>
                             <td>{{unitofmeasurement.CreatedDate}}</td>
                             <td>{{unitofmeasurement.ModifiedBy}}</td>
                             <td>{{unitofmeasurement.ModifiedDate}}</td>-->
 
-                            <td class="col-sm-2">
-                                <button ng-click="openRentDialogContainer(unitofmeasurement);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removeunitofmeasurement(unitofmeasurement.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td class="col-sm-2">
+                                 
+                                    <button ng-click="openRentDialogContainer(unitofmeasurement);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                    <button ng-click="removeunitofmeasurement(unitofmeasurement.Id);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+        <div class="row" ng-hide="unitofmeasurements.length > 0">
+            <h4 class="col-xs-pull-6" style="color:black"><span> </span>There Is No unitofmeasurements To Show Please Add one !</h4>
         </div>
     </div>
 
