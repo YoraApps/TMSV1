@@ -1,13 +1,13 @@
 ﻿(function (app) {
     'use strict';
-    
+
     app.controller('salesReportsCtrl', salesReportsCtrl);
 
-    salesReportsCtrl.$inject = ['$scope', 'apiService', 'notificationService','$modal'];
+    salesReportsCtrl.$inject = ['$scope', 'apiService', 'notificationService', '$modal'];
 
     function salesReportsCtrl($scope, apiService, notificationService, $modal) {
         $scope.title = 'salesReportsCtrl';
-        $scope.pageClass = 'page-Sales';  
+        $scope.pageClass = 'page-Sales';
         $scope.loadingSales = true;
         $scope.page = 0;
         $scope.pagesCount = 0;
@@ -18,6 +18,7 @@
         $scope.clearSearch = clearSearch;
         $scope.unitofmeasurementsLoadCompleted = unitofmeasurementsLoadCompleted;
         $scope.unitofmeasurementsLoadFailed = unitofmeasurementsLoadFailed;
+        $scope.AddSalesForm = AddSalesForm;
         $scope.Sales = [];
         $scope.saleArry = [];
         $scope.PrdHoldArr = [];
@@ -42,11 +43,11 @@
                 }
             };
 
-            apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config,unitofmeasurementsLoadCompleted,unitofmeasurementsLoadFailed);
+            apiService.get('/api/UnitOfMeasurementMaster/getallUnit', config, unitofmeasurementsLoadCompleted, unitofmeasurementsLoadFailed);
 
-            apiService.get('/api/SalesReportsController/GetAllSalesReports', config,salesReportsLoadCompleted,salesReportsLoadFailed);
+            apiService.get('/api/SalesReportsController/GetAllSalesReports', config, salesReportsLoadCompleted, salesReportsLoadFailed);
 
-            apiService.get('/api/SalesDetails/GetAllDataForSalesDetails', config,suppliertypeLoadCompleted,supplierstypeLoadFailed);
+            apiService.get('/api/SalesDetails/GetAllDataForSalesDetails', config, suppliertypeLoadCompleted, supplierstypeLoadFailed);
         }
         function suppliertypeLoadCompleted(response) {
             $scope.saleArry = response.data;
@@ -74,9 +75,9 @@
         function salesReportsLoadFailed(response) {
             notificationService.displayError(response.data);
         }
-        
+
         function salesGraphicReportsLoadCompleted(result) {
-        
+
             $scope.SalesGUI = result.data;
             Morris.Bar({
                 element: "sales-bar",
@@ -97,7 +98,7 @@
         function clearSearch() {
             $scope.filterSale = '';
             search();
-        }        
+        }
         function cancelEdit() {
             $scope.Modals.cancelsalesDialog();
         }
@@ -110,7 +111,7 @@
             $scope.productObj = data;
         }
 
-        $scope.custObjFrmPostModel = function(data){
+        $scope.custObjFrmPostModel = function (data) {
             $scope.customerObj = data;
         }
 
@@ -143,7 +144,7 @@
             $scope.modelObj = {};
             notificationService.displaySuccess('success');
             $scope.cancelEdit();
-    
+
         }
         function SaleReportsLoadFailed() {
             $scope.modelObj = {};
@@ -184,10 +185,10 @@
             $scope.POSArr = $scope.saleArry.pos;
             $scope.POSHoldArr = $scope.POSArr.filter(x => x.PosId == fsd.PosId)
             $scope.POSObj = $scope.POSHoldArr[0];
-            
+
             $scope.save = 'update';
             $scope.modelObj = fsd;
-            $scope.modelObj.date = fsd.SalesDate;  
+            $scope.modelObj.date = fsd.SalesDate;
 
             $scope.Modals.openSaleReportDialog();
         }
@@ -209,6 +210,51 @@
             initDate: new Date('2018-07-13')
         };
         $scope.format = 'MM-dd-yyyy';
+        $scope.saleArry = [];
+        $scope.AddSales = function () {
+            $scope.productArr = $scope.saleArry.Product;
+
+            $scope.customerArr = $scope.saleArry.Customer;
+
+            $scope.UOMArr = $scope.saleArry.UOM;
+
+            $scope.POSArr = $scope.saleArry.pos;
+
+            $scope.save = 'add';
+            $scope.Modals.openSaleReportDialog();
+
+        }
+        function AddSalesForm() {
+            debugger
+            $scope.selectedObj = {
+                "Product": $scope.productObj,
+                "Customer": $scope.customerObj,
+                "pos": $scope.POSObj,
+                "UOM": $scope.UOMObj,
+                "Quantity": $scope.modelObj.Quantity,
+                "SalesDate": $scope.modelObj.date
+            }
+
+            apiService.post('/api/SalesDetails/save', $scope.selectedObj,
+                salesSucceded,
+                salesFailed);
+        }
+        function salesSucceded(response) {
+            debugger
+
+            notificationService.displaySuccess(' has been submitted to Home Cinema');
+
+            $scope.selectedObj = response.data;
+            $scope.selectedObj = {};
+            $scope.cancelEdit();
+
+            $scope.search();
+        }
+        function salesFailed(response) {
+            console.log(response);
+            $scope.selectedObj = {};
+            notificationService.displayError('error');
+        }
         $scope.search();
     }
 })(angular.module('homeCinema'));

@@ -26,9 +26,19 @@ namespace HomeCinema.Services.Repository
             return this._db.Query<CounrtyDs>("Usp_GetAllCountry", commandType: CommandType.StoredProcedure).ToList();
         }
 
-        public List<OrganizationDs> GetAllCountryform(int Country_Id)
+        public List<OrganizationDs> GetAllCountryform(CounrtyDs counrtyDs)
         {
-            return this._db.Query<OrganizationDs>("USP_CountryFrom", commandType: CommandType.StoredProcedure).ToList();
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@CountryId", counrtyDs.Country_Id);
+            param.Add("@CurrencyId", counrtyDs.CurrencyId);
+            param.Add("@TimeZoneId", counrtyDs.TimeZoneId);
+            _db.Open();
+            var val = _db.Query<OrganizationDs>("USP_PopulateProvinceZoneCurrencyByCountry", param, commandType: CommandType.StoredProcedure).ToList();
+            _db.Close();
+            return val;
+
+
+          
         }
     }
 }

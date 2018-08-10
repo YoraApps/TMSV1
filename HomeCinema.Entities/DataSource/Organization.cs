@@ -69,7 +69,6 @@ namespace HomeCinema.Entities.DataSource
 
     public class OrganizationDs
     {
-        public int Id { get; set; }
         public List<ProvinceDs> Province { get; set; }
         public CurrencyDs Currency { get; set; }
         public TimeZoneDs Timezone { get; set; }

@@ -12,7 +12,6 @@
                             <select type="text" placeholder="Productofsale" ng-model="ProdObj" class="form-control" name="Productofsale" id="Productofsale" validate-on="blur" required required-message="'Productofsale is required'" data-ng-options='pa.ProductName for pa in productarr' ng-change="prodObjFromPostModel(ProdObj); ">
                                 <option value="" disabled>Select A Product</option>
                             </select>
-
                         </div>
 
                         <div class="col-sm-6 selectContainer">
@@ -85,6 +84,7 @@
         <div class="pull-right">
             <button type="button" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
             <button type="button" class="btn btn-primary" ng-click="UpdatePurchase()" ng-if="save =='update'">Update</button>
+            <!--<button type="button" class="btn btn-primary" ng-click="SavePurchase()" ng-if="save =='save'">Save</button>-->
         </div>
     </div>
 </div>
