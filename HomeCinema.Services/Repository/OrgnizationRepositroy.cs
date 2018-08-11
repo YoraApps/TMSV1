@@ -26,19 +26,22 @@ namespace HomeCinema.Services.Repository
             return this._db.Query<CounrtyDs>("Usp_GetAllCountry", commandType: CommandType.StoredProcedure).ToList();
         }
 
-        public List<OrganizationDs> GetAllCountryform(CounrtyDs counrtyDs)
+        public OrganizationDs GetAllCountryform(CounrtyDs counrtyDs)
         {
             DynamicParameters param = new DynamicParameters();
-            param.Add("@CountryId", counrtyDs.Country_Id);
+            param.Add("@CountryId", counrtyDs.Country_Id);//@CountryId
             param.Add("@CurrencyId", counrtyDs.CurrencyId);
             param.Add("@TimeZoneId", counrtyDs.TimeZoneId);
-            _db.Open();
-            var val = _db.Query<OrganizationDs>("USP_PopulateProvinceZoneCurrencyByCountry", param, commandType: CommandType.StoredProcedure).ToList();
-            _db.Close();
-            return val;
 
-
-          
+            OrganizationDs ds = new OrganizationDs();
+            string query = @"USP_PopulateProvinceZoneCurrencyByCountry";
+            using (var multi = _db.QueryMultiple(query, param))
+            {
+                ds.Province = multi.Read<ProvinceDs>().ToList();
+                ds.Currency = multi.Read<CurrencyDs>().SingleOrDefault();
+                ds.Timezone = multi.Read<TimeZoneDs>().SingleOrDefault();
+            }
+            return ds;
         }
     }
 }
