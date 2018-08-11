@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="opacity: 0.9">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Employee</h4>
             <div class="input-group">
@@ -21,73 +21,79 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="table-responsive" ng-if="!loadingEmployee">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>                            
-                            <th>EmpNumber</th>
-                            <th>EmpFirstName</th>
-                            <th>EmpLastName</th>
-                            <th>DOB</th>
-                            <th>BloodGroup</th>
-                            <th>MaritalStatus</th>
-                            <th>EmailId</th>
-                            <th>WorkPhone</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="employee in employees | filter:filterEmployee">                            
-                            <td>{{employee.EmpNumber}}</td>
-                            <td>{{employee.EmpFirstName}}</td>
-                            <td>{{employee.EmpLastName}}</td>
-                            <td>{{employee.DOB}}</td>
-                            <td>{{employee.BloodGroup}}</td>
-                            <td>{{employee.MaritalStatus}}</td>
-                            <td>{{employee.EmailId}}</td> 
-                            <td>{{employee.WorkPhone}}</td> 
-                            <td class="col-sm-2">
-                                <button ng-click="openEmployeeDialogContainer(employee);" type="button" class="btn btn-primary btn-xs">Edit</button>
-                                <button ng-click="removeEmployee(employee.EmpId);" type="button" class="btn btn-primary btn-xs">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="table-responsive" ng-show="employees.length > 0">
+                <div class="table-responsive" ng-if="!loadingEmployee">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>EmpNumber</th>
+                                <th>EmpFirstName</th>
+                                <th>EmpLastName</th>
+                                <th>DOB</th>
+                                <th>BloodGroup</th>
+                                <th>MaritalStatus</th>
+                                <th>EmailId</th>
+                                <th>WorkPhone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="employee in  filterEmployeeData | filter:filterEmployee">
+                                <td>{{employee.EmpNumber}}</td>
+                                <td>{{employee.EmpFirstName}}</td>
+                                <td>{{employee.EmpLastName}}</td>
+                                <td>{{employee.DOB}}</td>
+                                <td>{{employee.BloodGroup}}</td>
+                                <td>{{employee.MaritalStatus}}</td>
+                                <td>{{employee.EmailId}}</td>
+                                <td>{{employee.WorkPhone}}</td>
+                                <td class="col-sm-2">
+                                    <button ng-click="openEmployeeDialogContainer(employee);" type="button" class="btn btn-primary btn-xs">Edit</button>
+                                    <button ng-click="removeEmployee(employee.EmpId);" type="button" class="btn btn-primary btn-xs">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="col-sm-4 pull-left">
-                <div class="dataTables_length" id="datatable_length">
-                    <label>
-                        show
-                        <select name="datatable_length"
-                                aria-controls="datatable"
-                                class="form-control input-sm"
-                                data-ng-model="numPerPage"
-                                data-ng-options="x for x in showPerPageDataOptions"></select>
-                        entries
-                    </label>
-                </div>
-                &nbsp;&nbsp;&nbsp;
-                <div class="col-sm-8 pull-right">
-                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
-                        showing {{currentPage*numPerPage - numPerPage  + 1}} to {{products.length > currentPage*numPerPage ? currentPage*numPerPage : products.length}} of {{products.length}} entries
-                    </div>
+
+        <div class="row" ng-hide="employees.length > 0">
+            <h4 class="col-xs-pull-6" style="color:black;text-align:center"><span> </span> There Is No Supplier To Show Please Add one !</h4>
+        </div>
+        <div class="row">
+        <div class="col-sm-4 pull-left">
+            <div class="dataTables_length" id="datatable_length">
+                <label>
+                    show
+                    <select name="datatable_length"
+                            aria-controls="datatable"
+                            class="form-control input-sm"
+                            data-ng-model="numPerPage"
+                            data-ng-options="x for x in showPerPageDataOptions"></select>
+                    entries
+                </label>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="col-sm-8 pull-right">
+                <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                    showing {{currentPage*numPerPage - numPerPage  + 1}} to {{employees.length > currentPage*numPerPage ? currentPage*numPerPage : employees.length}} of {{employees.length}} entries
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 pull-right">
-                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                        <pagination ng-model="currentPage"
-                                    total-items="products.length"
-                                    max-size="maxSize"
-                                    boundary-links="true"
-                                    items-per-page="numPerPage">
-                        </pagination>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 pull-right">
+                <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                    <pagination ng-model="currentPage"
+                                total-items="employees.length"
+                                max-size="maxSize"
+                                boundary-links="true"
+                                items-per-page="numPerPage">
+                    </pagination>
                 </div>
             </div>
-        </div>-->
+        </div>
+    </div>
     </div>
 </div>
 

@@ -42,6 +42,7 @@
 
         function customertypeLoadCompleted(result) {
             $scope.CustomerTypes = result.data;
+            $scope.adjustCustomerTypeList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -165,6 +166,24 @@
         function removeCustomerTypeFailed(response) {
             notificationService.displayError(response);
         }
+
+        $scope.filteredCustomertypeData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustCustomerTypeList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredCustomertypeData = angular.copy($scope.CustomerTypes.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustCustomerTypeList();
+        });
+
+        $scope.showPerPageDataOptions = [1,3, 5, 10, 25, 50, 100];
 
         $scope.search();
 

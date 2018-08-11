@@ -32,6 +32,7 @@
         $scope.UOMObj = {};
         $scope.POSObj = {};
 
+
         function search(page) {
             page = page || 0;
             $scope.loadingSales = true;
