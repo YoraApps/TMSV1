@@ -1,7 +1,7 @@
 ﻿<div class="jumbotron" style="padding-bottom: 400px;">
     <div class="container text-center">
         <img alt="{{Sale.Title}}" ng-src="../../../Content/images/movies/{{movie.Image}}" class="pull-left" height="150" />
-        <br />        
+        <br />
     </div>
     <div class="row">
         <div class="col-md-4" style="width: 200px;">
@@ -23,15 +23,15 @@
             <button style="margin-left:50%;width:150%;" type="button" ng-click="AddSales();" class="btn btn-sm btn-primary"> New Sales <i class="fa  pull-right"></i></button>
         </div>
     </div>
-    
+
     <br /><br />  <br /><br />
     <!-- <div class="input-group">
-         <input id="inputSearchMovies" type="search" ng-model="filterSale" class="form-control shortInputSearch panel-title pull-left" placeholder="Filter, search Sales..">
-         <div class="input-group-btn panel-title pull-left">
-             <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
-             <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
-         </div>
-     </div>-->
+        <input id="inputSearchMovies" type="search" ng-model="filterSale" class="form-control shortInputSearch panel-title pull-left" placeholder="Filter, search Sales..">
+        <div class="input-group-btn panel-title pull-left">
+            <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+            <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+        </div>
+    </div>-->
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-primary" style="opacity: 0.9;">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="row" ng-hide="Sales.length > 0">
-                    <h4 class="col-xs-pull-6" style="color:black"><span> </span> There Is No Sales To Show Please Add one !</h4>
+                    <h4 class="col-xs-pull-6" style="color:black;text-align:center"><span> </span> There Is No Sales To Show Please Add one !</h4>
                 </div>
             </div>
         </div>
@@ -99,5 +99,6 @@
         </div>
 
     </div>
+
 
 </div>
