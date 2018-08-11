@@ -38,7 +38,7 @@ namespace HomeCinema.Services.Repository
             param.Add("@CreatedDate", purchaseSave.CreatedDate);
             param.Add("@ModifiedBy", purchaseSave.ModifiedBy);
             param.Add("@ModifiedDate", purchaseSave.ModifiedDate);        
-            param.Add("@LocationId", purchaseSave.Location.LocationId);
+           // param.Add("@LocationId", purchaseSave.Location.LocationId);
             _db.Open();
             var val = _db.Execute("USP_PurchaseFormSave", param, commandType: CommandType.StoredProcedure);
             

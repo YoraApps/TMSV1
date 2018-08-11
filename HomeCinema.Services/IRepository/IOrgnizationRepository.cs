@@ -10,6 +10,6 @@ namespace HomeCinema.Services.IRepository
    public interface IOrgnizationRepository
     {
         List<CounrtyDs> GetAllCountry();
-        List<OrganizationDs> GetAllCountryform(CounrtyDs counrtyDs); 
+        OrganizationDs GetAllCountryform(CounrtyDs counrtyDs);
     }
 }

@@ -29,7 +29,7 @@ namespace HomeCinema.Web.Controllers
 
        [HttpPost]
         [Route("getallcountryfrom")]
-        public List<OrganizationDs> GetAllCountryfrom(CounrtyDs counrtyDs)
+        public OrganizationDs GetAllCountryfrom(CounrtyDs counrtyDs)
         {
             return _orgnizationRepositroy.GetAllCountryform(counrtyDs);
         }

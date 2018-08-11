@@ -84,7 +84,7 @@
         }
         function PurchaseReportLoadCompleted(result) {
 
-          
+            debugger
            
             $scope.Purchases = result.data;
            
@@ -299,7 +299,7 @@
         function openPurchaseDialog() {
             $modal.open({
                 templateUrl: 'scripts/spa/purchaseForm/purchaseformAdd.html',
-                controller: 'purchaseFormAddCtrl',
+                //controller: 'purchaseFormAddCtrl',
                 scope: $scope
             }).result.then(function ($scope) {
             }, function () {
