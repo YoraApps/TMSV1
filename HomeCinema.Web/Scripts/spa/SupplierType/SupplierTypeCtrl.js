@@ -171,8 +171,8 @@
             notificationService.displayError(response);
         }
 
-// pagination 
-          // $scope.filteredSubjectData = [];
+     // pagination 
+           $scope.filteredSupplierTypeData = [];
              $scope.currentPage = 1
             , $scope.numPerPage = 5
             , $scope.maxSize = 5;
@@ -182,7 +182,7 @@
             var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                 , end = begin + $scope.numPerPage;
 
-            $scope.filteredSubjectData = angular.copy($scope.SupplierTypes.slice(begin, end));
+            $scope.filteredSupplierTypeData = angular.copy($scope.SupplierTypes.slice(begin, end));
         };
         $scope.$watch('currentPage + numPerPage', function () {
             $scope.adjustSupplierTypeList();

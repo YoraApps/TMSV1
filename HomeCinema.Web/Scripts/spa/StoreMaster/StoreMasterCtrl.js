@@ -28,6 +28,7 @@
         function StoremasterLoadCompleted(result) {
             debugger
             $scope.storemasters = result.data;
+            $scope.adjustStoreList();
             $scope.loadingStoreMaster = false;
 
             if ($scope.filterStoreMaster && $scope.filterStoreMaster.length) {
@@ -141,6 +142,26 @@
         function removestoremasterFailed(response) {           
             notificationService.displayError(response);
         }
+
+        //pagination
+
+        $scope.filteredStoreData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustStoreList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredStoreData = angular.copy($scope.storemasters.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustStoreList();
+        });
+
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
 
 
         $scope.search();

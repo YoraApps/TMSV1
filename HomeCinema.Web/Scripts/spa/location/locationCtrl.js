@@ -27,6 +27,7 @@
         function LocationLoadCompleted(result) {
             $scope.objList = result.data;
             $scope.LocationList = $scope.objList.LocationList;
+            $scope.adjustLocationList();
             $scope.StoreList = $scope.objList.StoreList;
             $scope.loadingLocations = false;
             if ($scope.filterLocation && $scope.filterLocation.length) {
@@ -141,6 +142,26 @@
             notificationService.displayError(response.statusText);
             $scope.modelobj = {};
         }
+
+        //pagination
+
+        $scope.filteredLocationData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustLocationList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredLocationData = angular.copy($scope.LocationList.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustLocationList();
+        });
+
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
 
         $scope.search();
     }

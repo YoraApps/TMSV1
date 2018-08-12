@@ -12,7 +12,7 @@
     <div class="panel panel-primary" style="opacity: 0.9;">
         <div class="panel-heading clearfix">
             <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Home Locatons</h4>
-            <div class="input-group"> 
+            <div class="input-group">
                 <input id="inputSearchMovies" type="search" ng-model="filterLocation" class="form-control shortInputSearch" placeholder="Filter, search Locatons..">
                 <div class="input-group-btn">
                     <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
@@ -39,7 +39,7 @@
                             <tr ng-repeat="location in LocationList | filter:filterLocation">
                                 <!--<td>{{location.LocationId}}</td>-->
                                 <td>{{location.LocationName}}</td>
-                             
+
                                 <td>{{location.Description}}</td>
                                 <td>{{location.StoreName}}</td>
                                 <td class="col-sm-2">
@@ -56,10 +56,43 @@
             <h4 class="col-xs-pull-6" style="color:black;text-align:center"><span> </span> There Is No Location To Show Please Add one !</h4>
         </div>
         <div class="panel-footer">
-            <div class="text-center">
-                <custom-pager page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+            <div class="row">
+                <div class="col-sm-4 pull-left">
+                    <div class="dataTables_length" id="datatable_length">
+                        <label>
+                            show
+                            <select name="datatable_length"
+                                    aria-controls="datatable"
+                                    class="form-control input-sm"
+                                    data-ng-model="numPerPage"
+                                    data-ng-options="x for x in showPerPageDataOptions"></select>
+                            entries
+                        </label>
+                    </div>
+                </div>
+
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-sm-8 pull-right">
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                        showing {{currentPage*numPerPage - numPerPage  + 1}} to {{LocationList.length > currentPage*numPerPage ? currentPage*numPerPage : LocationList.length}} of {{LocationList.length}} entries
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                        <pagination ng-model="currentPage"
+                                    total-items="LocationList.length"
+                                    max-size="maxSize"
+                                    boundary-links="true"
+                                    items-per-page="numPerPage">
+                        </pagination>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
