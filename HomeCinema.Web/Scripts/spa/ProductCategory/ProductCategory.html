@@ -50,7 +50,7 @@
                             <td>{{PCategory.CreatedDate}}</td>
                             <td>{{PCategory.ModifiedBy}}</td>
                             <td>{{PCategory.ModifiedDate}}</td>-->
-                             
+
                                 <td>{{PCategory.ProductGroupName}}</td>
                                 <td class="col-sm-2">
                                     <button ng-click="openRentDialogContainer(PCategory);" type="button" class="btn btn-primary btn-xs">Edit</button>
@@ -64,6 +64,44 @@
         </div>
         <div class="row" ng-hide="Pcategories.length > 0">
             <h4 class="col-xs-pull-6" style="color:black;text-align:center"><span> </span> There Is No Products To Show Please Add one !</h4>
+        </div>
+
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-4 pull-left">
+                    <div class="dataTables_length" id="datatable_length">
+                        <label>
+                            show
+                            <select name="datatable_length"
+                                    aria-controls="datatable"
+                                    class="form-control input-sm"
+                                    data-ng-model="numPerPage"
+                                    data-ng-options="x for x in showPerPageDataOptions"></select>
+                            entries
+                        </label>
+                    </div>
+                </div>
+
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-sm-8 pull-right">
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">
+                        showing {{currentPage*numPerPage - numPerPage  + 1}} to {{Pcategories.length > currentPage*numPerPage ? currentPage*numPerPage : Pcategories.length}} of {{Pcategories.length}} entries
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                        <pagination ng-model="currentPage"
+                                    total-items="Pcategories.length"
+                                    max-size="maxSize"
+                                    boundary-links="true"
+                                    items-per-page="numPerPage">
+                        </pagination>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

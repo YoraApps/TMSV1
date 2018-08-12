@@ -42,6 +42,7 @@
         function productgroupsLoadCompleted(result) {
 
             $scope.ProductGroups = result.data;
+            $scope.adjustProductGroupList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -148,6 +149,25 @@
         function productgroupremoveFailed(response) {
             notificationService.displayError(response);
         }
+
+        // pagination 
+        $scope.filteredProductGroupData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustProductGroupList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredProductGroupData = angular.copy($scope.ProductGroups.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustProductGroupList();
+        });
+
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
         $scope.search();
 
     }

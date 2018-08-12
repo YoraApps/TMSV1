@@ -38,6 +38,7 @@
 
         function unitofmeasurementsLoadCompleted(result) {
             $scope.unitofmeasurements = result.data;
+            $scope.adjustUOMList();
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
@@ -102,6 +103,25 @@
             notificationService.displayError(response.data);
             console.log(response);
         }
+
+        // pagination 
+        $scope.filteredUOMData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustUOMList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredUOMData = angular.copy($scope.unitofmeasurements.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustUOMList();
+        });
+
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
 
 
         $scope.search();

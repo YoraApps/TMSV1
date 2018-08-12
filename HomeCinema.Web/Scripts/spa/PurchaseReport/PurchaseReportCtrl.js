@@ -87,6 +87,7 @@
             debugger
            
             $scope.Purchases = result.data;
+            $scope.adjustPurchaseReportList();
            
             $scope.page = result.data.Page;
             $scope.pagesCount = result.data.TotalPages;
@@ -348,6 +349,26 @@
         $scope.fetchSupplier = function (data) {
             $scope.selectedObj = data;
         }
+
+        //pagination
+
+        $scope.filteredPurchaseReportData = [];
+        $scope.currentPage = 1
+            , $scope.numPerPage = 5
+            , $scope.maxSize = 5;
+        $scope.orderByField = 'Id';
+        $scope.reverseSort = true;
+        $scope.adjustPurchaseReportList = function () {
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.filteredPurchaseReportData = angular.copy($scope.Purchases.slice(begin, end));
+        };
+        $scope.$watch('currentPage + numPerPage', function () {
+            $scope.adjustPurchaseReportList();
+        });
+
+        $scope.showPerPageDataOptions = [3, 5, 10, 25, 50, 100];
         $scope.search();
     }
 })(angular.module('homeCinema'));
